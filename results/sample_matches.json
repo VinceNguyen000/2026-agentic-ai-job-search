@@ -1,0 +1,215 @@
+{
+  "match_results": [
+    {
+      "seeker": "Alice Johnson",
+      "job": {
+        "id": "JOB001",
+        "title": "Senior Machine Learning Engineer",
+        "company": "TechCorp AI"
+      },
+      "match_scores": {
+        "overall": 92.5,
+        "skills": 95.0,
+        "experience": 100.0,
+        "location": 100.0,
+        "salary": 80.0,
+        "work_mode": 100.0,
+        "work_type": 100.0,
+        "career_goals": 100.0
+      },
+      "skills": {
+        "matched": [
+          "Python",
+          "Machine Learning",
+          "TensorFlow",
+          "Big Data"
+        ],
+        "missing": [],
+        "matched_preferred": [
+          "TensorFlow"
+        ]
+      },
+      "feedback": {
+        "explanation": "Alice Johnson, you have a 92.5% match with the Senior Machine Learning Engineer position at TechCorp AI. You have strong technical skills alignment with all 4 of 4 required skills. Your experience level aligns well with this role's requirements. Location is a perfect match. ",
+        "recommendation": "Strong fit! We recommend applying for this role immediately."
+      }
+    },
+    {
+      "seeker": "Alice Johnson",
+      "job": {
+        "id": "JOB004",
+        "title": "Data Analyst",
+        "company": "Financial Analytics Inc"
+      },
+      "match_scores": {
+        "overall": 78.5,
+        "skills": 85.0,
+        "experience": 100.0,
+        "location": 100.0,
+        "salary": 30.0,
+        "work_mode": 100.0,
+        "work_type": 100.0,
+        "career_goals": 50.0
+      },
+      "skills": {
+        "matched": [
+          "Python",
+          "SQL",
+          "Data Analysis",
+          "Tableau"
+        ],
+        "missing": [],
+        "matched_preferred": [
+          "SQL",
+          "Python"
+        ]
+      },
+      "feedback": {
+        "explanation": "Alice Johnson, you have a 78.5% match with the Data Analyst position at Financial Analytics Inc. You have strong technical skills alignment with all 4 of 4 required skills. Your experience level aligns well with this role's requirements. Location is a perfect match. ",
+        "recommendation": "Good fit! Consider applying. To strengthen your candidacy, consider developing: Python, R."
+      }
+    },
+    {
+      "seeker": "Bob Smith",
+      "job": {
+        "id": "JOB002",
+        "title": "Full Stack JavaScript Developer",
+        "company": "StartUp Innovations"
+      },
+      "match_scores": {
+        "overall": 88.0,
+        "skills": 90.0,
+        "experience": 80.0,
+        "location": 0.0,
+        "salary": 100.0,
+        "work_mode": 100.0,
+        "work_type": 100.0,
+        "career_goals": 100.0
+      },
+      "skills": {
+        "matched": [
+          "JavaScript",
+          "React",
+          "Node.js",
+          "REST APIs"
+        ],
+        "missing": [],
+        "matched_preferred": [
+          "Git"
+        ]
+      },
+      "feedback": {
+        "explanation": "Bob Smith, you have a 88.0% match with the Full Stack JavaScript Developer position at StartUp Innovations. You have strong technical skills alignment with all 4 of 4 required skills. Your experience level is somewhat junior compared to this role's requirements. Location does not match your preferences. ",
+        "recommendation": "Good fit! Consider applying. To strengthen your candidacy, consider developing: TypeScript, Docker."
+      }
+    },
+    {
+      "seeker": "Bob Smith",
+      "job": {
+        "id": "JOB005",
+        "title": "DevOps Engineer",
+        "company": "CloudScale Systems"
+      },
+      "match_scores": {
+        "overall": 42.5,
+        "skills": 35.0,
+        "experience": 80.0,
+        "location": 0.0,
+        "salary": 100.0,
+        "work_mode": 100.0,
+        "work_type": 100.0,
+        "career_goals": 20.0
+      },
+      "skills": {
+        "matched": [
+          "Git"
+        ],
+        "missing": [
+          "Docker",
+          "Kubernetes",
+          "AWS",
+          "Linux"
+        ],
+        "matched_preferred": []
+      },
+      "feedback": {
+        "explanation": "Bob Smith, you have a 42.5% match with the DevOps Engineer position at CloudScale Systems. Your skills partially align with this role. You match 1 required skills but need to develop 4 additional skills. Your experience level is somewhat junior compared to this role's requirements. Location does not match your preferences. ",
+        "recommendation": "Not a strong match. Consider exploring roles more aligned with your current skills and experience."
+      }
+    },
+    {
+      "seeker": "Carol Davis",
+      "job": {
+        "id": "JOB003",
+        "title": "Product Manager - Consumer Apps",
+        "company": "MobileFirst Corp"
+      },
+      "match_scores": {
+        "overall": 85.25,
+        "skills": 80.0,
+        "experience": 80.0,
+        "location": 100.0,
+        "salary": 85.0,
+        "work_mode": 100.0,
+        "work_type": 100.0,
+        "career_goals": 95.0
+      },
+      "skills": {
+        "matched": [
+          "Product Management",
+          "User Research",
+          "Analytics",
+          "Agile"
+        ],
+        "missing": [],
+        "matched_preferred": [
+          "Figma"
+        ]
+      },
+      "feedback": {
+        "explanation": "Carol Davis, you have a 85.25% match with the Product Manager - Consumer Apps position at MobileFirst Corp. You have strong technical skills alignment with all 4 of 4 required skills. Your experience level is somewhat junior compared to this role's requirements. Location is a perfect match. ",
+        "recommendation": "Strong fit! We recommend applying for this role immediately."
+      }
+    },
+    {
+      "seeker": "Carol Davis",
+      "job": {
+        "id": "JOB001",
+        "title": "Senior Machine Learning Engineer",
+        "company": "TechCorp AI"
+      },
+      "match_scores": {
+        "overall": 35.75,
+        "skills": 25.0,
+        "experience": 20.0,
+        "location": 100.0,
+        "salary": 30.0,
+        "work_mode": 100.0,
+        "work_type": 100.0,
+        "career_goals": 40.0
+      },
+      "skills": {
+        "matched": [
+          "Python"
+        ],
+        "missing": [
+          "Machine Learning",
+          "TensorFlow",
+          "Big Data"
+        ],
+        "matched_preferred": []
+      },
+      "feedback": {
+        "explanation": "Carol Davis, you have a 35.75% match with the Senior Machine Learning Engineer position at TechCorp AI. Your skills partially align with this role. You match 1 required skills but need to develop 3 additional skills. Your experience level is very junior compared to this role's requirements. Location is a perfect match. ",
+        "recommendation": "Moderate fit. This role could help advance your career, but you may need to develop some skills first: Machine Learning, TensorFlow, Big Data."
+      }
+    }
+  ],
+  "summary": {
+    "total_matches_evaluated": 6,
+    "matches_above_85_percent": 2,
+    "matches_above_70_percent": 4,
+    "average_match_score": 70.1,
+    "evaluation_date": "2026-09-01"
+  }
+}

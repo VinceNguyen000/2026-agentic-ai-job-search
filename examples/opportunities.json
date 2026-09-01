@@ -1,0 +1,244 @@
+{
+  "opportunities": [
+    {
+      "job_id": "JOB001",
+      "title": "Senior Machine Learning Engineer",
+      "company": "TechCorp AI",
+      "description": "We are looking for a Senior ML Engineer to build and deploy machine learning models at scale. You will work with our data science team on cutting-edge AI/ML projects.",
+      "responsibilities": [
+        "Design and implement machine learning models",
+        "Optimize model performance and scalability",
+        "Collaborate with data scientists and engineers",
+        "Deploy models to production",
+        "Mentor junior engineers"
+      ],
+      "required_skills": [
+        "Python",
+        "Machine Learning",
+        "TensorFlow",
+        "Big Data"
+      ],
+      "preferred_skills": [
+        "PyTorch",
+        "Kubernetes",
+        "AWS",
+        "Apache Spark"
+      ],
+      "experience_level_required": "senior",
+      "experience_years_required": 5,
+      "education_required": "Master's in CS or related field",
+      "certifications_required": [],
+      "locations": [
+        "San Francisco, CA",
+        "Remote"
+      ],
+      "allows_relocation": true,
+      "work_mode": "remote",
+      "work_type": "full",
+      "salary": {
+        "min": 160000,
+        "max": 220000
+      },
+      "benefits": [
+        "Health Insurance",
+        "401k",
+        "Stock Options",
+        "Flexible Hours"
+      ],
+      "posted_date": "2026-08-15",
+      "application_deadline": "2026-09-30"
+    },
+    {
+      "job_id": "JOB002",
+      "title": "Full Stack JavaScript Developer",
+      "company": "StartUp Innovations",
+      "description": "Join our fast-growing startup as a Full Stack Developer. You will build modern web applications using React and Node.js.",
+      "responsibilities": [
+        "Develop responsive web applications",
+        "Build RESTful APIs",
+        "Write clean, maintainable code",
+        "Participate in code reviews",
+        "Contribute to architecture decisions"
+      ],
+      "required_skills": [
+        "JavaScript",
+        "React",
+        "Node.js",
+        "REST APIs"
+      ],
+      "preferred_skills": [
+        "TypeScript",
+        "Docker",
+        "MongoDB",
+        "Git"
+      ],
+      "experience_level_required": "junior",
+      "experience_years_required": 2,
+      "education_required": "Bachelor's degree or bootcamp certificate",
+      "certifications_required": [],
+      "locations": [
+        "Austin, TX"
+      ],
+      "allows_relocation": true,
+      "work_mode": "hybrid",
+      "work_type": "full",
+      "salary": {
+        "min": 90000,
+        "max": 130000
+      },
+      "benefits": [
+        "Health Insurance",
+        "Free Lunch",
+        "Learning Budget",
+        "Remote Days"
+      ],
+      "posted_date": "2026-08-20",
+      "application_deadline": "2026-09-25"
+    },
+    {
+      "job_id": "JOB003",
+      "title": "Product Manager - Consumer Apps",
+      "company": "MobileFirst Corp",
+      "description": "Lead product strategy and development for our consumer mobile applications. Drive product vision, roadmap, and go-to-market strategy.",
+      "responsibilities": [
+        "Define product vision and strategy",
+        "Conduct user research and market analysis",
+        "Manage product roadmap and prioritization",
+        "Collaborate with design and engineering teams",
+        "Measure product metrics and KPIs"
+      ],
+      "required_skills": [
+        "Product Management",
+        "User Research",
+        "Analytics",
+        "Agile"
+      ],
+      "preferred_skills": [
+        "Mobile App Experience",
+        "Figma",
+        "SQL",
+        "Data Analysis"
+      ],
+      "experience_level_required": "junior",
+      "experience_years_required": 2,
+      "education_required": "Bachelor's degree",
+      "certifications_required": [],
+      "locations": [
+        "Seattle, WA",
+        "Remote"
+      ],
+      "allows_relocation": false,
+      "work_mode": "hybrid",
+      "work_type": "full",
+      "salary": {
+        "min": 110000,
+        "max": 150000
+      },
+      "benefits": [
+        "Health Insurance",
+        "401k",
+        "Stock Options",
+        "Professional Development"
+      ],
+      "posted_date": "2026-08-18",
+      "application_deadline": "2026-10-01"
+    },
+    {
+      "job_id": "JOB004",
+      "title": "Data Analyst",
+      "company": "Financial Analytics Inc",
+      "description": "Analyze financial data and provide insights to support business decisions. Work with SQL, Python, and visualization tools.",
+      "responsibilities": [
+        "Extract and analyze financial data",
+        "Create data visualizations and dashboards",
+        "Develop SQL queries for reporting",
+        "Communicate insights to stakeholders",
+        "Optimize data pipelines"
+      ],
+      "required_skills": [
+        "SQL",
+        "Data Analysis",
+        "Tableau",
+        "Python"
+      ],
+      "preferred_skills": [
+        "Statistics",
+        "Power BI",
+        "AWS",
+        "Excel"
+      ],
+      "experience_level_required": "junior",
+      "experience_years_required": 1,
+      "education_required": "Bachelor's degree",
+      "certifications_required": [],
+      "locations": [
+        "New York, NY",
+        "Remote"
+      ],
+      "allows_relocation": true,
+      "work_mode": "remote",
+      "work_type": "full",
+      "salary": {
+        "min": 75000,
+        "max": 110000
+      },
+      "benefits": [
+        "Health Insurance",
+        "401k",
+        "Gym Membership",
+        "Learning Stipend"
+      ],
+      "posted_date": "2026-08-22",
+      "application_deadline": "2026-09-28"
+    },
+    {
+      "job_id": "JOB005",
+      "title": "DevOps Engineer",
+      "company": "CloudScale Systems",
+      "description": "Build and maintain cloud infrastructure and CI/CD pipelines. Work with Kubernetes and containerization technologies.",
+      "responsibilities": [
+        "Design and deploy cloud infrastructure",
+        "Maintain Kubernetes clusters",
+        "Build CI/CD pipelines",
+        "Implement security best practices",
+        "Monitor system performance"
+      ],
+      "required_skills": [
+        "Docker",
+        "Kubernetes",
+        "AWS",
+        "Linux"
+      ],
+      "preferred_skills": [
+        "Terraform",
+        "Python",
+        "Jenkins",
+        "Prometheus"
+      ],
+      "experience_level_required": "junior",
+      "experience_years_required": 2,
+      "education_required": "Bachelor's degree or equivalent",
+      "certifications_required": [
+        "AWS Certified Associate"
+      ],
+      "locations": [
+        "San Francisco, CA"
+      ],
+      "allows_relocation": true,
+      "work_mode": "hybrid",
+      "work_type": "full",
+      "salary": {
+        "min": 120000,
+        "max": 160000
+      },
+      "benefits": [
+        "Health Insurance",
+        "401k",
+        "Stock Options",
+        "Conference Budget"
+      ],
+      "posted_date": "2026-08-19",
+      "application_deadline": "2026-09-26"
+    }
+  ]
+}

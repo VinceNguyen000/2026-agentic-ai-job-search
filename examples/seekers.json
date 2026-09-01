@@ -1,0 +1,144 @@
+{
+  "seekers": [
+    {
+      "name": "Alice Johnson",
+      "email": "alice.johnson@email.com",
+      "phone": "555-0101",
+      "career_goals": [
+        "Lead a data science team",
+        "Work on AI/ML projects",
+        "Transition to management"
+      ],
+      "industry_interests": [
+        "Technology",
+        "Finance",
+        "Healthcare"
+      ],
+      "experience_level": "senior",
+      "skills": [
+        "Python",
+        "Machine Learning",
+        "Data Analysis",
+        "SQL",
+        "TensorFlow",
+        "Statistics",
+        "Big Data",
+        "Tableau"
+      ],
+      "certifications": [
+        "AWS Certified ML Specialist",
+        "Google Cloud Professional Data Engineer"
+      ],
+      "education": "Master's in Computer Science",
+      "preferred_locations": [
+        "San Francisco, CA",
+        "New York, NY"
+      ],
+      "willing_to_relocate": true,
+      "work_mode_preference": [
+        "remote",
+        "hybrid"
+      ],
+      "work_type_preference": [
+        "full"
+      ],
+      "salary_expectation": {
+        "min": 150000,
+        "max": 200000
+      },
+      "availability_days": 0
+    },
+    {
+      "name": "Bob Smith",
+      "email": "bob.smith@email.com",
+      "phone": "555-0102",
+      "career_goals": [
+        "Become a full-stack developer",
+        "Build scalable web applications",
+        "Work with modern tech stack"
+      ],
+      "industry_interests": [
+        "Technology",
+        "Startups",
+        "E-commerce"
+      ],
+      "experience_level": "junior",
+      "skills": [
+        "JavaScript",
+        "React",
+        "Node.js",
+        "HTML",
+        "CSS",
+        "Git",
+        "REST APIs",
+        "MongoDB"
+      ],
+      "certifications": [
+        "AWS Developer Associate"
+      ],
+      "education": "Bachelor's in Information Technology",
+      "preferred_locations": [
+        "Austin, TX",
+        "Denver, CO"
+      ],
+      "willing_to_relocate": false,
+      "work_mode_preference": [
+        "remote",
+        "hybrid",
+        "onsite"
+      ],
+      "work_type_preference": [
+        "full",
+        "contract"
+      ],
+      "salary_expectation": {
+        "min": 80000,
+        "max": 120000
+      },
+      "availability_days": 0
+    },
+    {
+      "name": "Carol Davis",
+      "email": "carol.davis@email.com",
+      "phone": "555-0103",
+      "career_goals": [
+        "Advance to product management",
+        "Work on consumer products",
+        "Lead product strategy"
+      ],
+      "industry_interests": [
+        "Technology",
+        "Consumer Tech",
+        "Mobile Apps"
+      ],
+      "experience_level": "junior",
+      "skills": [
+        "Python",
+        "JavaScript",
+        "Product Management",
+        "User Research",
+        "Agile",
+        "Analytics",
+        "Figma"
+      ],
+      "certifications": [],
+      "education": "Bachelor's in Business Administration",
+      "preferred_locations": [
+        "Seattle, WA"
+      ],
+      "willing_to_relocate": true,
+      "work_mode_preference": [
+        "hybrid",
+        "onsite"
+      ],
+      "work_type_preference": [
+        "full"
+      ],
+      "salary_expectation": {
+        "min": 100000,
+        "max": 140000
+      },
+      "availability_days": 14
+    }
+  ]
+}
