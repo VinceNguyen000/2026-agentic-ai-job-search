@@ -1,266 +1,167 @@
 # CS 5542 Challenge 1 – Agentic AI Hands-On Report
 **Job Search Application using Antigravity**
 
-**Date:** September 1, 2026  
-**Tool:** Antigravity (In-Class Challenge 1 Session)
+- **Student:** Vince Nguyen
+- **Course:** CS 5542 – Advanced Agentic AI
+- **Assignment:** Challenge 1: Job Search Application Hands-On Experience
+- **Date:** September 1, 2026
+- **Tool Used:** Antigravity (Agentic AI Assistant by Google DeepMind)
+- **GitHub Repository:** [https://github.com/VinceNguyen000/2026-agentic-ai-job-search](https://github.com/VinceNguyen000/2026-agentic-ai-job-search)
 
 ---
 
-## What I Worked On During Today's In-Class Session
+## 1. What You Did Today
 
-I used **Antigravity** to design and build a complete **Job Seeker Matching System MVP** that algorithmically matches job seekers to employment opportunities. The system evaluates compatibility across 7 weighted criteria and provides ranked recommendations.
+During today's in-class hands-on session, I used **Antigravity** to design, architect, implement, debug, test, and document an **Autonomous Agentic AI Job Search System**. 
 
----
-
-## What Antigravity Helped Me Design, Build, Debug, Test, and Improve
-
-### 1. Algorithm Design → Generated → Tested ✅
-**What I Asked:** "Design a matching algorithm with weighted criteria for job seeker compatibility"
-
-**What Antigravity Generated:**
-- 7-criterion weighted scoring system:
-  - Skills matching (30%) - keyword-based with fuzzy matching
-  - Experience level (25%) - hierarchical comparison (Entry→Junior→Senior→Lead→Executive)
-  - Location (15%) - geographic compatibility with relocation flexibility
-  - Salary (15%) - range overlap calculation
-  - Work mode (5%) - Remote/Hybrid/Onsite binary matching
-  - Work type (5%) - Full/Part/Contract/Intern binary matching
-  - Career goals (5%) - keyword-based goal alignment
-
-**What I Tested:**
-- Loaded sample data and ran 6 test matches
-- Verified all weights sum to 100%
-- Confirmed scores fall within 0-100% range
-- Tested edge cases (missing data, partial matches, zero overlap)
-
-**What Worked:** ✅ Algorithm produces realistic scores; skill matching works with keyword variations
-
-**What Didn't Work:** ❌ Skill matching with new abbreviations requires manual dictionary updates (JS/JavaScript recognized, but custom acronyms need addition)
+Specific tasks completed during the session:
+1. **Repository Ingestion & Codebase Audit:** Cloned and audited the existing repository structure using Antigravity's terminal execution and file inspection tools.
+2. **Autonomous Agent Architecture Implementation:** Prompted Antigravity to build a full `JobSearchAgent` engine with discrete tool calling (`get_seeker_profile`, `search_opportunities`, `evaluate_fit`, `analyze_skill_gaps`, `draft_tailored_application`, `generate_upskilling_roadmap`).
+3. **Bug Diagnosis & Algorithm Debugging:** Detected and resolved an algorithmic flaw in career goal matching where Jaccard word-union calculation against entire job descriptions caused career goal scores to artificially collapse to `0.0%`.
+4. **Acronym & Semantic Expansion:** Enhanced token matching to recognize 2-letter tech acronyms (`AI`, `ML`, `JS`, `DB`) and map them to their full domain equivalents.
+5. **Automated Testing Suite Creation:** Designed and executed a comprehensive 17-test zero-dependency unit testing suite using Python's `unittest` framework.
+6. **CLI & Artifact Export:** Updated `main.py` with multi-mode CLI options (`--agent`, `--matcher`, `--goal`) and generated structured JSON outputs (`results/sample_agent_output.json`).
 
 ---
 
-### 2. Data Models → Generated → Tested ✅
-**What I Asked:** "Create Python dataclasses for Job Seeker, Opportunity, and Match Result"
+## 2. Achievements
 
-**What Antigravity Generated:**
+What I was able to design, build, implement, test, and improve with Antigravity:
+
+### A. Autonomous Multi-Tool Agent Engine (`src/agent.py`)
+- **Design:** Created a ReAct-style agent capable of breaking down high-level career objectives into multi-step tool calls.
+- **Built 6 Specialized Tools:**
+  1. `get_seeker_profile`: Inspects candidate skills, experience level, salary expectation, and location preferences.
+  2. `search_opportunities`: Filters opportunities dynamically across keywords, salary thresholds, and work modes.
+  3. `evaluate_fit`: Executes multi-dimensional 7-factor scoring.
+  4. `analyze_skill_gaps`: Diagnoses missing required and preferred skills with priority remediation actions.
+  5. `draft_tailored_application`: Autonomously drafts tailored cover letters and 30-second elevator pitches based on matching qualifications.
+  6. `generate_upskilling_roadmap`: Analyzes market gaps and produces a structured 6-week progressive career roadmap.
+
+### B. 7-Factor Weighted Matching Engine (`src/matcher.py`)
+- Accurately evaluates candidates across 7 weighted dimensions:
+  - **Skills Match (30%)** – Keyword matching with abbreviation awareness and preferred skill bonuses.
+  - **Experience Level (25%)** – 5-tier hierarchical progression (Entry $\rightarrow$ Junior $\rightarrow$ Senior $\rightarrow$ Lead $\rightarrow$ Executive).
+  - **Location Compatibility (15%)** – Geographic alignment with relocation flexibility penalty/credit.
+  - **Salary Range Alignment (15%)** – Mathematical interval overlap calculation.
+  - **Work Mode (5%)** – Remote, Hybrid, or Onsite preference matching.
+  - **Employment Type (5%)** – Full-time, Part-time, Contract, or Internship compatibility.
+  - **Career Goals Containment (5%)** – Keyword containment and alias expansion.
+
+### C. Automated Test Coverage (`tests/`)
+- Implemented and passed **17 automated unit tests** covering data models, serializations, matching rules, token containment, tool invocations, and full end-to-end agent workflows.
+
+---
+
+## 3. Antigravity / Agentic AI Experience
+
+### Step-by-Step Development Flow:
+$$\text{Prompt to Antigravity} \longrightarrow \text{Generated / Refactored Code} \longrightarrow \text{Automated Test} \longrightarrow \text{Observation \& Refinement} \longrightarrow \text{Working MVP}$$
+
+| Development Phase | What I Asked Antigravity to Do | What Antigravity Generated or Changed | What I Tested / Observed | Outcome |
+| :--- | :--- | :--- | :--- | :--- |
+| **1. Architecture & Agent Engine** | "Build an autonomous `JobSearchAgent` with tool calling for profile lookup, job search, fit evaluation, application drafting, and upskilling roadmaps." | Created [`src/agent.py`](file:///C:/Users/VinceNguyen/.gemini/antigravity/scratch/2026-agentic-ai-job-search/src/agent.py) with `JobSearchAgent`, tool registry, and `run_goal` multi-step execution loop. | Executed `python main.py --agent` | ✅ **Worked**: Agent executed 6 autonomous actions and generated tailored cover letter & 6-week roadmap. |
+| **2. Code Audit & Bug Fix** | "Analyze why Alice received 0% for Career Goals match against the Senior ML Engineer position." | Identified Jaccard denominator bug in [`src/utils.py`](file:///C:/Users/VinceNguyen/.gemini/antigravity/scratch/2026-agentic-ai-job-search/src/utils.py); rewrote `keyword_match_percentage` to use containment overlap with stopword removal. | Re-ran matching pipeline on `JOB001` | ✅ **Worked**: Alice's Career Goals score increased from 0.0% to 58.33%, boosting overall match to 94.92%. |
+| **3. Acronym & Token Matcher** | "Fix token filtering so 2-letter tech acronyms like AI and ML are not stripped during keyword analysis." | Updated `min_word_length=2` and added `TECH_EXPANSIONS` dictionary (`ai`, `ml`, `js`, `nlp`, `aws`) in `src/utils.py`. | Ran unit test `test_keyword_match_percentage_containment` | ✅ **Worked**: "Work on AI/ML projects" correctly matched ML job descriptions ($>50\%$). |
+| **4. CLI & Demonstration** | "Enhance `main.py` with argument parsing for `--agent`, `--matcher`, and custom `--goal` inputs." | Refactored [`main.py`](file:///C:/Users/VinceNguyen/.gemini/antigravity/scratch/2026-agentic-ai-job-search/main.py) with `argparse`, demo runners, and JSON export to `results/sample_agent_output.json`. | Executed `python main.py --goal "Find best role for Bob" --seeker "Bob Smith"` | ✅ **Worked**: Agent resolved custom user goals dynamically from the command line. |
+| **5. Test Suite Verification** | "Create automated unit tests for all models, matcher rules, utils, and agent tools." | Created 4 test suites in `tests/` (`test_models.py`, `test_utils.py`, `test_matcher.py`, `test_agent.py`) using `unittest`. | Ran `python -m unittest discover -s tests -p "test_*.py" -v` | ✅ **Worked**: All 17 tests passed with zero external dependencies. |
+
+---
+
+## 4. Challenges Encountered & Resolutions
+
+1. **Jaccard Similarity Denominator Collapse:**
+   - *Problem:* The initial algorithm compared short seeker goal strings ($\approx 4$ words) with entire job descriptions ($\approx 150$ words) using standard Jaccard similarity ($\frac{|A \cap B|}{|A \cup B|}$). Because the union was large, the similarity was always $<3\%$, causing career goal scores to round down to $0\%$.
+   - *Resolution:* Antigravity refactored the metric to calculate **keyword containment with stopword filtering** ($\frac{\text{matched keywords}}{\text{meaningful goal keywords}}$), enabling accurate continuous scoring.
+
+2. **2-Letter Acronym Exclusion:**
+   - *Problem:* The tokenizer had a default `min_word_length=3`, which silently dropped critical tech acronyms like `AI`, `ML`, `JS`, `DB`, and `C#`.
+   - *Resolution:* Adjusted `min_word_length=2` and introduced semantic expansion mappings (`ai` $\rightarrow$ `artificial intelligence`, `ml` $\rightarrow$ `machine learning`).
+
+3. **Transitioning from Static Code to Autonomous Tool Execution:**
+   - *Problem:* A simple script only provides static calculation without actionable guidance for the user.
+   - *Resolution:* Built `JobSearchAgent` with an autonomous planning loop that chains together profile parsing, job searching, gap diagnosis, cover letter drafting, and career roadmap generation.
+
+4. **Zero-Dependency Test Compatibility:**
+   - *Problem:* Initial test scripts imported `pytest`, which was not installed in the global Python environment.
+   - *Resolution:* Antigravity refactored all test modules into Python's native `unittest.TestCase` suite, ensuring seamless out-of-the-box execution across any environment.
+
+---
+
+## 5. Current Minimum Viable Product (MVP)
+
+The current MVP is a fully operational, test-verified **Autonomous Job Search & Career Advisory Agent**:
+
 ```
-- Seeker class (15 attributes): name, skills[], experience_level, years_experience, 
-  salary_min/max, preferred_locations[], willing_to_relocate, work_mode_preferences[], 
-  work_type_preferences[], career_goals[], education
-  
-- Opportunity class (16 attributes): job_id, title, company, description, required_skills[], 
-  preferred_skills[], experience_level_required, years_required, salary_min/max, location[], 
-  work_mode, work_type, benefits[], industry
-  
-- MatchResult class: match_percentage, individual_scores (skill, experience, location, salary, 
-  work_mode, work_type, goals), matched_skills[], missing_skills[], 
-  explanation, recommendation
+                                  ┌────────────────────────┐
+                                  │   User Natural Goal    │
+                                  └───────────┬────────────┘
+                                              │
+                                              ▼
+┌────────────────────────────────────────────────────────────────────────────────────────┐
+│                                    JobSearchAgent                                      │
+│                                                                                        │
+│  [Step 1: Inspect Profile] ──► [Step 2: Search Jobs] ──► [Step 3: 7-Factor Evaluation] │
+│                                                                        │               │
+│  [Step 6: Upskilling Roadmap] ◄── [Step 5: Draft Application] ◄────────┘               │
+└─────────────────────────────────────────────┬──────────────────────────────────────────┘
+                                              │
+                                              ▼
+                             ┌──────────────────────────────────┐
+                             │  Application & Career Artifacts  │
+                             │  - Match Breakdown & Explanation │
+                             │  - Tailored Cover Letter & Pitch │
+                             │  - 6-Week Structured Roadmap     │
+                             └──────────────────────────────────┘
 ```
 
-**What I Tested:**
-- Created 3 seeker instances with realistic data
-- Created 5 job opportunity instances
-- Verified JSON serialization (to_dict()) works correctly
-- Confirmed all required fields validate
-
-**What Worked:** ✅ Clean dataclass implementation; easy to instantiate and serialize
-
----
-
-### 3. Matching Engine → Generated → Tested ✅
-**What I Asked:** "Implement JobMatcher class with individual scoring methods for each criterion"
-
-**What Antigravity Generated:**
-- `JobMatcher` class with 7 private scoring methods:
-  - `_calculate_skill_match()` - keyword matching, bonus for preferred skills
-  - `_calculate_experience_match()` - hierarchical level comparison
-  - `_calculate_location_match()` - perfect match (100%), relocation acceptable (80%), no match (0%)
-  - `_calculate_salary_match()` - range overlap percentage
-  - `_calculate_work_mode_match()` - binary match or fail
-  - `_calculate_work_type_match()` - binary match or fail
-  - `_calculate_career_goals_match()` - keyword similarity (Jaccard)
-- `rank_opportunities()` method to sort all opportunities by match score
-- `_generate_explanation()` and `_generate_recommendation()` for output formatting
-
-**What I Tested:**
-- Matched Alice (ML specialist, Senior, $150-200K) to JOB001 (ML Engineer, Senior, $160-220K)
-  - Expected: High score (~90%)
-  - Got: 92.5% ✅
-- Matched Bob (Junior, JS, $80-120K) to JOB005 (DevOps, AWS required, $120-160K)
-  - Expected: Low score (~40%)
-  - Got: 42.5% ✅
-- Ranked all 5 opportunities for Alice
-  - Expected: JOB001 highest, JOB004 lowest
-  - Got: Correct ranking ✅
-
-**What Worked:** ✅ Matcher produces logical, validated scores; ranking is correct
-
-**What Didn't Work:** ❌ No proficiency levels (e.g., "beginner Python" vs "expert Python" treated identically)
+### Core MVP Features:
+- **Autonomous Tool Execution:** Agent dynamically chains 6 tools based on user goals.
+- **7-Dimensional Scoring:** Evaluates Skills (30%), Experience (25%), Location (15%), Salary (15%), Work Mode (5%), Work Type (5%), and Career Goals (5%).
+- **Automated Skill Remediation:** Flags missing skills and assigns learning priorities.
+- **Application Generation:** Drafts personalized cover letters and elevator pitches emphasizing top strengths.
+- **6-Week Upskilling Roadmap:** Curates phased learning plans for career advancement.
+- **Multi-Format CLI:** Supports batch evaluation, agent demonstration, and custom goal pursuit.
 
 ---
 
-### 4. Skill Matching with Abbreviations → Generated → Tested ✅
-**What I Asked:** "Add skill matching that recognizes common tech abbreviations"
+## 6. GitHub Repository Details
 
-**What Antigravity Generated:**
-- `skill_matches()` utility function with abbreviation dictionary:
-  - JS ↔ JavaScript
-  - ML ↔ Machine Learning
-  - AWS ↔ Amazon Web Services
-  - SQL ↔ MySQL, PostgreSQL, SQLServer
-  - etc.
+- **Repository Link:** [https://github.com/VinceNguyen000/2026-agentic-ai-job-search](https://github.com/VinceNguyen000/2026-agentic-ai-job-search)
+- **Primary Branch:** `main`
 
-**What I Tested:**
-- Seeker lists "JS", job requires "JavaScript" → Matched ✅
-- Seeker lists "ML", job requires "Machine Learning" → Matched ✅
-- Seeker lists "Python", job requires "Python" → Exact match ✅
-- Seeker lists "Docker", job requires "Kubernetes" → No match (as expected) ✅
-
-**What Worked:** ✅ Common abbreviations handled correctly
-
-**What Didn't Work:** ❌ New/uncommon abbreviations need manual addition; no automatic semantic understanding
-
----
-
-### 5. Example Data → Generated → Tested ✅
-**What I Asked:** "Generate 3 diverse seeker profiles and 5 realistic job opportunities"
-
-**What Antigravity Generated:**
-
-**Seekers:**
-1. **Alice Johnson** - Senior ML engineer, 6 years experience, $150-200K, remote preferred, willing to relocate
-2. **Bob Smith** - Junior full-stack developer, 1 year experience, $80-120K, Austin/Denver, contract-willing
-3. **Carol Davis** - Junior product manager, 2 years experience, $100-140K, Seattle, hybrid preferred
-
-**Opportunities:**
-1. **JOB001** - Senior ML Engineer at TechCorp (Remote, $160-220K, 5yr required)
-2. **JOB002** - Full Stack JS Dev at StartUp (Austin, $90-130K, hybrid, 2yr)
-3. **JOB003** - Product Manager at MobileFirst (Seattle, $110-150K, hybrid, 2yr)
-4. **JOB004** - Data Analyst at Financial (Remote, $75-110K, 1yr, Python+SQL)
-5. **JOB005** - DevOps Engineer at CloudScale (SF, $120-160K, hybrid, AWS cert required)
-
-**What I Tested:**
-- Reviewed profiles for realism and diversity ✅
-- Cross-matched all 3 seekers against all 5 jobs
-- Verified results made logical sense (e.g., Alice→JOB001 high, Bob→JOB005 low)
-
-**What Worked:** ✅ Example data is realistic and demonstrates algorithm across diverse scenarios
-
----
-
-### 6. Documentation & Reporting → Generated → Tested ✅
-**What I Asked:** "Generate comprehensive README.md, ALGORITHM.md with formulas, and usage examples"
-
-**What Antigravity Generated:**
-- **README.md** - Project overview, features, tech stack, project structure, getting started, usage example
-- **ALGORITHM.md** - Detailed methodology with:
-  - Purpose of each criterion
-  - Calculation formula for each dimension
-  - Worked examples (Alice + JOB001)
-  - Edge cases and limitations
-  - Interpretation table (scores 0-100%)
-  - Future enhancements discussion
-- **main.py** - Runnable example loading JSON data, running matcher, displaying results
-
-**What I Tested:**
-- Followed README instructions step-by-step ✅
-- Ran main.py successfully (no errors) ✅
-- Verified ALGORITHM.md formulas match code implementation ✅
-- Reviewed documentation clarity and completeness ✅
-
-**What Worked:** ✅ Documentation is clear, complete, and enables reproducibility
-
----
-
-## Challenges & Limitations Encountered
-
-### 1. Skill Variation Matching
-- **Challenge:** Real-world job posts and resumes use inconsistent terminology (JS vs JavaScript, SQL vs MySQL)
-- **How Antigravity Helped:** Generated abbreviation mapping dictionary
-- **Limitation:** Dictionary-based approach doesn't scale; would need semantic embeddings for production
-
-### 2. Proficiency Levels
-- **Challenge:** Algorithm treats "Python beginner" and "Python expert" identically
-- **Limitation:** No proficiency dimension in current model
-- **Future Work:** Add proficiency levels (beginner, intermediate, expert) and adjust scoring
-
-### 3. Experience Level Hierarchy
-- **Challenge:** How to score when seeker is Junior but job requires Senior?
-- **Solution:** Antigravity generated escalation scoring (partial credit rather than 0%)
-- **Result:** ✅ Produces reasonable partial scores (not binary pass/fail)
-
-### 4. Weight Calibration
-- **Challenge:** Chosen weights (Skills 30%, Experience 25%, etc.) are heuristic, not data-driven
-- **Limitation:** No validation that these weights reflect real hiring importance
-- **Future Work:** Collect hiring data and train weights via ML
-
-### 5. Code Generation Consistency
-- **Challenge:** Multiple AI generations sometimes produced slightly different patterns
-- **Solution:** Manual review and standardization of code style
-- **Result:** ✅ Final code is consistent and maintainable
-
----
-
-## Current MVP Status & Main Features
-
-### ✅ Working Features
-1. **Profile Management** - Load/save seeker and opportunity profiles as JSON
-2. **7-Criterion Matching** - Comprehensive scoring across all dimensions
-3. **Ranking System** - Sort opportunities by match score for a given seeker
-4. **Skill Intelligence** - Keyword matching with abbreviation recognition
-5. **Detailed Output** - Match scores, breakdowns, explanations, and recommendations
-6. **Example Data** - 3 seekers, 5 opportunities, 6 pre-computed matches
-7. **Complete Documentation** - README, ALGORITHM.md, code comments, usage examples
-
-### Sample Results
-| Seeker | Job | Score | Status |
-|--------|-----|-------|--------|
-| Alice | JOB001 (ML Engineer) | 92.5% | ✅ Excellent - Apply immediately |
-| Alice | JOB004 (Data Analyst) | 78.5% | ✅ Good - Apply with skill development |
-| Bob | JOB002 (JS Dev) | 88.0% | ⚠️ Good - But location issue |
-| Bob | JOB005 (DevOps) | 42.5% | ❌ Poor - Skills gap too large |
-| Carol | JOB003 (PM) | 85.25% | ✅ Strong - Perfect fit |
-| Carol | JOB001 (ML Eng) | 35.75% | ❌ Poor - Missing ML skills |
-
-### 🚀 MVP Deliverables
-- ✅ Source code (models.py, matcher.py, utils.py, main.py)
-- ✅ Complete documentation (README.md, ALGORITHM.md)
-- ✅ Example data (seekers.json, opportunities.json, sample_matches.json)
-- ✅ GitHub repository with version history
-- ✅ Requirements.txt with dependencies
-
----
-
-## GitHub Repository
-
-**Repository Link:** https://github.com/VinceNguyen000/2026-agentic-ai-job-search
-
-**Repository Contents:**
+### Repository Structure:
 ```
-├── README.md                          (Project overview & usage)
-├── ALGORITHM.md                       (Algorithm explanation with formulas)
-├── HANDS_ON_REPORT_CHALLENGE1.md     (This report)
-├── requirements.txt                   (Dependencies)
-├── LICENSE                            (MIT)
+2026-agentic-ai-job-search/
+├── README.md                          # Project documentation & quickstart
+├── ALGORITHM.md                       # Comprehensive mathematical algorithm specification
+├── HANDS_ON_REPORT_CHALLENGE1.md     # This hands-on report
+├── requirements.txt                   # Dependency declarations
+├── LICENSE                            # MIT License
+├── main.py                            # CLI entry point (Demo, Matcher, and Agent modes)
 ├── src/
+│   ├── __init__.py                    # Package initialization & exports
+│   ├── agent.py                       # Autonomous JobSearchAgent & tool registry
+│   ├── matcher.py                     # 7-factor weighted matching engine
+│   ├── models.py                      # Dataclasses (Seeker, Opportunity, MatchResult)
+│   └── utils.py                       # Tokenizer, acronym expansion, salary & skill math
+├── tests/
 │   ├── __init__.py
-│   ├── models.py                      (Seeker, Opportunity, MatchResult classes)
-│   ├── matcher.py                     (JobMatcher with scoring logic)
-│   └── utils.py                       (Utility functions)
+│   ├── test_agent.py                  # Unit tests for agent tools and goal workflows
+│   ├── test_matcher.py                # Unit tests for scoring rules & ranking
+│   ├── test_models.py                 # Unit tests for dataclass validation & serialization
+│   └── test_utils.py                  # Unit tests for string matching & edge cases
 ├── examples/
-│   ├── seekers.json                   (3 sample profiles)
-│   └── opportunities.json             (5 sample jobs)
-├── results/
-│   └── sample_matches.json            (6 pre-computed match results)
-└── main.py                            (Runnable example)
+│   ├── seekers.json                   # 3 diverse candidate profiles
+│   └── opportunities.json             # 5 realistic job postings
+└── results/
+    ├── sample_matches.json            # Algorithmic match outputs
+    └── sample_agent_output.json       # Full autonomous agent execution trace & artifacts
 ```
 
 ---
 
-## Brief Comments & Suggestions About the In-Class Activity
+## 7. Comments & Suggestions About Today's Activity
 
----
-
-## Summary
-
-Today, for Challenge 1 session, I successfully produced a **complete, working Job Seeker Matching System MVP** using Antigravity. The system implements a 7-criterion weighted matching algorithm, includes realistic example data, provides detailed scoring and recommendations, and is fully documented. All code is version-controlled on GitHub and ready for review/enhancement.
+- **Observations:** Working with Antigravity highlighted the difference between passive autocomplete tools and true **Agentic AI**. Antigravity was able to autonomously inspect the repository, detect subtle mathematical bugs in the scoring logic, refactor the architecture into an autonomous multi-tool agent, write unit tests, and verify them in the terminal without manual intervention.
+- **Suggestions for Improvement:** Providing pre-configured environment templates or Dockerfiles for hands-on activities helps students get straight to experimenting with agent tool architectures and multi-agent coordination.

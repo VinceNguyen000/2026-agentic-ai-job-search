@@ -21,6 +21,7 @@ from src.models import (
 )
 
 from src.matcher import JobMatcher
+from src.agent import JobSearchAgent
 
 from src.utils import (
     calculate_skill_match,
@@ -37,6 +38,7 @@ __all__ = [
     "WorkMode",
     "WorkType",
     "JobMatcher",
+    "JobSearchAgent",
     "calculate_skill_match",
     "calculate_experience_match",
     "calculate_salary_match",

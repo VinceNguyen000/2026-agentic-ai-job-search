@@ -1,61 +1,66 @@
-# 2026 Agentic AI Job Search Matching System
+# 2026 Agentic AI Job Search System
 
-A hands-on experimentation project exploring how Agentic AI can accelerate software development, using a job-seeker matching algorithm as the case study.
+An autonomous, multi-agent AI job matching and career advancement platform built with **Antigravity** for **CS 5542 Challenge 1**.
 
 ## Project Overview
 
-This project demonstrates the use of AI agents to design, implement, and document a sophisticated job matching system that connects career seekers with relevant opportunities based on multiple weighted criteria.
+This project implements an **Agentic AI Job Search System** featuring:
+1. **Autonomous JobSearchAgent**: A tool-executing AI agent that parses goals, inspects candidate profiles, matches opportunities, diagnoses skill gaps, drafts customized cover letters, and generates multi-week upskilling roadmaps.
+2. **7-Factor Weighted Matching Engine**: A deterministic scoring engine evaluating skills, experience hierarchy, geographic compatibility, salary overlap, work mode, work type, and career goal alignment.
+3. **Automated Test Suite**: Zero-dependency `unittest` test suite covering models, matching rules, token containment, and agent tool execution.
 
-## Key Features
+## Key Features & Architecture
 
-### Matching Algorithm
-- **Weighted Multi-Criteria Matching** - Combines 7 factors with optimized weights:
-  - Skills Match (30%) - Keyword-based skill matching
-  - Experience Level (25%) - Career progression alignment
-  - Location (15%) - Geographic compatibility
-  - Salary (15%) - Compensation range matching
-  - Work Mode (5%) - Remote/Hybrid/Onsite preferences
-  - Work Type (5%) - Full-time/Part-time/Contract flexibility
-  - Career Goals (5%) - Long-term aspiration alignment
-
-### Core Components
-- **Seeker Profile Model** - Captures job seekers' qualifications, preferences, and career goals
-- **Opportunity Profile Model** - Represents job listings with requirements and benefits
-- **Recommendation Engine** - Generates ranked job matches with detailed feedback
-- **Feedback System** - Explains match percentages and suggests skill gaps to address
-
-## Technology Stack
-
-- **Language:** Python
-- **Development:** Agentic AI (Antigravity)
-- **Repository:** GitHub for version control
-- **Documentation:** AI-Generated with Human Review
-
-## Project Structure
-
+```mermaid
+flowchart TD
+    UserGoal["User Goal / Query"] --> Agent["JobSearchAgent (Autonomous Engine)"]
+    
+    subgraph AgentTools ["Agent Tool Registry"]
+        T1["get_seeker_profile"]
+        T2["search_opportunities"]
+        T3["evaluate_fit"]
+        T4["analyze_skill_gaps"]
+        T5["draft_tailored_application"]
+        T6["generate_upskilling_roadmap"]
+    end
+    
+    Agent <--> AgentTools
+    AgentTools --> Engine["JobMatcher (7-Factor Weighted Engine)"]
+    Engine --> Results["Ranked Matches & Application Artifacts"]
 ```
-2026-agentic-ai-job-search/
-├── README.md                 # This file
-├── HANDS_ON_REPORT.md        # Detailed assignment report
-├── ALGORITHM.md              # Matching algorithm documentation
-├── src/
-│   ├── matcher.py           # Core matching engine
-│   ├── models.py            # Data structures (Seeker, Opportunity)
-│   └── utils.py             # Helper functions
-├── examples/
-│   ├── seekers.json         # Sample seeker profiles
-│   └── opportunities.json   # Sample job opportunities
-└── results/
-    └── sample_matches.json  # Example matching results
-```
+
+### Agentic Capabilities & Tools
+- **`search_opportunities`** - Filters listings dynamically by keywords, work mode, location, and salary.
+- **`evaluate_fit`** - Computes multi-dimensional compatibility scores.
+- **`analyze_skill_gaps`** - Flags missing required and preferred skills with remediation steps.
+- **`draft_tailored_application`** - Generates tailored cover letters and elevator pitches emphasizing top strengths.
+- **`generate_upskilling_roadmap`** - Analyzes market trends and outputs a 6-week progressive upskilling curriculum.
+
+---
 
 ## Getting Started
 
-### Installation
+### 1. Installation
 ```bash
-git clone https://github.com/[your-username]/2026-agentic-ai-job-search.git
+git clone https://github.com/VinceNguyen000/2026-agentic-ai-job-search.git
 cd 2026-agentic-ai-job-search
-pip install -r requirements.txt
+```
+
+### 2. Run Autonomous Agent & Matcher Demonstration
+```bash
+# Run both algorithmic matching and autonomous agent demonstration
+python main.py
+
+# Run only the autonomous agent workflow
+python main.py --agent
+
+# Run a custom natural language goal
+python main.py --goal "Find top ML opportunities for Alice and draft an application" --seeker "Alice Johnson"
+```
+
+### 3. Run Automated Tests
+```bash
+python -m unittest discover -s tests -p "test_*.py" -v
 ```
 
 ### Usage
