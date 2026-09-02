@@ -27,7 +27,7 @@ This project demonstrates the use of AI agents to design, implement, and documen
 ## Technology Stack
 
 - **Language:** Python
-- **Development:** AI-Assisted Code Generation (GitHub Copilot)
+- **Development:** Agentic AI (Antigravity)
 - **Repository:** GitHub for version control
 - **Documentation:** AI-Generated with Human Review
 
@@ -187,12 +187,13 @@ See [results/](./results/) directory for sample matching scenarios and output.
 ## Report & Documentation
 
 For detailed information about this hands-on experience, see:
-- **[HANDS_ON_REPORT.md](./HANDS_ON_REPORT.md)** - Complete assignment report covering achievements, challenges, MVP, and observations about Agentic AI
+- **[HANDS_ON_REPORT_CHALLENGE1.md](./HANDS_ON_REPORT_CHALLENGE1.md)** - CS 5542 Challenge 1 Hands-On Report: In-class activity using Antigravity showing what was requested, what was generated, what was tested, and what worked/didn't work
+- **[ALGORITHM.md](./ALGORITHM.md)** - Technical deep-dive into the matching algorithm with formulas, examples, edge cases, and limitations
 
 ## Author
 
-Created as part of CS5542 Agentic AI Hands-On Activity (Fall 2026)  
-**Generated with:** GitHub Copilot (Agentic AI)
+Created as part of CS5542 Agentic AI Challenge 1 Hands-On Activity (September 2026)  
+**Developed with:** Antigravity (Agentic AI)
 
 ## License
 

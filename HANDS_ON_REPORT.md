@@ -1,26 +1,78 @@
-# Hands-On Report: Agentic AI Experimentation
-**CS5542 Challenge 1 - Agentic AI Job Search Matching System**
+# CS 5542 Challenge 1 – Agentic AI Hands-On Report
+**Job Search Application using Antigravity**
+
+**Date:** September 1, 2026
 
 ---
 
-## Achievements
+## What I Worked On During Today's Session
 
-### Design & Architecture
-- **Designed a comprehensive job-seeker matching algorithm** with structured feature extraction for both seeker profiles and job opportunities
-- **Developed a weighted scoring system** that combines multiple matching criteria (skills, experience, location, salary, work mode, work type, career goals)
-- **Created a feedback mechanism** that provides ranked job recommendations with explanations of skill gaps and match percentages
+During the in-class Challenge 1 hands-on activity, I used **Antigravity** to design and build a complete job-seeker matching system. The goal was to create an MVP that matches job seekers to employment opportunities using a weighted multi-criteria algorithm.
 
-### Implementation Approach
-- **Leveraged Agentic AI capabilities** to generate code artifacts, documentation, and project structure
-- **Used GitHub to manage project repository** with version control and documentation
-- **Experimented with AI agents** for automated README generation and documentation creation
-- **Structured a scalable matching algorithm** with weighted criteria (30% skills, 25% experience, 15% location, 15% salary, 5% work mode, 5% work type, 5% career goals)
+---
 
-### Key Components Built
-1. **Seeker Profile Model** - Career goals, skills, experience, education, location/work preferences, salary expectations
-2. **Opportunity Profile Model** - Responsibilities, required/preferred skills, experience level, certifications, location, compensation
-3. **Matching Engine** - Weighted scoring algorithm with keyword-based matching for skills and experience
-4. **Recommendation System** - Ranked job suggestions with match percentages and explanatory feedback
+## What Antigravity Helped Me Design, Build, Debug, Test, and Improve
+
+### 1. **Algorithm Design**
+- **Requested:** "Design a weighted matching algorithm that scores job compatibility across 7 dimensions"
+- **Antigravity Generated:** Complete matching algorithm with:
+  - Skills matching (30% weight) with keyword recognition
+  - Experience level alignment (25%)
+  - Location compatibility (15%)
+  - Salary range overlap (15%)
+  - Work mode/type binary matching (5% each)
+  - Career goals alignment (5%)
+- **Testing:** Verified algorithm logic against sample data; weights correctly sum to 100%
+- **Result:** ✅ Functional weighted scoring system with clear interpretation
+
+### 2. **Data Models**
+- **Requested:** "Create Python dataclasses for Seeker, Opportunity, and MatchResult with proper enums"
+- **Antigravity Generated:** 
+  - `Seeker` class with 15+ attributes (skills, experience, preferences, salary)
+  - `Opportunity` class with 16+ attributes (requirements, benefits, location)
+  - `MatchResult` class with detailed scoring breakdown
+  - Enums for ExperienceLevel, WorkMode, WorkType
+- **Testing:** Created instances with sample data; to_dict() serialization works correctly
+- **Result:** ✅ Clean, well-typed data structures ready for matching
+
+### 3. **Matching Engine Implementation**
+- **Requested:** "Implement the JobMatcher class with individual scoring methods for each criterion"
+- **Antigravity Generated:**
+  - 7 separate scoring methods (one per criterion)
+  - Skill matching with abbreviation recognition (JS↔JavaScript, ML↔Machine Learning)
+  - Experience level hierarchy (Entry→Junior→Senior→Lead→Executive)
+  - Salary range overlap calculation
+  - Binary matching for work preferences
+- **Testing:** Ran sample matches; verified scores were between 0-100 and weights applied correctly
+- **Result:** ✅ Working matcher with all criteria implemented
+
+### 4. **Utility Functions**
+- **Requested:** "Create utility functions for skill matching, salary calculation, and report formatting"
+- **Antigravity Generated:**
+  - `skill_matches()` with common tech abbreviation mappings
+  - `calculate_salary_match()` with range overlap logic
+  - `format_match_report()` for human-readable output
+  - JSON loading/saving utilities
+- **Testing:** Tested skill matching with various abbreviations; salary calculations with overlapping ranges
+- **Result:** ✅ Reusable utilities working as expected
+
+### 5. **Example Data & Results**
+- **Requested:** "Generate realistic seeker profiles, job opportunities, and sample match results"
+- **Antigravity Generated:**
+  - 3 diverse seeker profiles (data scientist, junior developer, product manager)
+  - 5 job opportunities (various seniority levels and industries)
+  - Pre-computed match results showing algorithm output
+- **Testing:** Reviewed data for realism; verified match scores made logical sense
+- **Result:** ✅ Realistic example data demonstrating algorithm behavior
+
+### 6. **Documentation**
+- **Requested:** "Write comprehensive README, ALGORITHM.md, and usage examples"
+- **Antigravity Generated:**
+  - Complete README with features, usage, project structure
+  - Detailed ALGORITHM.md explaining each criterion with formulas and examples
+  - Runnable main.py demonstrating system usage
+- **Testing:** Followed README instructions; main.py runs without errors
+- **Result:** ✅ Clear documentation enabling understanding and reproduction
 
 ---
 
