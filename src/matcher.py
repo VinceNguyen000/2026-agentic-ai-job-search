@@ -222,11 +222,15 @@ class JobMatcher:
         if not seeker.career_goals:
             return 100.0
         
-        # Combine job title, description, and responsibilities for goal matching
-        job_info = f"{opportunity.title} {opportunity.description or ''} {' '.join(opportunity.responsibilities)}"
+        # Combine job title, responsibilities, and company info for goal matching
+        job_info = f"{opportunity.title} {opportunity.description} {' '.join(opportunity.responsibilities)}"
         
-        scores = [keyword_match_percentage(goal, job_info) for goal in seeker.career_goals]
-        return sum(scores) / len(scores) if scores else 100.0
+        matched_goals = 0
+        for goal in seeker.career_goals:
+            if keyword_match_percentage(goal.lower(), job_info.lower()) > 30:
+                matched_goals += 1
+        
+        return (matched_goals / len(seeker.career_goals)) * 100 if seeker.career_goals else 100.0
     
     def _get_matched_skills(self, seeker: Seeker, opportunity: Opportunity) -> List[str]:
         """Get list of required skills matched by seeker."""
@@ -322,7 +326,7 @@ class JobMatcher:
                             experience_match: float, location_match: float,
                             matched_skills: List[str], missing_skills: List[str]) -> str:
         """Generate human-readable explanation of match."""
-        explanation = f"{seeker.name}, you have a {round(overall_match, 2)}% match with the {opportunity.title} position at {opportunity.company}. "
+        explanation = f"{seeker.name}, you have a {overall_match}% match with the {opportunity.title} position at {opportunity.company}. "
         
         if skill_match >= 80:
             explanation += f"You have strong technical skills alignment with {len(matched_skills)} of {len(opportunity.required_skills)} required skills. "

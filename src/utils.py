@@ -184,59 +184,33 @@ def get_missing_skills(seeker_skills: List[str], required_skills: List[str]) -> 
     return missing
 
 
-STOPWORDS = {
-    "a", "an", "the", "and", "or", "in", "on", "at", "to", "for", "with",
-    "by", "of", "from", "as", "is", "are", "was", "were", "be", "been",
-    "into", "through", "about", "over", "after", "work", "working", "projects", "project"
-}
-
-TECH_EXPANSIONS = {
-    "ai": ["artificial intelligence", "ai"],
-    "ml": ["machine learning", "ml", "deep learning"],
-    "js": ["javascript", "node", "react"],
-    "nlp": ["natural language processing", "nlp"],
-    "cv": ["computer vision", "vision"],
-    "db": ["database", "sql"],
-    "k8s": ["kubernetes"],
-    "aws": ["amazon web services", "cloud"]
-}
-
-
-def keyword_match_percentage(text1: str, text2: str, min_word_length: int = 2) -> float:
+def keyword_match_percentage(text1: str, text2: str, min_word_length: int = 3) -> float:
     """
-    Calculate keyword containment percentage of text1 in text2.
-    Computes the fraction of significant keywords from text1 present in text2,
-    including tech acronym aliases (e.g., AI, ML, JS).
+    Calculate keyword match percentage between two text strings.
     
     Args:
-        text1: Source text (e.g. seeker goal or query)
-        text2: Target text (e.g. job description)
-        min_word_length: Minimum word length to consider (default 2)
+        text1: First text
+        text2: Second text
+        min_word_length: Minimum word length to consider
         
     Returns:
         Match percentage (0-100)
     """
-    import re
-    tokens1 = [w.lower() for w in re.findall(r'[a-zA-Z0-9+#]+', text1) if len(w) >= min_word_length]
-    text2_lower = text2.lower()
-    tokens2 = set(w.lower() for w in re.findall(r'[a-zA-Z0-9+#]+', text2) if len(w) >= min_word_length)
+    # Split text into keywords
+    words1 = set(w for w in text1.split() if len(w) >= min_word_length)
+    words2 = set(w for w in text2.split() if len(w) >= min_word_length)
     
-    meaningful1 = [w for w in tokens1 if w not in STOPWORDS]
-    if not meaningful1:
-        meaningful1 = tokens1
-        
-    if not meaningful1 or not tokens2:
+    if not words1 or not words2:
         return 0.0
     
-    matched = 0
-    for w in meaningful1:
-        if w in tokens2 or any(w in t or t in w for t in tokens2):
-            matched += 1
-        elif w in TECH_EXPANSIONS:
-            if any(exp in text2_lower for exp in TECH_EXPANSIONS[w]):
-                matched += 1
-            
-    return (matched / len(meaningful1)) * 100.0
+    # Calculate overlap
+    overlap = len(words1.intersection(words2))
+    total = len(words1.union(words2))
+    
+    if total == 0:
+        return 0.0
+    
+    return (overlap / total) * 100
 
 
 def load_seekers_from_json(filepath: str) -> List[Dict]:

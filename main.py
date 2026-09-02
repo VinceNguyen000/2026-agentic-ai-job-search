@@ -1,35 +1,36 @@
 #!/usr/bin/env python3
 """
-Agentic AI Job Search System - Main Entry Point.
-Demonstrates autonomous multi-agent matching, tool execution, and application drafting.
+Example usage of the Job Matching System.
+Demonstrates how to use the matcher to rank job opportunities for a seeker.
 
-Author: Antigravity Agentic AI for CS5542 Challenge 1
+Author: Agentic AI Project for CS5542 Challenge 1
 """
 
 import json
 import sys
-import argparse
 from pathlib import Path
 
-# Add project root to sys.path
+# Add src directory to path
 sys.path.insert(0, str(Path(__file__).parent))
 
 from src.models import (
     Seeker, Opportunity, ExperienceLevel, WorkMode, WorkType
 )
 from src.matcher import JobMatcher
-from src.agent import JobSearchAgent
 from src.utils import format_match_report
 
 
 def load_example_data():
-    """Load example seekers and opportunities from JSON files."""
+    """Load example seekers and opportunities."""
+    
+    # Load from JSON files
     with open('examples/seekers.json', 'r') as f:
         seekers_data = json.load(f)
     
     with open('examples/opportunities.json', 'r') as f:
         opportunities_data = json.load(f)
     
+    # Convert to model objects
     seekers = []
     for seeker_dict in seekers_data['seekers']:
         seeker = Seeker(
@@ -81,99 +82,61 @@ def load_example_data():
     return seekers, opportunities
 
 
-def run_agent_demo(agent: JobSearchAgent):
-    """Run an autonomous multi-step agent goal execution."""
+def main():
+    """Main function demonstrating the job matching system."""
+    
     print("=" * 80)
-    print("RUNNING AUTONOMOUS JOB SEARCH AGENT DEMONSTRATION")
+    print("Agentic AI Job Search Matching System")
+    print("Example Usage Demonstration")
     print("=" * 80)
+    print()
     
-    goal = "Help Alice Johnson find the highest-paying machine learning engineering position, evaluate skill fit, draft a customized cover letter, and generate an upskilling roadmap."
-    print(f"\nUser Goal: \"{goal}\"\n")
-    print("Agent is reasoning and executing tools...")
+    # Load example data
+    print("Loading example data...")
+    seekers, opportunities = load_example_data()
+    print(f"  - Loaded {len(seekers)} seekers")
+    print(f"  - Loaded {len(opportunities)} opportunities")
+    print()
     
-    response = agent.run_goal(goal, seeker_name="Alice Johnson")
-    
-    print("\n" + "-" * 80)
-    print(f"AGENT EXECUTION TRACE ({len(response.actions)} STEPS)")
-    print("-" * 80)
-    for action in response.actions:
-        print(f"\n[Step {action.step}]")
-        print(f"  Thought: {action.thought}")
-        print(f"  Tool Call: {action.tool_name}({json.dumps(action.tool_args)})")
-        summary_obs = str(action.observation)
-        if len(summary_obs) > 120:
-            summary_obs = summary_obs[:117] + "..."
-        print(f"  Observation: {summary_obs}")
-    
-    print("\n" + response.final_synthesis)
-    
-    # Save agent output to results folder
-    output_path = Path("results/sample_agent_output.json")
-    output_path.parent.mkdir(exist_ok=True)
-    with open(output_path, "w") as f:
-        json.dump(response.to_dict(), f, indent=2)
-    print(f"\n[+] Saved full agent execution trace and artifacts to: {output_path}")
-
-
-def run_matching_demo(seekers, opportunities):
-    """Run the 7-criterion algorithmic matching demonstration."""
-    print("=" * 80)
-    print("RUNNING 7-CRITERION MATCHING ENGINE DEMONSTRATION")
-    print("=" * 80)
-    
+    # Initialize matcher
     matcher = JobMatcher()
-    seeker = seekers[0]
-    print(f"\nMatching opportunities for: {seeker.name}")
-    print("-" * 80)
     
+    # Match first seeker with all opportunities
+    seeker = seekers[0]
+    print(f"Matching opportunities for: {seeker.name}")
+    print("-" * 80)
+    print()
+    
+    # Rank all opportunities for this seeker
     ranked_matches = matcher.rank_opportunities(seeker, opportunities, min_match_threshold=30)
-    print(f"Found {len(ranked_matches)} matching opportunities (threshold: 30%)\n")
+    
+    # Display results
+    print(f"Found {len(ranked_matches)} matching opportunities (threshold: 30%)")
+    print()
     
     for i, match in enumerate(ranked_matches, 1):
         print(f"{i}. {match.job_title} at {match.company}")
         print(f"   Job ID: {match.job_id}")
-        print(f"   Overall Match: {match.overall_match_percentage}% | Skills: {match.skill_match_percentage}% | Exp: {match.experience_match_percentage}% | Location: {match.location_match_percentage}% | Salary: {match.salary_match_percentage}%")
+        print(f"   Overall Match: {match.overall_match_percentage}%")
+        print(f"   Skills Match: {match.skill_match_percentage}%")
+        print(f"   Experience Match: {match.experience_match_percentage}%")
+        print(f"   Location Match: {match.location_match_percentage}%")
+        print(f"   Salary Match: {match.salary_match_percentage}%")
+        print()
         print(f"   Matched Skills: {', '.join(match.matched_skills) if match.matched_skills else 'None'}")
         print(f"   Missing Skills: {', '.join(match.missing_skills) if match.missing_skills else 'None'}")
+        print()
         print(f"   Recommendation: {match.recommendation}")
         print()
+        print("-" * 80)
+        print()
     
+    # Generate detailed report for top match
     if ranked_matches:
-        print("\nDETAILED REPORT FOR TOP MATCH:")
+        print()
+        print("DETAILED REPORT FOR TOP MATCH:")
         print(format_match_report(ranked_matches[0]))
-
-
-def main():
-    parser = argparse.ArgumentParser(description="Agentic AI Job Search System")
-    parser.add_argument("--agent", action="store_true", help="Run autonomous agent demonstration")
-    parser.add_argument("--matcher", action="store_true", help="Run algorithmic matcher demonstration")
-    parser.add_argument("--goal", type=str, help="Custom goal for the autonomous agent to solve")
-    parser.add_argument("--seeker", type=str, default=None, help="Target seeker name for custom goal")
-    args = parser.parse_args()
-
-    seekers, opportunities = load_example_data()
-    agent = JobSearchAgent(seekers, opportunities)
-
-    if args.goal:
-        print("=" * 80)
-        print("RUNNING CUSTOM AGENT GOAL")
-        print("=" * 80)
-        print(f"Goal: {args.goal}")
-        res = agent.run_goal(args.goal, seeker_name=args.seeker)
-        print(res.final_synthesis)
-        return
-
-    if args.agent:
-        run_agent_demo(agent)
-    elif args.matcher:
-        run_matching_demo(seekers, opportunities)
-    else:
-        # Run full pipeline by default
-        run_matching_demo(seekers, opportunities)
-        print("\n\n")
-        run_agent_demo(agent)
 
 
 if __name__ == "__main__":
     main()
-

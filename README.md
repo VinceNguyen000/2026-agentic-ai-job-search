@@ -5,6 +5,7 @@ An autonomous, multi-agent AI job matching and career advancement platform built
 ## Project Overview
 
 This project implements an **Agentic AI Job Search System** featuring:
+
 1. **Autonomous JobSearchAgent**: A tool-executing AI agent that parses goals, inspects candidate profiles, matches opportunities, diagnoses skill gaps, drafts customized cover letters, and generates multi-week upskilling roadmaps.
 2. **7-Factor Weighted Matching Engine**: A deterministic scoring engine evaluating skills, experience hierarchy, geographic compatibility, salary overlap, work mode, work type, and career goal alignment.
 3. **Automated Test Suite**: Zero-dependency `unittest` test suite covering models, matching rules, token containment, and agent tool execution.
@@ -14,7 +15,7 @@ This project implements an **Agentic AI Job Search System** featuring:
 ```mermaid
 flowchart TD
     UserGoal["User Goal / Query"] --> Agent["JobSearchAgent (Autonomous Engine)"]
-    
+
     subgraph AgentTools ["Agent Tool Registry"]
         T1["get_seeker_profile"]
         T2["search_opportunities"]
@@ -23,13 +24,14 @@ flowchart TD
         T5["draft_tailored_application"]
         T6["generate_upskilling_roadmap"]
     end
-    
+
     Agent <--> AgentTools
     AgentTools --> Engine["JobMatcher (7-Factor Weighted Engine)"]
     Engine --> Results["Ranked Matches & Application Artifacts"]
 ```
 
 ### Agentic Capabilities & Tools
+
 - **`search_opportunities`** - Filters listings dynamically by keywords, work mode, location, and salary.
 - **`evaluate_fit`** - Computes multi-dimensional compatibility scores.
 - **`analyze_skill_gaps`** - Flags missing required and preferred skills with remediation steps.
@@ -41,12 +43,14 @@ flowchart TD
 ## Getting Started
 
 ### 1. Installation
+
 ```bash
 git clone https://github.com/VinceNguyen000/2026-agentic-ai-job-search.git
 cd 2026-agentic-ai-job-search
 ```
 
 ### 2. Run Autonomous Agent & Matcher Demonstration
+
 ```bash
 # Run both algorithmic matching and autonomous agent demonstration
 python main.py
@@ -59,11 +63,13 @@ python main.py --goal "Find top ML opportunities for Alice and draft an applicat
 ```
 
 ### 3. Run Automated Tests
+
 ```bash
 python -m unittest discover -s tests -p "test_*.py" -v
 ```
 
 ### Usage
+
 ```python
 from src.matcher import JobMatcher
 from src.models import Seeker, Opportunity
@@ -97,9 +103,9 @@ recommendations = matcher.get_recommendations(seeker, job)
 The matching algorithm employs a **weighted scoring approach** where each criterion is normalized to a 0-100% scale, then combined using predefined weights:
 
 ```
-Total Match % = (Skill Score × 0.30) + (Experience × 0.25) + 
-                (Location × 0.15) + (Salary × 0.15) + 
-                (Work Mode × 0.05) + (Work Type × 0.05) + 
+Total Match % = (Skill Score × 0.30) + (Experience × 0.25) +
+                (Location × 0.15) + (Salary × 0.15) +
+                (Work Mode × 0.05) + (Work Type × 0.05) +
                 (Career Goals × 0.05)
 ```
 
@@ -110,11 +116,13 @@ See [ALGORITHM.md](./ALGORITHM.md) for detailed methodology.
 ### Source Code Structure
 
 #### Core Modules
+
 - **`models.py`** - Data classes for Seeker, Opportunity, and MatchResult with enums for ExperienceLevel, WorkMode, and WorkType
 - **`matcher.py`** - JobMatcher class implementing the 7-dimensional weighted matching algorithm with helper methods for each criterion
 - **`utils.py`** - Utility functions for skill matching, salary calculation, and report generation
 
 #### Data Files
+
 - **`examples/seekers.json`** - Sample seeker profiles with diverse skills, preferences, and goals
 - **`examples/opportunities.json`** - Sample job listings representing different roles and experience levels
 - **`results/sample_matches.json`** - Pre-computed match results showing algorithm output
@@ -156,20 +164,23 @@ python main.py
 ## Agentic AI Insights
 
 ### What Worked Well
+
 ✅ **Rapid prototyping** - Generated complete data models and matching logic efficiently  
 ✅ **Documentation** - AI produced clear, comprehensive technical documentation  
 ✅ **Code quality** - Generated code followed Python best practices  
 ✅ **Example data** - Realistic seeker/opportunity profiles with varied characteristics  
-✅ **Iterative refinement** - Easy to adjust weights and algorithm parameters  
+✅ **Iterative refinement** - Easy to adjust weights and algorithm parameters
 
 ### Challenges Overcome
+
 ⚠️ **Semantic understanding** - Required detailed prompts to ensure correct logic  
 ⚠️ **Edge case handling** - Needed explicit guidance for boundary conditions  
 ⚠️ **Test coverage** - AI-generated code needed manual validation  
 ⚠️ **Consistency** - Maintaining naming conventions across generated modules  
-⚠️ **Domain specificity** - ML/hiring domain knowledge required careful specification  
+⚠️ **Domain specificity** - ML/hiring domain knowledge required careful specification
 
 ### Best Practices Discovered
+
 📌 **Clear requirements** - Detailed specifications produced better code  
 📌 **Modular design** - Breaking algorithm into separate methods improves clarity  
 📌 **Type hints** - Explicit typing helped AI understand data flow  
@@ -192,6 +203,7 @@ See [results/](./results/) directory for sample matching scenarios and output.
 ## Report & Documentation
 
 For detailed information about this hands-on experience, see:
+
 - **[HANDS_ON_REPORT_CHALLENGE1.md](./HANDS_ON_REPORT_CHALLENGE1.md)** - CS 5542 Challenge 1 Hands-On Report: In-class activity using Antigravity showing what was requested, what was generated, what was tested, and what worked/didn't work
 - **[ALGORITHM.md](./ALGORITHM.md)** - Technical deep-dive into the matching algorithm with formulas, examples, edge cases, and limitations
 
