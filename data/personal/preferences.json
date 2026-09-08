@@ -1,0 +1,57 @@
+{
+  "seeker_profile": {
+    "name": "Vince (Vien) Nguyen",
+    "email": "vincenguyen2712@gmail.com",
+    "phone": "913-271-8699",
+    "location_current": "Kansas City, MO",
+    "education": "M.S. in Computer Science (Cybersecurity Specialization), UMKC (2026)",
+    "gpa": "3.7 (Undergrad)",
+    "experience_level": "junior"
+  },
+  "target_roles": [
+    "Security Operations Center (SOC) Analyst",
+    "Cybersecurity Analyst",
+    "Vulnerability Management Specialist",
+    "Information Security Analyst",
+    "Cloud Security Engineer",
+    "DevSecOps Associate"
+  ],
+  "career_interests": [
+    "Security Operations Center (SOC) log analysis and real-time monitoring",
+    "Vulnerability lifecycle management and risk classification",
+    "NIST Cybersecurity Framework compliance and enterprise system hardening",
+    "IoT / Wireless protocol security analysis",
+    "Defending public sector and large-scale cloud infrastructure"
+  ],
+  "compensation_expectations": {
+    "salary_min_floor": 75000,
+    "salary_target": 95000,
+    "currency": "USD"
+  },
+  "location_preferences": {
+    "preferred_locations": [
+      "Kansas City, MO",
+      "Overland Park, KS",
+      "Remote - US",
+      "Hybrid - Kansas City Metro"
+    ],
+    "willing_to_relocate": true,
+    "relocation_regions": [
+      "Midwest",
+      "West Coast",
+      "East Coast",
+      "Nationwide (US)"
+    ]
+  },
+  "work_arrangements": {
+    "work_modes": ["remote", "hybrid", "onsite"],
+    "work_types": ["full", "contract"],
+    "availability_days": 14
+  },
+  "hard_constraints": {
+    "us_work_authorization": true,
+    "security_clearance_eligible": true,
+    "require_remote_only": false,
+    "mandatory_minimum_salary": 70000
+  }
+}

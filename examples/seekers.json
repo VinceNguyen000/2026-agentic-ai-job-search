@@ -14,6 +14,7 @@
         "Finance",
         "Healthcare"
       ],
+      "industry_interests": ["Technology", "Finance", "Healthcare"],
       "experience_level": "senior",
       "skills": [
         "Python",
@@ -34,6 +35,7 @@
         "San Francisco, CA",
         "New York, NY"
       ],
+      "preferred_locations": ["San Francisco, CA", "New York, NY"],
       "willing_to_relocate": true,
       "work_mode_preference": [
         "remote",
@@ -42,6 +44,8 @@
       "work_type_preference": [
         "full"
       ],
+      "work_mode_preference": ["remote", "hybrid"],
+      "work_type_preference": ["full"],
       "salary_expectation": {
         "min": 150000,
         "max": 200000
@@ -62,6 +66,7 @@
         "Startups",
         "E-commerce"
       ],
+      "industry_interests": ["Technology", "Startups", "E-commerce"],
       "experience_level": "junior",
       "skills": [
         "JavaScript",
@@ -76,11 +81,13 @@
       "certifications": [
         "AWS Developer Associate"
       ],
+      "certifications": ["AWS Developer Associate"],
       "education": "Bachelor's in Information Technology",
       "preferred_locations": [
         "Austin, TX",
         "Denver, CO"
       ],
+      "preferred_locations": ["Austin, TX", "Denver, CO"],
       "willing_to_relocate": false,
       "work_mode_preference": [
         "remote",
@@ -91,6 +98,8 @@
         "full",
         "contract"
       ],
+      "work_mode_preference": ["remote", "hybrid", "onsite"],
+      "work_type_preference": ["full", "contract"],
       "salary_expectation": {
         "min": 80000,
         "max": 120000
@@ -111,6 +120,7 @@
         "Consumer Tech",
         "Mobile Apps"
       ],
+      "industry_interests": ["Technology", "Consumer Tech", "Mobile Apps"],
       "experience_level": "junior",
       "skills": [
         "Python",
@@ -126,6 +136,7 @@
       "preferred_locations": [
         "Seattle, WA"
       ],
+      "preferred_locations": ["Seattle, WA"],
       "willing_to_relocate": true,
       "work_mode_preference": [
         "hybrid",
@@ -134,9 +145,54 @@
       "work_type_preference": [
         "full"
       ],
+      "work_mode_preference": ["hybrid", "onsite"],
+      "work_type_preference": ["full"],
       "salary_expectation": {
         "min": 100000,
         "max": 140000
+      },
+      "availability_days": 14
+    },
+    {
+      "name": "Vince Nguyen",
+      "email": "vincenguyen2712@gmail.com",
+      "phone": "913-271-8699",
+      "career_goals": [
+        "Work in Security Operations Center (SOC)",
+        "Vulnerability lifecycle management and monitoring",
+        "Protect enterprise infrastructure aligned with NIST"
+      ],
+      "industry_interests": [
+        "Cybersecurity",
+        "Public Sector",
+        "Cloud Infrastructure",
+        "FinTech"
+      ],
+      "experience_level": "junior",
+      "skills": [
+        "Vulnerability Management",
+        "Wireshark",
+        "Nmap",
+        "Kali Linux",
+        "NIST CSF",
+        "Log Analysis",
+        "Python",
+        "SQL",
+        "GVM",
+        "OWASP ZAP",
+        "Incident Response",
+        "Patch Management",
+        "Access Control"
+      ],
+      "certifications": ["Google Cybersecurity Specialization Certificate"],
+      "education": "M.S. in Computer Science (Cybersecurity Specialization)",
+      "preferred_locations": ["Kansas City, MO", "Overland Park, KS", "Remote"],
+      "willing_to_relocate": true,
+      "work_mode_preference": ["remote", "hybrid", "onsite"],
+      "work_type_preference": ["full"],
+      "salary_expectation": {
+        "min": 75000,
+        "max": 95000
       },
       "availability_days": 14
     }

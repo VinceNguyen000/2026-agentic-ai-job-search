@@ -24,6 +24,7 @@
         "AWS",
         "Apache Spark"
       ],
+      "preferred_skills": ["PyTorch", "Kubernetes", "AWS", "Apache Spark"],
       "experience_level_required": "senior",
       "experience_years_required": 5,
       "education_required": "Master's in CS or related field",
@@ -32,6 +33,7 @@
         "San Francisco, CA",
         "Remote"
       ],
+      "locations": ["San Francisco, CA", "Remote"],
       "allows_relocation": true,
       "work_mode": "remote",
       "work_type": "full",
@@ -72,6 +74,8 @@
         "MongoDB",
         "Git"
       ],
+      "required_skills": ["JavaScript", "React", "Node.js", "REST APIs"],
+      "preferred_skills": ["TypeScript", "Docker", "MongoDB", "Git"],
       "experience_level_required": "junior",
       "experience_years_required": 2,
       "education_required": "Bachelor's degree or bootcamp certificate",
@@ -79,6 +83,7 @@
       "locations": [
         "Austin, TX"
       ],
+      "locations": ["Austin, TX"],
       "allows_relocation": true,
       "work_mode": "hybrid",
       "work_type": "full",
@@ -127,6 +132,7 @@
         "Seattle, WA",
         "Remote"
       ],
+      "locations": ["Seattle, WA", "Remote"],
       "allows_relocation": false,
       "work_mode": "hybrid",
       "work_type": "full",
@@ -167,6 +173,8 @@
         "AWS",
         "Excel"
       ],
+      "required_skills": ["SQL", "Data Analysis", "Tableau", "Python"],
+      "preferred_skills": ["Statistics", "Power BI", "AWS", "Excel"],
       "experience_level_required": "junior",
       "experience_years_required": 1,
       "education_required": "Bachelor's degree",
@@ -175,6 +183,7 @@
         "New York, NY",
         "Remote"
       ],
+      "locations": ["New York, NY", "Remote"],
       "allows_relocation": true,
       "work_mode": "remote",
       "work_type": "full",
@@ -215,6 +224,8 @@
         "Jenkins",
         "Prometheus"
       ],
+      "required_skills": ["Docker", "Kubernetes", "AWS", "Linux"],
+      "preferred_skills": ["Terraform", "Python", "Jenkins", "Prometheus"],
       "experience_level_required": "junior",
       "experience_years_required": 2,
       "education_required": "Bachelor's degree or equivalent",
@@ -224,6 +235,8 @@
       "locations": [
         "San Francisco, CA"
       ],
+      "certifications_required": ["AWS Certified Associate"],
+      "locations": ["San Francisco, CA"],
       "allows_relocation": true,
       "work_mode": "hybrid",
       "work_type": "full",
@@ -239,6 +252,57 @@
       ],
       "posted_date": "2026-08-19",
       "application_deadline": "2026-09-26"
+    },
+    {
+      "job_id": "JOB006",
+      "title": "Cybersecurity SOC Analyst (Vulnerability Management)",
+      "company": "Enterprise Cyber Defense Corp",
+      "description": "Monitor enterprise security operations, analyze network traffic with Wireshark, conduct vulnerability scans, and implement NIST CSF security controls. F-1 STEM OPT & H-1B sponsorship supported.",
+      "responsibilities": [
+        "Monitor network traffic and analyze packet captures with Wireshark",
+        "Conduct vulnerability lifecycle management using GVM and Nmap",
+        "Investigate security incidents and analyze log events",
+        "Implement and audit NIST Cybersecurity Framework security controls",
+        "Collaborate on patch management, system hardening, and access control"
+      ],
+      "required_skills": [
+        "Vulnerability Management",
+        "Wireshark",
+        "Log Analysis",
+        "NIST CSF",
+        "Network Traffic Monitoring",
+        "Python"
+      ],
+      "preferred_skills": [
+        "Kali Linux",
+        "Nmap",
+        "GVM",
+        "OWASP ZAP",
+        "Google Cybersecurity Certificate",
+        "SQL"
+      ],
+      "experience_level_required": "junior",
+      "experience_years_required": 1,
+      "education_required": "Bachelor's or Master's in Computer Science or Cybersecurity",
+      "certifications_required": [
+        "Google Cybersecurity Specialization Certificate"
+      ],
+      "locations": ["Kansas City, MO", "Overland Park, KS", "Remote"],
+      "allows_relocation": true,
+      "work_mode": "hybrid",
+      "work_type": "full",
+      "salary": {
+        "min": 78000,
+        "max": 96000
+      },
+      "benefits": [
+        "Health & Dental Insurance",
+        "401k Matching",
+        "Visa Sponsorship (OPT/STEM/H-1B)",
+        "Continuing Education Budget"
+      ],
+      "posted_date": "2026-08-25",
+      "application_deadline": "2026-10-15"
     }
   ]
 }

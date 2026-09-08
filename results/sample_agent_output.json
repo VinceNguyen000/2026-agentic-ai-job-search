@@ -1,66 +1,73 @@
 {
-  "goal": "Help Alice Johnson find the highest-paying machine learning engineering position, evaluate skill fit, draft a customized cover letter, and generate an upskilling roadmap.",
+  "goal": "Compare my resume with this job description. Calculate a weighted match score, retrieve supporting evidence, identify missing qualifications, and explain why the job should be ranked at its current position.",
   "steps_taken": 6,
   "actions": [
     {
       "step": 1,
-      "thought": "I need to inspect Alice Johnson's profile to understand their skills, preferences, and goals.",
+      "thought": "I need to inspect Vince Nguyen's profile to understand their technical skills, education, and career preferences.",
       "tool": "get_seeker_profile",
       "args": {
-        "seeker_name": "Alice Johnson"
+        "seeker_name": "Vince Nguyen"
       },
       "observation": {
-        "name": "Alice Johnson",
-        "email": "alice.johnson@email.com",
-        "phone": "555-0101",
+        "name": "Vince Nguyen",
+        "email": "vincenguyen2712@gmail.com",
+        "phone": "913-271-8699",
         "career_goals": [
-          "Lead a data science team",
-          "Work on AI/ML projects",
-          "Transition to management"
+          "Work in Security Operations Center (SOC)",
+          "Vulnerability lifecycle management and monitoring",
+          "Protect enterprise infrastructure aligned with NIST"
         ],
         "industry_interests": [
-          "Technology",
-          "Finance",
-          "Healthcare"
+          "Cybersecurity",
+          "Public Sector",
+          "Cloud Infrastructure",
+          "FinTech"
         ],
-        "experience_level": "senior",
+        "experience_level": "junior",
         "skills": [
+          "Vulnerability Management",
+          "Wireshark",
+          "Nmap",
+          "Kali Linux",
+          "NIST CSF",
+          "Log Analysis",
           "Python",
-          "Machine Learning",
-          "Data Analysis",
           "SQL",
-          "TensorFlow",
-          "Statistics",
-          "Big Data",
-          "Tableau"
+          "GVM",
+          "OWASP ZAP",
+          "Incident Response",
+          "Patch Management",
+          "Access Control"
         ],
         "certifications": [
-          "AWS Certified ML Specialist",
-          "Google Cloud Professional Data Engineer"
+          "Google Cybersecurity Specialization Certificate"
         ],
-        "education": "Master's in Computer Science",
+        "education": "M.S. in Computer Science (Cybersecurity Specialization)",
         "preferred_locations": [
-          "San Francisco, CA",
-          "New York, NY"
+          "Kansas City, MO",
+          "Overland Park, KS",
+          "Remote"
         ],
         "willing_to_relocate": true,
         "work_mode_preference": [
           "remote",
-          "hybrid"
+          "hybrid",
+          "onsite"
         ],
         "work_type_preference": [
           "full"
         ],
         "salary_expectation": {
-          "min": 150000,
-          "max": 200000
+          "min": 75000,
+          "max": 95000
         },
-        "availability_days": 0
+        "availability_days": 14
       }
     },
     {
       "step": 2,
-      "thought": "I will search all open opportunities in the database and evaluate compatibility for Alice Johnson.",
+      "thought": "I will query all available job opportunities in the database to evaluate fit for Vince Nguyen.",
       "tool": "search_opportunities",
       "args": {},
       "observation": [
@@ -146,274 +153,431 @@
             "AWS",
             "Linux"
           ]
+        },
+        {
+          "job_id": "JOB006",
+          "title": "Cybersecurity SOC Analyst (Vulnerability Management)",
+          "company": "Enterprise Cyber Defense Corp",
+          "work_mode": "hybrid",
+          "locations": [
+            "Kansas City, MO",
+            "Overland Park, KS",
+            "Remote"
+          ],
+          "salary_range": "$78,000 - $96,000",
+          "required_skills": [
+            "Vulnerability Management",
+            "Wireshark",
+            "Log Analysis",
+            "NIST CSF",
+            "Network Traffic Monitoring",
+            "Python"
+          ]
         }
       ]
     },
     {
       "step": 3,
-      "thought": "The top compatible job is Senior Machine Learning Engineer at TechCorp AI (Match: 95.75%). I will evaluate detailed fit and skill gaps.",
+      "thought": "The top compatible opportunity is Cybersecurity SOC Analyst (Vulnerability Management) at Enterprise Cyber Defense Corp (Match Score: 90.25%). I will evaluate detailed fit metrics.",
       "tool": "evaluate_fit",
       "args": {
-        "seeker_name": "Alice Johnson",
-        "job_id": "JOB001"
+        "seeker_name": "Vince Nguyen",
+        "job_id": "JOB006"
       },
       "observation": {
-        "seeker": "Alice Johnson",
+        "seeker": "Vince Nguyen",
         "job": {
-          "id": "JOB001",
-          "title": "Senior Machine Learning Engineer",
-          "company": "TechCorp AI"
+          "id": "JOB006",
+          "title": "Cybersecurity SOC Analyst (Vulnerability Management)",
+          "company": "Enterprise Cyber Defense Corp"
         },
         "match_scores": {
-          "overall": 95.75,
-          "skills": 100.0,
+          "overall": 90.25,
+          "skills": 91.67,
           "experience": 100.0,
           "location": 100.0,
-          "salary": 80.0,
+          "salary": 85.0,
           "work_mode": 100.0,
           "work_type": 100.0,
-          "career_goals": 75.0
+          "career_goals": 0.0
         },
         "skills": {
           "matched": [
-            "Python",
-            "Machine Learning",
-            "TensorFlow",
-            "Big Data"
+            "Vulnerability Management",
+            "Wireshark",
+            "Log Analysis",
+            "NIST CSF",
+            "Python"
           ],
-          "missing": [],
-          "matched_preferred": []
+          "missing": [
+            "Network Traffic Monitoring"
+          ],
+          "matched_preferred": [
+            "Kali Linux",
+            "Nmap",
+            "GVM",
+            "OWASP ZAP",
+            "SQL"
+          ]
         },
         "feedback": {
-          "explanation": "Alice Johnson, you have a 95.75% match with the Senior Machine Learning Engineer position at TechCorp AI. You have strong technical skills alignment with 4 of 4 required skills. Your experience level aligns well with this role's requirements. Location is a perfect match. ",
+          "explanation": "Vince Nguyen, you have a 90.25% match with the Cybersecurity SOC Analyst (Vulnerability Management) position at Enterprise Cyber Defense Corp. You have strong technical skills alignment with 5 of 6 required skills. Your experience level aligns well with this role's requirements. Location is a perfect match. ",
           "recommendation": "Strong fit! We recommend applying for this role immediately."
         }
       }
     },
     {
       "step": 4,
-      "thought": "I will analyze the skill gaps and identify remediation steps for Senior Machine Learning Engineer.",
+      "thought": "I will analyze technical skill gaps for Cybersecurity SOC Analyst (Vulnerability Management) to pinpoint required vs preferred competencies.",
       "tool": "analyze_skill_gaps",
       "args": {
-        "seeker_name": "Alice Johnson",
-        "job_id": "JOB001"
+        "seeker_name": "Vince Nguyen",
+        "job_id": "JOB006"
       },
       "observation": {
-        "seeker": "Alice Johnson",
-        "target_role": "Senior Machine Learning Engineer at TechCorp AI",
+        "seeker": "Vince Nguyen",
+        "target_role": "Cybersecurity SOC Analyst (Vulnerability Management) at Enterprise Cyber Defense Corp",
         "matched_required_skills": [
-          "Python",
-          "Machine Learning",
-          "TensorFlow",
-          "Big Data"
+          "Vulnerability Management",
+          "Wireshark",
+          "Log Analysis",
+          "NIST CSF",
+          "Python"
         ],
-        "missing_required_skills": [],
-        "matched_preferred_skills": [],
-        "skill_match_score": 100.0,
-        "remediation_plan": []
+        "missing_required_skills": [
+          "Network Traffic Monitoring"
+        ],
+        "matched_preferred_skills": [
+          "Kali Linux",
+          "Nmap",
+          "GVM",
+          "OWASP ZAP",
+          "SQL"
+        ],
+        "skill_match_score": 91.67,
+        "remediation_plan": [
+          {
+            "skill": "Network Traffic Monitoring",
+            "priority": "HIGH",
+            "recommended_action": "Complete hands-on project or certification demonstrating Network Traffic Monitoring competency"
+          }
+        ]
       }
     },
     {
       "step": 5,
-      "thought": "I will generate a customized cover letter and elevator pitch specifically tailored to TechCorp AI.",
+      "thought": "I will generate an evidence-backed cover letter and 30-second elevator pitch tailored specifically to Enterprise Cyber Defense Corp.",
       "tool": "draft_tailored_application",
       "args": {
-        "seeker_name": "Alice Johnson",
-        "job_id": "JOB001"
+        "seeker_name": "Vince Nguyen",
+        "job_id": "JOB006"
       },
       "observation": {
-        "cover_letter": "Dear Hiring Team at TechCorp AI,\n\nI am writing to express my enthusiastic interest in the Senior Machine Learning Engineer position (Job ID: JOB001). With my background in Master's in Computer Science and strong experience in Python, Machine Learning, TensorFlow, Big Data, I am confident in my ability to deliver immediate value to your engineering team.\n\nIn reviewing the requirements for the Senior Machine Learning Engineer role, I was particularly excited by your focus on Design and implement machine learning models, Optimize model performance and scalability. My core strengths in Python, Machine Learning, TensorFlow, Big Data directly align with your mission.\n\nI welcome the opportunity to discuss how my technical qualifications and passion can support TechCorp AI's goals. Thank you for your time and consideration.\n\nSincerely,\nAlice Johnson\nalice.johnson@email.com | 555-0101",
-        "elevator_pitch": "Hi, I'm Alice Johnson. I specialize in Python, Machine Learning, TensorFlow, Big Data with senior-level experience. I'm passionate about joining TechCorp AI as a Senior Machine Learning Engineer because my technical toolkit and problem-solving mindset make me an ideal fit to drive results on your team.",
+        "cover_letter": "Dear Hiring Team at Enterprise Cyber Defense Corp,\n\nI am writing to express my enthusiastic interest in the Cybersecurity SOC Analyst (Vulnerability Management) position (Job ID: JOB006). With my background in M.S. in Computer Science (Cybersecurity Specialization) and hands-on expertise in Vulnerability Management, Wireshark, Log Analysis, NIST CSF, Python, I am confident in my ability to deliver immediate value to your security and engineering operations.\n\nIn reviewing the requirements for the Cybersecurity SOC Analyst (Vulnerability Management) role, I was particularly drawn to your focus on Monitor network traffic and analyze packet captures with Wireshark, Conduct vulnerability lifecycle management using GVM and Nmap. My practical experience in Vulnerability Management, Wireshark, Log Analysis, NIST CSF, Python directly aligns with your mission and compliance objectives.\n\nWhile I am actively deepening my operational experience in Network Traffic Monitoring, my proven background in rapid technical adaptation enables me to master new platforms quickly and contribute effectively.\n\nI welcome the opportunity to discuss how my technical skills, research background, and dedication can support Enterprise Cyber Defense Corp's objectives. Thank you for your time and consideration.\n\nSincerely,\nVince Nguyen\nvincenguyen2712@gmail.com | 913-271-8699",
+        "elevator_pitch": "Hi, I'm Vince Nguyen. I specialize in Vulnerability Management, Wireshark, Log Analysis, NIST CSF, Python with graduate-level training in Cybersecurity. I'm excited about joining Enterprise Cyber Defense Corp as a Cybersecurity SOC Analyst (Vulnerability Management) because my technical foundation in vulnerability management, network packet analysis, and system hardening makes me an ideal fit to protect your infrastructure.",
         "top_strengths_to_highlight": [
-          "Python",
-          "Machine Learning",
-          "TensorFlow",
-          "Big Data"
+          "Vulnerability Management",
+          "Wireshark",
+          "Log Analysis",
+          "NIST CSF",
+          "Python"
         ],
-        "potential_concerns_to_address": []
+        "potential_concerns_to_address": [
+          "Network Traffic Monitoring"
+        ]
       }
     },
     {
       "step": 6,
-      "thought": "Finally, I will generate a 6-week upskilling roadmap for Alice Johnson to maximize future job prospects.",
+      "thought": "Finally, I will construct a structured 6-week upskilling roadmap for Vince Nguyen to strengthen their candidacy.",
       "tool": "generate_upskilling_roadmap",
       "args": {
-        "seeker_name": "Alice Johnson"
+        "seeker_name": "Vince Nguyen"
       },
       "observation": {
-        "seeker": "Alice Johnson",
-        "target_focus": "Overall Career Advancement",
+        "seeker": "Vince Nguyen",
+        "target_focus": "Cybersecurity Career Advancement",
         "highest_demand_missing_skills": [
-          "JavaScript",
-          "React",
-          "Node.js",
-          "REST APIs"
+          "Machine Learning",
+          "TensorFlow",
+          "Big Data",
+          "JavaScript"
         ],
         "roadmap": [
           {
-            "phase": "Weeks 1-2: Foundations",
+            "phase": "Weeks 1-2: Foundations & Tool Familiarity",
             "focus_skills": [
-              "JavaScript",
-              "React"
+              "Machine Learning",
+              "TensorFlow"
             ],
-            "objective": "Build core theoretical understanding and complete introductory labs"
+            "objective": "Build core theoretical understanding and complete introductory hands-on security labs"
           },
           {
-            "phase": "Weeks 3-4: Applied Projects",
+            "phase": "Weeks 3-4: Applied Labs & Detection Engineering",
             "focus_skills": [
-              "Node.js",
-              "REST APIs"
+              "Big Data",
+              "JavaScript"
             ],
-            "objective": "Develop portfolio projects integrating new tools with your existing stack"
+            "objective": "Develop detection rules, log correlation playbooks, and incident response projects"
           },
           {
-            "phase": "Weeks 5-6: Certification & Production Deployment",
+            "phase": "Weeks 5-6: Capstone Project & Certification",
             "focus_skills": [
-              "JavaScript",
-              "React",
-              "Node.js",
-              "REST APIs"
+              "Machine Learning",
+              "TensorFlow",
+              "Big Data",
+              "JavaScript"
             ],
-            "objective": "Deploy open-source capstone project, update resume, and complete certification exams"
+            "objective": "Publish security lab report on GitHub, update resume, and complete industry certification exams"
           }
         ]
       }
     }
   ],
-  "final_synthesis": "================================================================================\nAUTONOMOUS JOB SEARCH AGENT REPORT\n================================================================================\nCandidate: Alice Johnson\nGoal: Help Alice Johnson find the highest-paying machine learning engineering position, evaluate skill fit, draft a customized cover letter, and generate an upskilling roadmap.\nExecution: Completed 6 autonomous actions.\n\nTOP RECOMMENDATION:\nPosition: Senior Machine Learning Engineer at TechCorp AI\nOverall Match Score: 95.75%\nSkills Alignment: 100.0%\nRecommendation: Strong fit! We recommend applying for this role immediately.\n\nKEY STRENGTHS:\nPython, Machine Learning, TensorFlow, Big Data\n\nAREAS FOR GROWTH:\nNone identified\n\nAPPLICATION ARTIFACTS GENERATED:\n- Tailored Cover Letter created for TechCorp AI\n- Personalized 30-second Elevator Pitch ready\n- 6-Week Structured Upskilling Roadmap drafted\n================================================================================",
+  "final_synthesis": "================================================================================\nAUTONOMOUS JOB SEARCH AGENT REPORT\n================================================================================\nCandidate: Vince Nguyen\nGoal: Compare my resume with this job description. Calculate a weighted match score, retrieve supporting evidence, identify missing qualifications, and explain why the job should be ranked at its current position.\nExecution: Completed 6 autonomous actions.\n\nTOP RECOMMENDATION:\nPosition: Cybersecurity SOC Analyst (Vulnerability Management) at Enterprise Cyber Defense Corp\nOverall Match Score: 90.25%\nSkills Alignment: 91.67%\nExperience Match: 100.0%\nLocation Match: 100.0%\nRecommendation: Strong fit! We recommend applying for this role immediately.\n\nKEY STRENGTHS:\nVulnerability Management, Wireshark, Log Analysis, NIST CSF, Python\n\nAREAS FOR GROWTH:\nNetwork Traffic Monitoring\n\nAPPLICATION ARTIFACTS GENERATED:\n- Tailored Cover Letter generated for Enterprise Cyber Defense Corp\n- 30-Second Elevator Pitch formulated\n- 6-Week Structured Upskilling Roadmap drafted\n================================================================================",
   "artifacts": {
     "tailored_application": {
-      "cover_letter": "Dear Hiring Team at TechCorp AI,\n\nI am writing to express my enthusiastic interest in the Senior Machine Learning Engineer position (Job ID: JOB001). With my background in Master's in Computer Science and strong experience in Python, Machine Learning, TensorFlow, Big Data, I am confident in my ability to deliver immediate value to your engineering team.\n\nIn reviewing the requirements for the Senior Machine Learning Engineer role, I was particularly excited by your focus on Design and implement machine learning models, Optimize model performance and scalability. My core strengths in Python, Machine Learning, TensorFlow, Big Data directly align with your mission.\n\nI welcome the opportunity to discuss how my technical qualifications and passion can support TechCorp AI's goals. Thank you for your time and consideration.\n\nSincerely,\nAlice Johnson\nalice.johnson@email.com | 555-0101",
-      "elevator_pitch": "Hi, I'm Alice Johnson. I specialize in Python, Machine Learning, TensorFlow, Big Data with senior-level experience. I'm passionate about joining TechCorp AI as a Senior Machine Learning Engineer because my technical toolkit and problem-solving mindset make me an ideal fit to drive results on your team.",
+      "cover_letter": "Dear Hiring Team at Enterprise Cyber Defense Corp,\n\nI am writing to express my enthusiastic interest in the Cybersecurity SOC Analyst (Vulnerability Management) position (Job ID: JOB006). With my background in M.S. in Computer Science (Cybersecurity Specialization) and hands-on expertise in Vulnerability Management, Wireshark, Log Analysis, NIST CSF, Python, I am confident in my ability to deliver immediate value to your security and engineering operations.\n\nIn reviewing the requirements for the Cybersecurity SOC Analyst (Vulnerability Management) role, I was particularly drawn to your focus on Monitor network traffic and analyze packet captures with Wireshark, Conduct vulnerability lifecycle management using GVM and Nmap. My practical experience in Vulnerability Management, Wireshark, Log Analysis, NIST CSF, Python directly aligns with your mission and compliance objectives.\n\nWhile I am actively deepening my operational experience in Network Traffic Monitoring, my proven background in rapid technical adaptation enables me to master new platforms quickly and contribute effectively.\n\nI welcome the opportunity to discuss how my technical skills, research background, and dedication can support Enterprise Cyber Defense Corp's objectives. Thank you for your time and consideration.\n\nSincerely,\nVince Nguyen\nvincenguyen2712@gmail.com | 913-271-8699",
+      "elevator_pitch": "Hi, I'm Vince Nguyen. I specialize in Vulnerability Management, Wireshark, Log Analysis, NIST CSF, Python with graduate-level training in Cybersecurity. I'm excited about joining Enterprise Cyber Defense Corp as a Cybersecurity SOC Analyst (Vulnerability Management) because my technical foundation in vulnerability management, network packet analysis, and system hardening makes me an ideal fit to protect your infrastructure.",
       "top_strengths_to_highlight": [
-        "Python",
-        "Machine Learning",
-        "TensorFlow",
-        "Big Data"
+        "Vulnerability Management",
+        "Wireshark",
+        "Log Analysis",
+        "NIST CSF",
+        "Python"
       ],
-      "potential_concerns_to_address": []
+      "potential_concerns_to_address": [
+        "Network Traffic Monitoring"
+      ]
     },
     "upskilling_roadmap": {
-      "seeker": "Alice Johnson",
-      "target_focus": "Overall Career Advancement",
+      "seeker": "Vince Nguyen",
+      "target_focus": "Cybersecurity Career Advancement",
       "highest_demand_missing_skills": [
-        "JavaScript",
-        "React",
-        "Node.js",
-        "REST APIs"
+        "Machine Learning",
+        "TensorFlow",
+        "Big Data",
+        "JavaScript"
       ],
       "roadmap": [
         {
-          "phase": "Weeks 1-2: Foundations",
+          "phase": "Weeks 1-2: Foundations & Tool Familiarity",
           "focus_skills": [
-            "JavaScript",
-            "React"
+            "Machine Learning",
+            "TensorFlow"
           ],
-          "objective": "Build core theoretical understanding and complete introductory labs"
+          "objective": "Build core theoretical understanding and complete introductory hands-on security labs"
         },
         {
-          "phase": "Weeks 3-4: Applied Projects",
+          "phase": "Weeks 3-4: Applied Labs & Detection Engineering",
           "focus_skills": [
-            "Node.js",
-            "REST APIs"
+            "Big Data",
+            "JavaScript"
           ],
-          "objective": "Develop portfolio projects integrating new tools with your existing stack"
+          "objective": "Develop detection rules, log correlation playbooks, and incident response projects"
         },
         {
-          "phase": "Weeks 5-6: Certification & Production Deployment",
+          "phase": "Weeks 5-6: Capstone Project & Certification",
           "focus_skills": [
-            "JavaScript",
-            "React",
-            "Node.js",
-            "REST APIs"
+            "Machine Learning",
+            "TensorFlow",
+            "Big Data",
+            "JavaScript"
           ],
-          "objective": "Deploy open-source capstone project, update resume, and complete certification exams"
+          "objective": "Publish security lab report on GitHub, update resume, and complete industry certification exams"
         }
       ]
     },
     "ranked_matches": [
       {
-        "seeker": "Alice Johnson",
+        "seeker": "Vince Nguyen",
         "job": {
-          "id": "JOB001",
-          "title": "Senior Machine Learning Engineer",
-          "company": "TechCorp AI"
+          "id": "JOB006",
+          "title": "Cybersecurity SOC Analyst (Vulnerability Management)",
+          "company": "Enterprise Cyber Defense Corp"
         },
         "match_scores": {
-          "overall": 95.75,
-          "skills": 100.0,
+          "overall": 90.25,
+          "skills": 91.67,
           "experience": 100.0,
           "location": 100.0,
-          "salary": 80.0,
+          "salary": 85.0,
           "work_mode": 100.0,
           "work_type": 100.0,
-          "career_goals": 75.0
+          "career_goals": 0.0
         },
         "skills": {
           "matched": [
-            "Python",
-            "Machine Learning",
-            "TensorFlow",
-            "Big Data"
+            "Vulnerability Management",
+            "Wireshark",
+            "Log Analysis",
+            "NIST CSF",
+            "Python"
           ],
-          "missing": [],
-          "matched_preferred": []
+          "missing": [
+            "Network Traffic Monitoring"
+          ],
+          "matched_preferred": [
+            "Kali Linux",
+            "Nmap",
+            "GVM",
+            "OWASP ZAP",
+            "SQL"
+          ]
         },
         "feedback": {
-          "explanation": "Alice Johnson, you have a 95.75% match with the Senior Machine Learning Engineer position at TechCorp AI. You have strong technical skills alignment with 4 of 4 required skills. Your experience level aligns well with this role's requirements. Location is a perfect match. ",
+          "explanation": "Vince Nguyen, you have a 90.25% match with the Cybersecurity SOC Analyst (Vulnerability Management) position at Enterprise Cyber Defense Corp. You have strong technical skills alignment with 5 of 6 required skills. Your experience level aligns well with this role's requirements. Location is a perfect match. ",
           "recommendation": "Strong fit! We recommend applying for this role immediately."
         }
       },
       {
-        "seeker": "Alice Johnson",
+        "seeker": "Vince Nguyen",
         "job": {
           "id": "JOB004",
           "title": "Data Analyst",
           "company": "Financial Analytics Inc"
         },
         "match_scores": {
-          "overall": 80.42,
-          "skills": 100.0,
+          "overall": 80.0,
+          "skills": 50.0,
+          "experience": 100.0,
+          "location": 100.0,
+          "salary": 100.0,
+          "work_mode": 100.0,
+          "work_type": 100.0,
+          "career_goals": 0.0
+        },
+        "skills": {
+          "matched": [
+            "SQL",
+            "Python"
+          ],
+          "missing": [
+            "Data Analysis",
+            "Tableau"
+          ],
+          "matched_preferred": []
+        },
+        "feedback": {
+          "explanation": "Vince Nguyen, you have a 80.0% match with the Data Analyst position at Financial Analytics Inc. You have partial skills alignment, matching 2 required skills but missing 2. Your experience level aligns well with this role's requirements. Location is a perfect match. ",
+          "recommendation": "Good fit! Consider applying. To strengthen your candidacy, consider developing: Data Analysis, Tableau."
+        }
+      },
+      {
+        "seeker": "Vince Nguyen",
+        "job": {
+          "id": "JOB002",
+          "title": "Full Stack JavaScript Developer",
+          "company": "StartUp Innovations"
+        },
+        "match_scores": {
+          "overall": 50.75,
+          "skills": 0.0,
+          "experience": 100.0,
+          "location": 80.0,
+          "salary": 25.0,
+          "work_mode": 100.0,
+          "work_type": 100.0,
+          "career_goals": 0.0
+        },
+        "skills": {
+          "matched": [],
+          "missing": [
+            "JavaScript",
+            "React",
+            "Node.js",
+            "REST APIs"
+          ],
+          "matched_preferred": []
+        },
+        "feedback": {
+          "explanation": "Vince Nguyen, you have a 50.75% match with the Full Stack JavaScript Developer position at StartUp Innovations. Your skills partially align with this role. You match 0 required skills but need to develop 4 additional skills. Your experience level aligns well with this role's requirements. Relocation may be required or considered. ",
+          "recommendation": "Moderate fit. This role could help advance your career, but you may need to develop some skills first: JavaScript, React, Node.js."
+        }
+      },
+      {
+        "seeker": "Vince Nguyen",
+        "job": {
+          "id": "JOB003",
+          "title": "Product Manager - Consumer Apps",
+          "company": "MobileFirst Corp"
+        },
+        "match_scores": {
+          "overall": 50.75,
+          "skills": 2.5,
           "experience": 100.0,
           "location": 100.0,
           "salary": 0.0,
           "work_mode": 100.0,
           "work_type": 100.0,
-          "career_goals": 8.33
+          "career_goals": 0.0
         },
         "skills": {
-          "matched": [
-            "SQL",
-            "Data Analysis",
-            "Tableau",
-            "Python"
+          "matched": [],
+          "missing": [
+            "Product Management",
+            "User Research",
+            "Analytics",
+            "Agile"
           ],
-          "missing": [],
           "matched_preferred": [
-            "Statistics"
+            "SQL"
           ]
         },
         "feedback": {
-          "explanation": "Alice Johnson, you have a 80.42% match with the Data Analyst position at Financial Analytics Inc. You have strong technical skills alignment with 4 of 4 required skills. Your experience level aligns well with this role's requirements. Location is a perfect match. ",
-          "recommendation": "Good fit! Consider applying. To strengthen your candidacy, consider developing: your experience."
+          "explanation": "Vince Nguyen, you have a 50.75% match with the Product Manager - Consumer Apps position at MobileFirst Corp. Your skills partially align with this role. You match 0 required skills but need to develop 4 additional skills. Your experience level aligns well with this role's requirements. Location is a perfect match. ",
+          "recommendation": "Moderate fit. This role could help advance your career, but you may need to develop some skills first: Product Management, User Research, Analytics."
         }
       },
       {
-        "seeker": "Alice Johnson",
+        "seeker": "Vince Nguyen",
+        "job": {
+          "id": "JOB001",
+          "title": "Senior Machine Learning Engineer",
+          "company": "TechCorp AI"
+        },
+        "match_scores": {
+          "overall": 49.17,
+          "skills": 25.0,
+          "experience": 66.67,
+          "location": 100.0,
+          "salary": 0.0,
+          "work_mode": 100.0,
+          "work_type": 100.0,
+          "career_goals": 0.0
+        },
+        "skills": {
+          "matched": [
+            "Python"
+          ],
+          "missing": [
+            "Machine Learning",
+            "TensorFlow",
+            "Big Data"
+          ],
+          "matched_preferred": []
+        },
+        "feedback": {
+          "explanation": "Vince Nguyen, you have a 49.166666666666664% match with the Senior Machine Learning Engineer position at TechCorp AI. Your skills partially align with this role. You match 1 required skills but need to develop 3 additional skills. Your experience level is somewhat junior compared to this role's requirements. Location is a perfect match. ",
+          "recommendation": "Not a strong match. Consider exploring roles more aligned with your current skills and experience."
+        }
+      },
+      {
+        "seeker": "Vince Nguyen",
         "job": {
           "id": "JOB005",
           "title": "DevOps Engineer",
           "company": "CloudScale Systems"
         },
         "match_scores": {
-          "overall": 55.0,
+          "overall": 47.75,
           "skills": 2.5,
           "experience": 100.0,
-          "location": 100.0,
-          "salary": 20.0,
+          "location": 80.0,
+          "salary": 0.0,
           "work_mode": 100.0,
           "work_type": 100.0,
-          "career_goals": 25.0
+          "career_goals": 0.0
         },
         "skills": {
           "matched": [],
@@ -428,74 +592,7 @@
           ]
         },
         "feedback": {
-          "explanation": "Alice Johnson, you have a 55.0% match with the DevOps Engineer position at CloudScale Systems. Your skills partially align with this role. You match 0 required skills but need to develop 4 additional skills. Your experience level aligns well with this role's requirements. Location is a perfect match. ",
-          "recommendation": "Moderate fit. This role could help advance your career, but you may need to develop some skills first: Docker, Kubernetes, AWS."
-        }
-      },
-      {
-        "seeker": "Alice Johnson",
-        "job": {
-          "id": "JOB002",
-          "title": "Full Stack JavaScript Developer",
-          "company": "StartUp Innovations"
-        },
-        "match_scores": {
-          "overall": 47.83,
-          "skills": 0.0,
-          "experience": 100.0,
-          "location": 80.0,
-          "salary": 0.0,
-          "work_mode": 100.0,
-          "work_type": 100.0,
-          "career_goals": 16.67
-        },
-        "skills": {
-          "matched": [],
-          "missing": [
-            "JavaScript",
-            "React",
-            "Node.js",
-            "REST APIs"
-          ],
-          "matched_preferred": []
-        },
-        "feedback": {
-          "explanation": "Alice Johnson, you have a 47.83% match with the Full Stack JavaScript Developer position at StartUp Innovations. Your skills partially align with this role. You match 0 required skills but need to develop 4 additional skills. Your experience level aligns well with this role's requirements. Relocation may be required or considered. ",
-          "recommendation": "Not a strong match. Consider exploring roles more aligned with your current skills and experience."
-        }
-      },
-      {
-        "seeker": "Alice Johnson",
-        "job": {
-          "id": "JOB003",
-          "title": "Product Manager - Consumer Apps",
-          "company": "MobileFirst Corp"
-        },
-        "match_scores": {
-          "overall": 38.17,
-          "skills": 5.0,
-          "experience": 100.0,
-          "location": 0.0,
-          "salary": 0.0,
-          "work_mode": 100.0,
-          "work_type": 100.0,
-          "career_goals": 33.33
-        },
-        "skills": {
-          "matched": [],
-          "missing": [
-            "Product Management",
-            "User Research",
-            "Analytics",
-            "Agile"
-          ],
-          "matched_preferred": [
-            "SQL",
-            "Data Analysis"
-          ]
-        },
-        "feedback": {
-          "explanation": "Alice Johnson, you have a 38.17% match with the Product Manager - Consumer Apps position at MobileFirst Corp. Your skills partially align with this role. You match 0 required skills but need to develop 4 additional skills. Your experience level aligns well with this role's requirements. Location does not match your preferences. ",
+          "explanation": "Vince Nguyen, you have a 47.75% match with the DevOps Engineer position at CloudScale Systems. Your skills partially align with this role. You match 0 required skills but need to develop 4 additional skills. Your experience level aligns well with this role's requirements. Relocation may be required or considered. ",
           "recommendation": "Not a strong match. Consider exploring roles more aligned with your current skills and experience."
         }
       }

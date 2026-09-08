@@ -1,0 +1,303 @@
+[
+  {
+    "chunk_id": "chunk_edu_01",
+    "chunk_id": "chunk_edu_01_ms",
+    "category": "education",
+    "title": "M.S. in Computer Science (Cybersecurity Specialization) - UMKC",
+    "text": "Currently pursuing a Master of Science in Computer Science with a specialization in Cybersecurity at the University of Missouri–Kansas City (UMKC), expecting graduation in May 2026. Core advanced coursework includes Software Security, Information Security, Computer Networking, Cloud Computing, and Blockchain Systems.",
+    "title": "Master of Science in Computer Science (Cybersecurity) - UMKC",
+    "text": "Vince Nguyen is currently pursuing a Master of Science in Computer Science with a formal specialization in Cybersecurity at the University of Missouri–Kansas City (UMKC), expecting graduation in May 2026. His advanced graduate coursework focuses on Software Security, Information Security, Computer Networking Protocols, Cloud Computing Architecture, and Blockchain Systems.",
+    "metadata": {
+      "entity_type": "education",
+      "degree": "Master of Science",
+      "major": "Computer Science",
+      "specialization": "Cybersecurity",
+      "institution": "University of Missouri-Kansas City",
+      "completion_year": 2026,
+      "location": "Kansas City, MO",
+      "graduation_date": "May 2026",
+      "coursework": [
+        "Software Security",
+        "Information Security",
+        "Networking",
+        "Computer Networking",
+        "Cloud Computing",
+        "Blockchain"
+      ]
+      ],
+      "domain": ["Cybersecurity", "Computer Science"]
+    }
+  },
+  {
+    "chunk_id": "chunk_edu_02",
+    "chunk_id": "chunk_edu_02_bs",
+    "category": "education",
+    "title": "B.S. in Computer Science (Minor in Mathematics) - UMKC",
+    "text": "Completed Bachelor of Science in Computer Science with a Minor in Mathematics at University of Missouri–Kansas City (UMKC) in June 2023 with a 3.7 GPA. Developed foundational competencies in algorithms, discrete mathematics, relational databases, operating systems, and computer architecture.",
+    "title": "Bachelor of Science in Computer Science & Mathematics - UMKC",
+    "text": "Vince Nguyen graduated with a Bachelor of Science in Computer Science and a Minor in Mathematics from the University of Missouri–Kansas City (UMKC) in June 2023 with a 3.7 GPA. He built rigorous mathematical and algorithmic foundations, covering relational database systems, operating systems, data structures, discrete mathematics, and computer architecture.",
+    "metadata": {
+      "entity_type": "education",
+      "degree": "Bachelor of Science",
+      "major": "Computer Science",
+      "minor": "Mathematics",
+      "gpa": 3.7,
+      "institution": "University of Missouri-Kansas City",
+      "completion_year": 2023
+      "graduation_date": "June 2023",
+      "domain": ["Computer Science", "Mathematics"]
+    }
+  },
+  {
+    "chunk_id": "chunk_exp_01",
+    "chunk_id": "chunk_exp_01_ble_research",
+    "category": "research_experience",
+    "title": "Cybersecurity Research Assistant - IoT & BLE Security (UMKC)",
+    "text": "Conducted in-depth vulnerability analysis on wireless IoT asset tags utilizing Bluetooth Low Energy (BLE) protocols. Captured and inspected network traffic using Wireshark to identify authentication weaknesses and replay attack risks. Classified discovered vulnerabilities based on severity and potential operational impact, documented remediation strategies, and analyzed exploit behavior patterns.",
+    "title": "Cybersecurity Research Assistant - IoT & BLE Wireless Protocol Security",
+    "text": "As a Cybersecurity Research Assistant at UMKC, Vince conducts vulnerability assessments on commercial IoT wireless asset tags running Bluetooth Low Energy (BLE) protocols. He captures and inspects wireless network traffic using Wireshark to expose authentication weaknesses and replay attack risks. He classifies vulnerabilities based on CVSS severity and potential operational impact, models exploit behavior patterns, and formulates technical remediation documentation.",
+    "metadata": {
+      "entity_type": "research_experience",
+      "role": "Cybersecurity Research Assistant",
+      "organization": "UMKC",
+      "domain": "IoT Security / Wireless Protocol Analysis",
+      "institution": "University of Missouri-Kansas City",
+      "domain": "IoT Security & Wireless Protocol Analysis",
+      "skills": [
+        "BLE Protocols",
+        "Wireshark",
+        "Network Traffic Monitoring",
+        "Vulnerability Analysis",
+        "Replay Attacks",
+        "Severity Classification"
+        "Vulnerability Management",
+        "Replay Attack Analysis",
+        "Network Traffic Inspection",
+        "Packet Analysis",
+        "Risk Classification",
+        "Exploit Behavior Modeling"
+      ],
+      "timeframe": "Current"
+      "tools": ["Wireshark", "BLE Protocols", "Linux Utilities", "Python"],
+      "timeframe": "Current (2024 - Present)"
+    }
+  },
+  {
+    "chunk_id": "chunk_exp_02",
+    "chunk_id": "chunk_exp_02_heartland_mac",
+    "category": "work_experience",
+    "title": "Web Development Intern - Heartland Mac",
+    "text": "Supported secure cloud infrastructure operations and assisted with patch management workflows at Heartland Mac in Kansas City. Reviewed system configurations to mitigate misconfiguration risks and attack surface exposure. Assisted in access control validation (IAM) and system hardening efforts. Coordinated remediation actions and maintained technical compliance documentation aligned with security policies.",
+    "title": "Web Development & Cloud Infrastructure Intern - Heartland Mac",
+    "text": "During his internship at Heartland Mac in Kansas City, MO, Vince supported secure cloud infrastructure operations and patch management workflows. He audited system configurations to identify and remediate misconfiguration risks, assisted in role-based access control (IAM) validation, performed system hardening, and maintained compliance documentation aligned with internal security policy baselines.",
+    "metadata": {
+      "entity_type": "work_experience",
+      "role": "Web Development Intern",
+      "company": "Heartland Mac",
+      "location": "Kansas City, MO",
+      "domain": "Cloud Infrastructure & Systems Security",
+      "skills": [
+        "Cloud Infrastructure",
+        "Cloud Infrastructure Security",
+        "Patch Management",
+        "Access Control",
+        "Access Control Validation (IAM)",
+        "System Hardening",
+        "Misconfiguration Auditing",
+        "Compliance Documentation"
+      ],
+      "duration": "July 2023 - March 2024"
+      "tools": ["Cloud Platforms", "Linux", "IAM", "Git"],
+      "timeframe": "July 2023 - March 2024"
+    }
+  },
+  {
+    "chunk_id": "chunk_proj_01",
+    "chunk_id": "chunk_proj_01_appsec_flask",
+    "category": "technical_project",
+    "title": "Secure Web Application with Vulnerability Assessment",
+    "text": "Engineered a hardened web application in Python and Flask designed to filter malicious traffic and prevent SQL injection (SQLi) and Cross-Site Scripting (XSS) attacks. Executed structured automated and manual vulnerability assessments using Kali Linux, Nmap, SQLMap, and GVM (Greenbone). Documented remediation protocols strictly following OWASP Top 10 guidelines to minimize the application attack surface.",
+    "title": "Secure Web Application with Vulnerability Assessment (AppSec & PenTesting)",
+    "text": "Engineered a hardened web application using Python and Flask that implements defensive input validation and request filtering to block SQL injection (SQLi) and Cross-Site Scripting (XSS) attacks. Executed structured automated and manual vulnerability scans using Kali Linux, Nmap for port/service discovery, SQLMap for database exploitation testing, and GVM (Greenbone Vulnerability Manager) for CVE auditing. Documented complete remediation patches adhering strictly to OWASP Top 10 standards.",
+    "metadata": {
+      "entity_type": "technical_project",
+      "project_name": "Secure Web Application with Vulnerability Assessment",
+      "technologies": [
+        "Python",
+        "Flask",
+        "Kali Linux",
+        "GVM",
+        "Metasploit",
+        "Nmap",
+        "SQLMap",
+        "OWASP ZAP"
+      "domain": "Application Security (AppSec) & Penetration Testing",
+      "skills": [
+        "Vulnerability Scanning",
+        "Penetration Testing",
+        "SQL Injection Prevention",
+        "XSS Mitigation",
+        "OWASP Top 10 Compliance",
+        "Security Remediation"
+      ],
+      "domain": "Application Security / Penetration Testing",
+      "technologies": ["Python", "Flask", "Kali Linux", "GVM", "Nmap", "SQLMap", "OWASP ZAP", "Metasploit"],
+      "github_profile": "https://github.com/VinceNguyen000"
+    }
+  },
+  {
+    "chunk_id": "chunk_proj_02",
+    "chunk_id": "chunk_proj_02_agentic_job_search",
+    "category": "technical_project",
+    "title": "Agentic AI Job Search System",
+    "text": "Developed an autonomous multi-agent job search and candidate matching system in Python. Built an autonomous JobSearchAgent with 6 tools for profile extraction, dynamic opportunity retrieval, 7-factor weighted scoring, skill gap prioritization, tailored cover letter synthesis, and 6-week upskilling roadmap generation. Verified with a 17-test zero-dependency automated testing suite.",
+    "title": "Autonomous Agentic AI Job Search & Candidate Matching System",
+    "text": "Designed and built an autonomous multi-agent AI job search platform in Python using Antigravity. Implemented a tool-calling JobSearchAgent capable of candidate profile extraction, dynamic opportunity retrieval, 7-factor weighted multi-criteria matching (Skills, Experience, Location, Salary, Work Mode, Work Type, Career Goals), skill gap diagnosis, tailored cover letter synthesis, and 6-week upskilling roadmap generation. Built a 17-test zero-dependency automated unit testing suite with 100% pass rate.",
+    "metadata": {
+      "entity_type": "technical_project",
+      "project_name": "2026-agentic-ai-job-search",
+      "technologies": [
+        "Python",
+        "Antigravity",
+        "Unit Testing",
+        "Information Retrieval",
+        "Multi-Agent Systems"
+      "domain": "Agentic AI & Information Retrieval",
+      "skills": [
+        "Autonomous Agent Architecture",
+        "Tool Calling",
+        "Multi-Criteria Optimization",
+        "Automated Unit Testing",
+        "RAG Retrieval Pipelines"
+      ],
+      "domain": "Agentic AI / Recommendation Systems",
+      "technologies": ["Python", "Antigravity", "UnitTest", "Git", "JSON"],
+      "github_url": "https://github.com/VinceNguyen000/2026-agentic-ai-job-search"
+    }
+  },
+  {
+    "chunk_id": "chunk_proj_03",
+    "chunk_id": "chunk_proj_03_blog_rbac",
+    "category": "technical_project",
+    "title": "Personal Blog Platform with RBAC",
+    "text": "Architected a full-stack content management and blogging web platform using Laravel, PHP, MySQL, and Tailwind CSS. Designed normalized relational database schemas, implemented secure session-based authentication and role-based authorization (RBAC), and integrated Mailchimp REST APIs for automated subscriber notifications.",
+    "title": "Full-Stack Content Platform with Role-Based Access Control (RBAC)",
+    "text": "Architected a full-stack personal blogging and content platform utilizing PHP, Laravel, MySQL, and Tailwind CSS. Designed a normalized relational database schema with indexing on tags and categories. Implemented secure user authentication, password hashing, and role-based access control (RBAC) protocols, while integrating Mailchimp REST APIs for automated subscriber email notifications.",
+    "metadata": {
+      "entity_type": "technical_project",
+      "project_name": "Personal Blog Platform",
+      "technologies": [
+        "PHP",
+        "Laravel",
+        "MySQL",
+        "Tailwind CSS",
+        "XAMPP",
+        "Git",
+        "Mailchimp API"
+      "domain": "Full-Stack Engineering & Identity Management",
+      "skills": [
+        "Database Architecture",
+        "Authentication & Authorization (RBAC)",
+        "API Integration",
+        "Relational Schema Design"
+      ],
+      "domain": "Full-Stack Development / Secure Web Applications"
+      "technologies": ["PHP", "Laravel", "MySQL", "Tailwind CSS", "XAMPP", "Git", "Mailchimp API"]
+    }
+  },
+  {
+    "chunk_id": "chunk_cert_01",
+    "category": "certification_leadership",
+    "title": "Google Cybersecurity Specialization & Club Leadership",
+    "text": "Earned the professional Google Cybersecurity Specialization Certificate (June 2024), covering asset protection, security models, Linux CLI, SQL queries, network protocols, Python for automation, and incident handling. Served as Officer of the UMKC Cybersecurity Club (2024), organizing technical workshops, CTF challenges, and collaborative security labs.",
+    "chunk_id": "chunk_cert_01_google_cyber",
+    "category": "certification",
+    "title": "Google Cybersecurity Specialization Professional Certificate",
+    "text": "Earned the Google Cybersecurity Specialization Certificate in June 2024 through Coursera. Demonstrated competencies in identifying common cybersecurity threats, risks, and vulnerabilities, utilizing Linux command-line utilities, executing SQL queries for security investigations, configuring network defense architecture, utilizing Python for automated security tasks, and executing incident response playbooks.",
+    "metadata": {
+      "certifications": [
+        "Google Cybersecurity Specialization Certificate (Google / Coursera - June 2024)"
+      ],
+      "leadership": ["Officer, UMKC Cybersecurity Club (2024)"],
+      "domains": [
+        "Incident Response",
+        "Linux",
+        "SQL",
+        "Network Security",
+        "Security Operations"
+      "entity_type": "certification",
+      "certificate_name": "Google Cybersecurity Specialization Certificate",
+      "issuer": "Google / Coursera",
+      "issue_date": "June 2024",
+      "skills": [
+        "Security Operations",
+        "Linux CLI",
+        "SQL Querying for Security",
+        "Python Automation",
+        "Incident Handling",
+        "Network Defense"
+      ]
+    }
+  },
+  {
+    "chunk_id": "chunk_lead_01_cyber_club",
+    "category": "leadership_extracurricular",
+    "title": "Officer - UMKC Cybersecurity Club",
+    "text": "Served as Officer of the UMKC Cybersecurity Club in 2024. Coordinated and led hands-on technical workshops covering penetration testing, network traffic packet analysis with Wireshark, Capture The Flag (CTF) challenges, and threat defense labs for undergraduate and graduate computer science students.",
+    "metadata": {
+      "entity_type": "leadership",
+      "role": "Officer",
+      "organization": "UMKC Cybersecurity Club",
+      "institution": "University of Missouri-Kansas City",
+      "year": 2024,
+      "skills": [
+        "Technical Workshop Leadership",
+        "CTF Organizing",
+        "Hands-on Lab Instruction",
+        "Cybersecurity Community Building"
+      ]
+    }
+  },
+  {
+    "chunk_id": "chunk_skills_01_security_ops",
+    "category": "skills_taxonomy",
+    "title": "Core Cybersecurity & Security Operations Skills Taxonomy",
+    "text": "Vince possesses specialized skills in vulnerability lifecycle management, incident response fundamentals, security monitoring, log analysis, network packet monitoring using Wireshark, risk classification, system hardening, access control (IAM), and compliance tracking aligned with the NIST Cybersecurity Framework (NIST CSF). Familiar with security tools: Wireshark, Kali Linux, Nmap, Metasploit, OWASP ZAP, SQLMap, and GVM.",
+    "metadata": {
+      "entity_type": "skills_taxonomy",
+      "core_competencies": [
+        "Vulnerability Lifecycle Management",
+        "Incident Response Lifecycle",
+        "Log Analysis & Traffic Monitoring",
+        "Risk Classification & Remediation",
+        "NIST Cybersecurity Framework (NIST CSF)",
+        "Access Control & System Hardening"
+      ],
+      "security_tools": ["Wireshark", "Kali Linux", "Nmap", "Metasploit", "OWASP ZAP", "SQLMap", "GVM"],
+      "programming_languages": ["Python", "SQL", "JavaScript", "PHP"],
+      "frameworks": ["Flask", "Laravel", "Tailwind CSS"]
+    }
+  },
+  {
+    "chunk_id": "chunk_prefs_01_career_criteria",
+    "category": "career_preferences",
+    "title": "Target Career Roles, Compensation Floor, and Geographic Preferences",
+    "text": "Vince is seeking full-time junior-to-mid level roles in cybersecurity, primarily: Security Operations Center (SOC) Analyst, Cybersecurity Analyst, Vulnerability Management Specialist, and Cloud Security Engineer. He is based in Kansas City, MO, prefers Remote, Hybrid, or Onsite arrangements, and is actively open to nationwide relocation. His compensation target is $75,000 to $95,000 USD with a hard minimum salary floor of $70,000 USD.",
+    "metadata": {
+      "entity_type": "preferences",
+      "target_roles": [
+        "SOC Analyst",
+        "Cybersecurity Analyst",
+        "Vulnerability Management Specialist",
+        "Information Security Analyst",
+        "Cloud Security Engineer"
+      ],
+      "primary_location": "Kansas City, MO",
+      "work_modes": ["remote", "hybrid", "onsite"],
+      "willing_to_relocate": true,
+      "salary_range_usd": {"min": 75000, "target": 95000, "hard_floor": 70000},
+      "availability_notice_days": 14,
+      "us_work_authorization": true
+    }
+  }
+]
