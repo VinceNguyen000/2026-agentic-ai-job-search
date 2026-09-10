@@ -24,69 +24,43 @@ from src.models import (
 from src.matcher import JobMatcher
 from src.agent import JobSearchAgent
 from src.utils import format_match_report
+from src.analytics import (
+    create_visualization,
+    evaluate_hybrid_retrieval,
+    evaluate_recommendations,
+    save_json,
+    summarize_dataset,
+)
+from src.data_pipeline import load_dataset
 
 
 def load_example_data():
-    """Load example seekers and opportunities."""
-    
-    # Load from JSON files
-    """Load example seekers and opportunities from JSON files."""
-    with open('examples/seekers.json', 'r') as f:
-        seekers_data = json.load(f)
-    
-    with open('examples/opportunities.json', 'r') as f:
-        opportunities_data = json.load(f)
-    
-    # Convert to model objects
-    seekers = []
-    for seeker_dict in seekers_data['seekers']:
-        seeker = Seeker(
-            name=seeker_dict['name'],
-            email=seeker_dict.get('email'),
-            phone=seeker_dict.get('phone'),
-            career_goals=seeker_dict.get('career_goals', []),
-            industry_interests=seeker_dict.get('industry_interests', []),
-            experience_level=ExperienceLevel(seeker_dict['experience_level']),
-            skills=seeker_dict.get('skills', []),
-            certifications=seeker_dict.get('certifications', []),
-            education=seeker_dict.get('education', ''),
-            preferred_locations=seeker_dict.get('preferred_locations', []),
-            willing_to_relocate=seeker_dict.get('willing_to_relocate', False),
-            work_mode_preference=[WorkMode(m) for m in seeker_dict.get('work_mode_preference', [])],
-            work_type_preference=[WorkType(t) for t in seeker_dict.get('work_type_preference', [])],
-            salary_expectation_min=seeker_dict.get('salary_expectation', {}).get('min'),
-            salary_expectation_max=seeker_dict.get('salary_expectation', {}).get('max'),
-            availability_days=seeker_dict.get('availability_days')
-        )
-        seekers.append(seeker)
-    
-    opportunities = []
-    for job_dict in opportunities_data['opportunities']:
-        opportunity = Opportunity(
-            job_id=job_dict['job_id'],
-            title=job_dict['title'],
-            company=job_dict['company'],
-            description=job_dict.get('description'),
-            responsibilities=job_dict.get('responsibilities', []),
-            required_skills=job_dict.get('required_skills', []),
-            preferred_skills=job_dict.get('preferred_skills', []),
-            experience_level_required=ExperienceLevel(job_dict['experience_level_required']),
-            experience_years_required=job_dict.get('experience_years_required', 0),
-            education_required=job_dict.get('education_required'),
-            certifications_required=job_dict.get('certifications_required', []),
-            locations=job_dict.get('locations', []),
-            allows_relocation=job_dict.get('allows_relocation', False),
-            work_mode=WorkMode(job_dict['work_mode']),
-            work_type=WorkType(job_dict['work_type']),
-            salary_min=job_dict.get('salary', {}).get('min'),
-            salary_max=job_dict.get('salary', {}).get('max'),
-            benefits=job_dict.get('benefits', []),
-            posted_date=job_dict.get('posted_date'),
-            application_deadline=job_dict.get('application_deadline')
-        )
-        opportunities.append(opportunity)
-    
+    """Load the curated example dataset through the shared data pipeline."""
+    seekers, opportunities, _ = load_dataset(
+        "examples/seekers.json",
+        "examples/opportunities.json",
+    )
     return seekers, opportunities
+
+
+def run_analytics(seekers, opportunities, include_hybrid=False):
+    """Generate report artifacts for reproducible dataset analysis."""
+    summary = summarize_dataset(seekers, opportunities)
+    save_json(summary, "results/analytics_report.json")
+    create_visualization(summary, "results/analytics_summary.png")
+
+    matcher = JobMatcher()
+    evaluation = evaluate_recommendations(seekers, opportunities, matcher)
+    save_json(evaluation, "results/evaluation_report.json")
+
+    print(json.dumps(summary, indent=2))
+    print(f"Saved results/analytics_report.json and results/analytics_summary.png")
+    print(f"Saved results/evaluation_report.json (average match time: {evaluation['average_match_time_ms']} ms)")
+
+    if include_hybrid:
+        hybrid = evaluate_hybrid_retrieval(seekers, opportunities, matcher)
+        save_json(hybrid, "results/hybrid_retrieval_report.json")
+        print("Saved results/hybrid_retrieval_report.json")
 
 
 def main():
@@ -188,6 +162,8 @@ def main():
     parser = argparse.ArgumentParser(description="Agentic AI Job Search System")
     parser.add_argument("--agent", action="store_true", help="Run autonomous agent demonstration")
     parser.add_argument("--matcher", action="store_true", help="Run algorithmic matcher demonstration")
+    parser.add_argument("--analytics", action="store_true", help="Generate dataset analytics and visualization artifacts")
+    parser.add_argument("--hybrid", action="store_true", help="Evaluate BM25 retrieval with weighted reranking")
     parser.add_argument("--goal", type=str, help="Custom goal for the autonomous agent to solve")
     parser.add_argument("--seeker", type=str, default="Vince Nguyen", help="Target seeker name for matching/agent")
     args = parser.parse_args()
@@ -195,7 +171,9 @@ def main():
     seekers, opportunities = load_example_data()
     agent = JobSearchAgent(seekers, opportunities)
 
-    if args.goal:
+    if args.analytics or args.hybrid:
+        run_analytics(seekers, opportunities, include_hybrid=args.hybrid)
+    elif args.goal:
         run_agent_goal(agent, args.goal, seeker_name=args.seeker)
     elif args.agent:
         default_goal = f"Help {args.seeker} find the best cybersecurity SOC / vulnerability management opportunity, evaluate fit, draft a tailored cover letter, and generate an upskilling roadmap."

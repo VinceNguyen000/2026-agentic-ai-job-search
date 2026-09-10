@@ -58,6 +58,15 @@ python main.py
 # Run only the autonomous agent workflow
 python main.py --agent
 
+# Generate analytics, evaluation results, and a PNG visualization
+python main.py --analytics
+
+# Evaluate BM25 retrieval followed by weighted reranking
+python main.py --hybrid
+
+# Launch the interactive application
+streamlit run app.py
+
 # Run a custom natural language goal
 python main.py --goal "Find top ML opportunities for Alice and draft an application" --seeker "Alice Johnson"
 ```
@@ -120,12 +129,21 @@ See [ALGORITHM.md](./ALGORITHM.md) for detailed methodology.
 - **`models.py`** - Data classes for Seeker, Opportunity, and MatchResult with enums for ExperienceLevel, WorkMode, and WorkType
 - **`matcher.py`** - JobMatcher class implementing the 7-dimensional weighted matching algorithm with helper methods for each criterion
 - **`utils.py`** - Utility functions for skill matching, salary calculation, and report generation
+- **`data_pipeline.py`** - JSON ingestion, normalization, enum conversion, missing-value checks, and duplicate detection
+- **`retrieval.py`** - Lightweight BM25 retrieval and hybrid retrieval plus weighted reranking
+- **`analytics.py`** - Dataset summaries, recommendation evaluation, timing measurements, and visualization generation
+- **`app.py`** - Streamlit interface for candidate selection, ranking, explanations, and analytics
 
 #### Data Files
 
 - **`examples/seekers.json`** - Sample seeker profiles with diverse skills, preferences, and goals
 - **`examples/opportunities.json`** - Sample job listings representing different roles and experience levels
 - **`results/sample_matches.json`** - Pre-computed match results showing algorithm output
+- **`results/analytics_report.json`** - Descriptive statistics for the job dataset
+- **`results/evaluation_report.json`** - Top-k recommendations and measured matching time
+- **`results/hybrid_retrieval_report.json`** - BM25 retrieval and weighted reranking results
+- **`results/analytics_summary.png`** - Four-panel visualization of skills, work modes, experience, and locations
+- **`results/Screenshot Streamlit.png`** - Final application screenshot showing the interactive matching interface
 
 ### Key Implementation Features
 
@@ -151,6 +169,12 @@ See [ALGORITHM.md](./ALGORITHM.md) for detailed methodology.
    - Actionable recommendations
    - Skill gap analysis with suggestions
 
+5. **Big Data Application Foundations**
+    - Reproducible JSON ingestion and quality reporting
+    - BM25 lexical retrieval before weighted reranking
+    - Dataset-level analytics and generated visualization
+    - Evaluation artifacts with top-k recommendations and processing time
+
 ### Running the System
 
 ```bash
@@ -159,7 +183,23 @@ pip install -r requirements.txt
 
 # Run example matching
 python main.py
+
+# Regenerate report artifacts
+python main.py --analytics --hybrid
+
+# Export the final report to Word and PDF
+python export_report.py
 ```
+
+The current demonstration dataset contains four seeker profiles and six job
+opportunities. It is intentionally small and curated so the full workflow is
+reproducible locally. The ingestion boundary is designed to support a future
+API, database, cloud object store, or Spark-based batch pipeline without
+changing the matching interface.
+
+The consolidated submission report is [CHALLENGE1_FINAL_REPORT.md](CHALLENGE1_FINAL_REPORT.md).
+Generated exports are [results/CHALLENGE1_FINAL_REPORT.docx](results/CHALLENGE1_FINAL_REPORT.docx)
+and [results/CHALLENGE1_FINAL_REPORT.pdf](results/CHALLENGE1_FINAL_REPORT.pdf).
 
 ## Agentic AI Insights
 

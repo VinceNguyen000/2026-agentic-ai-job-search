@@ -1,0 +1,266 @@
+{
+  "method": "seven-factor weighted matcher",
+  "seeker_count": 4,
+  "opportunity_count": 6,
+  "top_k": 5,
+  "average_match_time_ms": 2.7488,
+  "max_match_time_ms": 3.7977,
+  "results": [
+    {
+      "seeker": "Alice Johnson",
+      "recommendations": [
+        {
+          "job_id": "JOB001",
+          "title": "Senior Machine Learning Engineer",
+          "company": "TechCorp AI",
+          "overall_match": 95.33,
+          "skills_match": 100.0,
+          "missing_skills": []
+        },
+        {
+          "job_id": "JOB004",
+          "title": "Data Analyst",
+          "company": "Financial Analytics Inc",
+          "overall_match": 81.67,
+          "skills_match": 100.0,
+          "missing_skills": []
+        },
+        {
+          "job_id": "JOB005",
+          "title": "DevOps Engineer",
+          "company": "CloudScale Systems",
+          "overall_match": 55.42,
+          "skills_match": 2.5,
+          "missing_skills": [
+            "Docker",
+            "Kubernetes",
+            "AWS",
+            "Linux"
+          ]
+        },
+        {
+          "job_id": "JOB006",
+          "title": "Cybersecurity SOC Analyst (Vulnerability Management)",
+          "company": "Enterprise Cyber Defense Corp",
+          "overall_match": 54.17,
+          "skills_match": 18.33,
+          "missing_skills": [
+            "Vulnerability Management",
+            "Wireshark",
+            "Log Analysis",
+            "NIST CSF",
+            "Network Traffic Monitoring"
+          ]
+        },
+        {
+          "job_id": "JOB002",
+          "title": "Full Stack JavaScript Developer",
+          "company": "StartUp Innovations",
+          "overall_match": 47.0,
+          "skills_match": 0.0,
+          "missing_skills": [
+            "JavaScript",
+            "React",
+            "Node.js",
+            "REST APIs"
+          ]
+        }
+      ]
+    },
+    {
+      "seeker": "Bob Smith",
+      "recommendations": [
+        {
+          "job_id": "JOB002",
+          "title": "Full Stack JavaScript Developer",
+          "company": "StartUp Innovations",
+          "overall_match": 96.25,
+          "skills_match": 100.0,
+          "missing_skills": []
+        },
+        {
+          "job_id": "JOB004",
+          "title": "Data Analyst",
+          "company": "Financial Analytics Inc",
+          "overall_match": 47.92,
+          "skills_match": 0.0,
+          "missing_skills": [
+            "SQL",
+            "Data Analysis",
+            "Tableau",
+            "Python"
+          ]
+        },
+        {
+          "job_id": "JOB006",
+          "title": "Cybersecurity SOC Analyst (Vulnerability Management)",
+          "company": "Enterprise Cyber Defense Corp",
+          "overall_match": 41.0,
+          "skills_match": 0.0,
+          "missing_skills": [
+            "Vulnerability Management",
+            "Wireshark",
+            "Log Analysis",
+            "NIST CSF",
+            "Network Traffic Monitoring",
+            "Python"
+          ]
+        },
+        {
+          "job_id": "JOB003",
+          "title": "Product Manager - Consumer Apps",
+          "company": "MobileFirst Corp",
+          "overall_match": 38.75,
+          "skills_match": 0.0,
+          "missing_skills": [
+            "Product Management",
+            "User Research",
+            "Analytics",
+            "Agile"
+          ]
+        },
+        {
+          "job_id": "JOB005",
+          "title": "DevOps Engineer",
+          "company": "CloudScale Systems",
+          "overall_match": 36.67,
+          "skills_match": 0.0,
+          "missing_skills": [
+            "Docker",
+            "Kubernetes",
+            "AWS",
+            "Linux"
+          ]
+        }
+      ]
+    },
+    {
+      "seeker": "Carol Davis",
+      "recommendations": [
+        {
+          "job_id": "JOB003",
+          "title": "Product Manager - Consumer Apps",
+          "company": "MobileFirst Corp",
+          "overall_match": 96.25,
+          "skills_match": 100.0,
+          "missing_skills": []
+        },
+        {
+          "job_id": "JOB002",
+          "title": "Full Stack JavaScript Developer",
+          "company": "StartUp Innovations",
+          "overall_match": 73.25,
+          "skills_match": 50.0,
+          "missing_skills": [
+            "React",
+            "REST APIs"
+          ]
+        },
+        {
+          "job_id": "JOB005",
+          "title": "DevOps Engineer",
+          "company": "CloudScale Systems",
+          "overall_match": 56.92,
+          "skills_match": 2.5,
+          "missing_skills": [
+            "Docker",
+            "Kubernetes",
+            "AWS",
+            "Linux"
+          ]
+        },
+        {
+          "job_id": "JOB004",
+          "title": "Data Analyst",
+          "company": "Financial Analytics Inc",
+          "overall_match": 54.92,
+          "skills_match": 25.0,
+          "missing_skills": [
+            "SQL",
+            "Data Analysis",
+            "Tableau"
+          ]
+        },
+        {
+          "job_id": "JOB006",
+          "title": "Cybersecurity SOC Analyst (Vulnerability Management)",
+          "company": "Enterprise Cyber Defense Corp",
+          "overall_match": 53.67,
+          "skills_match": 16.67,
+          "missing_skills": [
+            "Vulnerability Management",
+            "Wireshark",
+            "Log Analysis",
+            "NIST CSF",
+            "Network Traffic Monitoring"
+          ]
+        }
+      ]
+    },
+    {
+      "seeker": "Vince Nguyen",
+      "recommendations": [
+        {
+          "job_id": "JOB006",
+          "title": "Cybersecurity SOC Analyst (Vulnerability Management)",
+          "company": "Enterprise Cyber Defense Corp",
+          "overall_match": 95.25,
+          "skills_match": 91.67,
+          "missing_skills": [
+            "Network Traffic Monitoring"
+          ]
+        },
+        {
+          "job_id": "JOB004",
+          "title": "Data Analyst",
+          "company": "Financial Analytics Inc",
+          "overall_match": 80.0,
+          "skills_match": 50.0,
+          "missing_skills": [
+            "Data Analysis",
+            "Tableau"
+          ]
+        },
+        {
+          "job_id": "JOB005",
+          "title": "DevOps Engineer",
+          "company": "CloudScale Systems",
+          "overall_match": 51.08,
+          "skills_match": 2.5,
+          "missing_skills": [
+            "Docker",
+            "Kubernetes",
+            "AWS",
+            "Linux"
+          ]
+        },
+        {
+          "job_id": "JOB002",
+          "title": "Full Stack JavaScript Developer",
+          "company": "StartUp Innovations",
+          "overall_match": 50.75,
+          "skills_match": 0.0,
+          "missing_skills": [
+            "JavaScript",
+            "React",
+            "Node.js",
+            "REST APIs"
+          ]
+        },
+        {
+          "job_id": "JOB003",
+          "title": "Product Manager - Consumer Apps",
+          "company": "MobileFirst Corp",
+          "overall_match": 50.75,
+          "skills_match": 2.5,
+          "missing_skills": [
+            "Product Management",
+            "User Research",
+            "Analytics",
+            "Agile"
+          ]
+        }
+      ]
+    }
+  ]
+}

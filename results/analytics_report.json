@@ -1,0 +1,50 @@
+{
+  "dataset": {
+    "seeker_count": 4,
+    "opportunity_count": 6,
+    "required_skill_count": 26
+  },
+  "top_required_skills": {
+    "Python": 3,
+    "Machine Learning": 1,
+    "TensorFlow": 1,
+    "Big Data": 1,
+    "JavaScript": 1,
+    "React": 1,
+    "Node.js": 1,
+    "REST APIs": 1,
+    "Product Management": 1,
+    "User Research": 1
+  },
+  "job_titles": {
+    "Senior Machine Learning Engineer": 1,
+    "Full Stack JavaScript Developer": 1,
+    "Product Manager - Consumer Apps": 1,
+    "Data Analyst": 1,
+    "DevOps Engineer": 1,
+    "Cybersecurity SOC Analyst (Vulnerability Management)": 1
+  },
+  "locations": {
+    "Remote": 4,
+    "San Francisco, CA": 2,
+    "Austin, TX": 1,
+    "Seattle, WA": 1,
+    "New York, NY": 1,
+    "Kansas City, MO": 1,
+    "Overland Park, KS": 1
+  },
+  "work_modes": {
+    "remote": 2,
+    "hybrid": 4
+  },
+  "experience_levels": {
+    "senior": 1,
+    "junior": 5
+  },
+  "salary": {
+    "minimum_average": 105500.0,
+    "maximum_average": 144333.33,
+    "minimum_observed": 75000,
+    "maximum_observed": 220000
+  }
+}
