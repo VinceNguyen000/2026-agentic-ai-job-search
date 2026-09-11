@@ -1,8 +1,5 @@
 ---
 title: Agentic AI Job Search System
-emoji: briefcase
-colorFrom: blue
-colorTo: green
 sdk: static
 ---
 
@@ -85,6 +82,12 @@ python main.py --goal "Find top ML opportunities for Alice and draft an applicat
 ```bash
 python -m unittest discover -s tests -p "test_*.py" -v
 ```
+
+## Live Demo
+
+Open the interactive Hugging Face Static Space:
+
+[Agentic AI Job Search on Hugging Face](https://huggingface.co/spaces/Vince2712/agentic-ai-job-search)
 
 ## Deploy to Hugging Face Static Spaces
 
