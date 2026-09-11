@@ -1,6 +1,6 @@
 {
-  "goal": "Compare my resume with this job description. Calculate a weighted match score, retrieve supporting evidence, identify missing qualifications, and explain why the job should be ranked at its current position.",
-  "steps_taken": 6,
+  "goal": "Help Vince Nguyen find the best cybersecurity SOC / vulnerability management opportunity, evaluate fit, draft a tailored cover letter, and generate an upskilling roadmap.",
+  "steps_taken": 7,
   "actions": [
     {
       "step": 1,
@@ -178,7 +178,7 @@
     },
     {
       "step": 3,
-      "thought": "The top compatible opportunity is Cybersecurity SOC Analyst (Vulnerability Management) at Enterprise Cyber Defense Corp (Match Score: 90.25%). I will evaluate detailed fit metrics.",
+      "thought": "The top compatible opportunity is Cybersecurity SOC Analyst (Vulnerability Management) at Enterprise Cyber Defense Corp (Match Score: 95.25%). I will evaluate detailed fit metrics.",
       "tool": "evaluate_fit",
       "args": {
         "seeker_name": "Vince Nguyen",
@@ -192,14 +192,14 @@
           "company": "Enterprise Cyber Defense Corp"
         },
         "match_scores": {
-          "overall": 90.25,
+          "overall": 95.25,
           "skills": 91.67,
           "experience": 100.0,
           "location": 100.0,
           "salary": 85.0,
           "work_mode": 100.0,
           "work_type": 100.0,
-          "career_goals": 0.0
+          "career_goals": 100.0
         },
         "skills": {
           "matched": [
@@ -221,7 +221,7 @@
           ]
         },
         "feedback": {
-          "explanation": "Vince Nguyen, you have a 90.25% match with the Cybersecurity SOC Analyst (Vulnerability Management) position at Enterprise Cyber Defense Corp. You have strong technical skills alignment with 5 of 6 required skills. Your experience level aligns well with this role's requirements. Location is a perfect match. ",
+          "explanation": "Vince Nguyen, you have a 95.25% match with the Cybersecurity SOC Analyst (Vulnerability Management) position at Enterprise Cyber Defense Corp. You have strong technical skills alignment with 5 of 6 required skills. Your experience level aligns well with this role's requirements. Location is a perfect match. ",
           "recommendation": "Strong fit! We recommend applying for this role immediately."
         }
       }
@@ -266,6 +266,89 @@
     },
     {
       "step": 5,
+      "thought": "I will retrieve evidence from the candidate's resume and project knowledge base for Cybersecurity SOC Analyst (Vulnerability Management).",
+      "tool": "retrieve_personal_evidence",
+      "args": {
+        "seeker_name": "Vince Nguyen",
+        "job_id": "JOB006"
+      },
+      "observation": {
+        "seeker": "Vince Nguyen",
+        "job_id": "JOB006",
+        "eligible_for_soft_scoring": true,
+        "gate_reasons": [],
+        "retrieval": "BM25 plus dense cosine hybrid",
+        "evidence": [
+          {
+            "chunk": {
+              "chunk_id": "resume_04",
+              "category": "resume",
+              "title": "Technical Skills",
+              "text": "- **Security & Risk Management:** Vulnerability Lifecycle Management, Incident Response Lifecycle Fundamentals, Log Analysis, Network Traffic Monitoring (Wireshark), Risk Classification, Remediation Tracking, NIST Cybersecurity Framework (NIST CSF). - **Security & Penetration Tools:** Wireshark, Kali Linux, Nmap, Metasploit, OWASP ZAP, SQLMap, GVM (Greenbone Vulnerability Manager). - **Cloud & Infrastructure Security:** Secure Cloud Configuration, Patch Management, Access Control Validation (IAM), System Hardening. - **Programming & Scripting:** Python, SQL, JavaScript, PHP, Flask, Laravel, HTML/CSS, Tailwind CSS, Git, XAMPP. ---",
+              "metadata": {
+                "source": "resume.md",
+                "section_index": 4
+              }
+            },
+            "bm25_score": 1.0,
+            "dense_score": 1.0,
+            "hybrid_score": 1.0
+          },
+          {
+            "chunk": {
+              "chunk_id": "resume_02",
+              "category": "resume",
+              "title": "Professional Summary",
+              "text": "Cybersecurity graduate student specializing in vulnerability management, security monitoring, and risk assessment. Experienced in identifying security weaknesses, classifying risk severity, and supporting remediation efforts within enterprise-style environments. Strong foundation in incident response fundamentals, log analysis, and security operations aligned with NIST best practices. Seeking to contribute to a Security Operations Center (SOC) focused on protecting large-scale public sector and enterprise infrastructure. ---",
+              "metadata": {
+                "source": "resume.md",
+                "section_index": 2
+              }
+            },
+            "bm25_score": 0.6682,
+            "dense_score": 0.7951,
+            "hybrid_score": 0.7253
+          },
+          {
+            "chunk": {
+              "chunk_id": "preferences_profile",
+              "category": "preferences",
+              "title": "Career preferences and constraints",
+              "text": "{\"career_interests\": [\"Security Operations Center (SOC) log analysis and real-time monitoring\", \"Vulnerability lifecycle management and risk classification\", \"NIST Cybersecurity Framework compliance and enterprise system hardening\", \"IoT / Wireless protocol security analysis\", \"Defending public sector and large-scale cloud infrastructure\"], \"compensation_expectations\": {\"currency\": \"USD\", \"salary_min_floor\": 75000, \"salary_target\": 95000}, \"hard_constraints\": {\"mandatory_minimum_salary\": 70000, \"require_remote_only\": false, \"security_clearance_eligible\": true, \"us_work_authorization\": true}, \"location_preferences\": {\"preferred_locations\": [\"Kansas City, MO\", \"Overland Park, KS\", \"Remote - US\", \"Hybrid - Kansas City Metro\"], \"relocation_regions\": [\"Midwest\", \"West Coast\", \"East Coast\", \"Nationwide (US)\"], \"willing_to_relocate\": true}, \"seeker_profile\": {\"education\": \"M.S. in Computer Science (Cybersecurity Specialization), UMKC (2026)\", \"email\": \"vincenguyen2712@gmail.com\", \"experience_level\": \"junior\", \"gpa\": \"3.7 (Undergrad)\", \"location_current\": \"Kansas City, MO\", \"name\": \"Vince (Vien) Nguyen\", \"phone\": \"913-271-8699\"}, \"target_roles\": [\"Security Operations Center (SOC) Analyst\", \"Cybersecurity Analyst\", \"Vulnerability Management Specialist\", \"Information Security Analyst\", \"Cloud Security Engineer\", \"DevSecOps Associate\"], \"work_arrangements\": {\"availability_days\": 14, \"work_modes\": [\"remote\", \"hybrid\", \"onsite\"], \"work_types\": [\"full\", \"contract\"]}}",
+              "metadata": {
+                "source": "preferences.json",
+                "hard_constraints": {
+                  "us_work_authorization": true,
+                  "security_clearance_eligible": true,
+                  "require_remote_only": false,
+                  "mandatory_minimum_salary": 70000
+                }
+              }
+            },
+            "bm25_score": 0.6205,
+            "dense_score": 0.7916,
+            "hybrid_score": 0.6975
+          },
+          {
+            "chunk": {
+              "chunk_id": "resume_05",
+              "category": "resume",
+              "title": "Research & Professional Experience",
+              "text": "### Cybersecurity Research Assistant \u2014 UMKC _Bluetooth Low Energy (BLE) Security Research | Current_ - Conducted vulnerability analysis on wireless IoT market tags utilizing BLE protocols. - Identified authentication weaknesses and replay attack risks through network traffic analysis and packet inspection. - Classified identified vulnerabilities based on severity and potential operational impact. - Documented findings and formulated actionable remediation strategies. - Evaluated security controls and analyzed exploit behavior patterns. ### Web Development Intern \u2014 Heartland Mac _Kansas City, MO | July 2023 \u2013 March 2024_ - Supported secure cloud infrastructure operations and assisted with patch management workflows. - Reviewed system configurations to mitigate misconfiguration risks and attack surface exposure. - Assisted in access control validation, privilege auditing, and system hardening efforts. - Coordinated remediation actions and maintained technical documentation for compliance and security policy alignment. ---",
+              "metadata": {
+                "source": "resume.md",
+                "section_index": 5
+              }
+            },
+            "bm25_score": 0.5133,
+            "dense_score": 0.5699,
+            "hybrid_score": 0.5388
+          }
+        ]
+      }
+    },
+    {
+      "step": 6,
       "thought": "I will generate an evidence-backed cover letter and 30-second elevator pitch tailored specifically to Enterprise Cyber Defense Corp.",
       "tool": "draft_tailored_application",
       "args": {
@@ -288,7 +371,7 @@
       }
     },
     {
-      "step": 6,
+      "step": 7,
       "thought": "Finally, I will construct a structured 6-week upskilling roadmap for Vince Nguyen to strengthen their candidacy.",
       "tool": "generate_upskilling_roadmap",
       "args": {
@@ -334,8 +417,82 @@
       }
     }
   ],
-  "final_synthesis": "================================================================================\nAUTONOMOUS JOB SEARCH AGENT REPORT\n================================================================================\nCandidate: Vince Nguyen\nGoal: Compare my resume with this job description. Calculate a weighted match score, retrieve supporting evidence, identify missing qualifications, and explain why the job should be ranked at its current position.\nExecution: Completed 6 autonomous actions.\n\nTOP RECOMMENDATION:\nPosition: Cybersecurity SOC Analyst (Vulnerability Management) at Enterprise Cyber Defense Corp\nOverall Match Score: 90.25%\nSkills Alignment: 91.67%\nExperience Match: 100.0%\nLocation Match: 100.0%\nRecommendation: Strong fit! We recommend applying for this role immediately.\n\nKEY STRENGTHS:\nVulnerability Management, Wireshark, Log Analysis, NIST CSF, Python\n\nAREAS FOR GROWTH:\nNetwork Traffic Monitoring\n\nAPPLICATION ARTIFACTS GENERATED:\n- Tailored Cover Letter generated for Enterprise Cyber Defense Corp\n- 30-Second Elevator Pitch formulated\n- 6-Week Structured Upskilling Roadmap drafted\n================================================================================",
+  "final_synthesis": "================================================================================\nAUTONOMOUS JOB SEARCH AGENT REPORT\n================================================================================\nCandidate: Vince Nguyen\nGoal: Help Vince Nguyen find the best cybersecurity SOC / vulnerability management opportunity, evaluate fit, draft a tailored cover letter, and generate an upskilling roadmap.\nExecution: Completed 7 autonomous actions.\n\nTOP RECOMMENDATION:\nPosition: Cybersecurity SOC Analyst (Vulnerability Management) at Enterprise Cyber Defense Corp\nOverall Match Score: 95.25%\nSkills Alignment: 91.67%\nExperience Match: 100.0%\nLocation Match: 100.0%\nRecommendation: Strong fit! We recommend applying for this role immediately.\n\nKEY STRENGTHS:\nVulnerability Management, Wireshark, Log Analysis, NIST CSF, Python\n\nAREAS FOR GROWTH:\nNetwork Traffic Monitoring\n\nAPPLICATION ARTIFACTS GENERATED:\n- Tailored Cover Letter generated for Enterprise Cyber Defense Corp\n- 30-Second Elevator Pitch formulated\n- 6-Week Structured Upskilling Roadmap drafted\n================================================================================",
   "artifacts": {
+    "personal_rag_evidence": {
+      "seeker": "Vince Nguyen",
+      "job_id": "JOB006",
+      "eligible_for_soft_scoring": true,
+      "gate_reasons": [],
+      "retrieval": "BM25 plus dense cosine hybrid",
+      "evidence": [
+        {
+          "chunk": {
+            "chunk_id": "resume_04",
+            "category": "resume",
+            "title": "Technical Skills",
+            "text": "- **Security & Risk Management:** Vulnerability Lifecycle Management, Incident Response Lifecycle Fundamentals, Log Analysis, Network Traffic Monitoring (Wireshark), Risk Classification, Remediation Tracking, NIST Cybersecurity Framework (NIST CSF). - **Security & Penetration Tools:** Wireshark, Kali Linux, Nmap, Metasploit, OWASP ZAP, SQLMap, GVM (Greenbone Vulnerability Manager). - **Cloud & Infrastructure Security:** Secure Cloud Configuration, Patch Management, Access Control Validation (IAM), System Hardening. - **Programming & Scripting:** Python, SQL, JavaScript, PHP, Flask, Laravel, HTML/CSS, Tailwind CSS, Git, XAMPP. ---",
+            "metadata": {
+              "source": "resume.md",
+              "section_index": 4
+            }
+          },
+          "bm25_score": 1.0,
+          "dense_score": 1.0,
+          "hybrid_score": 1.0
+        },
+        {
+          "chunk": {
+            "chunk_id": "resume_02",
+            "category": "resume",
+            "title": "Professional Summary",
+            "text": "Cybersecurity graduate student specializing in vulnerability management, security monitoring, and risk assessment. Experienced in identifying security weaknesses, classifying risk severity, and supporting remediation efforts within enterprise-style environments. Strong foundation in incident response fundamentals, log analysis, and security operations aligned with NIST best practices. Seeking to contribute to a Security Operations Center (SOC) focused on protecting large-scale public sector and enterprise infrastructure. ---",
+            "metadata": {
+              "source": "resume.md",
+              "section_index": 2
+            }
+          },
+          "bm25_score": 0.6682,
+          "dense_score": 0.7951,
+          "hybrid_score": 0.7253
+        },
+        {
+          "chunk": {
+            "chunk_id": "preferences_profile",
+            "category": "preferences",
+            "title": "Career preferences and constraints",
+            "text": "{\"career_interests\": [\"Security Operations Center (SOC) log analysis and real-time monitoring\", \"Vulnerability lifecycle management and risk classification\", \"NIST Cybersecurity Framework compliance and enterprise system hardening\", \"IoT / Wireless protocol security analysis\", \"Defending public sector and large-scale cloud infrastructure\"], \"compensation_expectations\": {\"currency\": \"USD\", \"salary_min_floor\": 75000, \"salary_target\": 95000}, \"hard_constraints\": {\"mandatory_minimum_salary\": 70000, \"require_remote_only\": false, \"security_clearance_eligible\": true, \"us_work_authorization\": true}, \"location_preferences\": {\"preferred_locations\": [\"Kansas City, MO\", \"Overland Park, KS\", \"Remote - US\", \"Hybrid - Kansas City Metro\"], \"relocation_regions\": [\"Midwest\", \"West Coast\", \"East Coast\", \"Nationwide (US)\"], \"willing_to_relocate\": true}, \"seeker_profile\": {\"education\": \"M.S. in Computer Science (Cybersecurity Specialization), UMKC (2026)\", \"email\": \"vincenguyen2712@gmail.com\", \"experience_level\": \"junior\", \"gpa\": \"3.7 (Undergrad)\", \"location_current\": \"Kansas City, MO\", \"name\": \"Vince (Vien) Nguyen\", \"phone\": \"913-271-8699\"}, \"target_roles\": [\"Security Operations Center (SOC) Analyst\", \"Cybersecurity Analyst\", \"Vulnerability Management Specialist\", \"Information Security Analyst\", \"Cloud Security Engineer\", \"DevSecOps Associate\"], \"work_arrangements\": {\"availability_days\": 14, \"work_modes\": [\"remote\", \"hybrid\", \"onsite\"], \"work_types\": [\"full\", \"contract\"]}}",
+            "metadata": {
+              "source": "preferences.json",
+              "hard_constraints": {
+                "us_work_authorization": true,
+                "security_clearance_eligible": true,
+                "require_remote_only": false,
+                "mandatory_minimum_salary": 70000
+              }
+            }
+          },
+          "bm25_score": 0.6205,
+          "dense_score": 0.7916,
+          "hybrid_score": 0.6975
+        },
+        {
+          "chunk": {
+            "chunk_id": "resume_05",
+            "category": "resume",
+            "title": "Research & Professional Experience",
+            "text": "### Cybersecurity Research Assistant \u2014 UMKC _Bluetooth Low Energy (BLE) Security Research | Current_ - Conducted vulnerability analysis on wireless IoT market tags utilizing BLE protocols. - Identified authentication weaknesses and replay attack risks through network traffic analysis and packet inspection. - Classified identified vulnerabilities based on severity and potential operational impact. - Documented findings and formulated actionable remediation strategies. - Evaluated security controls and analyzed exploit behavior patterns. ### Web Development Intern \u2014 Heartland Mac _Kansas City, MO | July 2023 \u2013 March 2024_ - Supported secure cloud infrastructure operations and assisted with patch management workflows. - Reviewed system configurations to mitigate misconfiguration risks and attack surface exposure. - Assisted in access control validation, privilege auditing, and system hardening efforts. - Coordinated remediation actions and maintained technical documentation for compliance and security policy alignment. ---",
+            "metadata": {
+              "source": "resume.md",
+              "section_index": 5
+            }
+          },
+          "bm25_score": 0.5133,
+          "dense_score": 0.5699,
+          "hybrid_score": 0.5388
+        }
+      ]
+    },
     "tailored_application": {
       "cover_letter": "Dear Hiring Team at Enterprise Cyber Defense Corp,\n\nI am writing to express my enthusiastic interest in the Cybersecurity SOC Analyst (Vulnerability Management) position (Job ID: JOB006). With my background in M.S. in Computer Science (Cybersecurity Specialization) and hands-on expertise in Vulnerability Management, Wireshark, Log Analysis, NIST CSF, Python, I am confident in my ability to deliver immediate value to your security and engineering operations.\n\nIn reviewing the requirements for the Cybersecurity SOC Analyst (Vulnerability Management) role, I was particularly drawn to your focus on Monitor network traffic and analyze packet captures with Wireshark, Conduct vulnerability lifecycle management using GVM and Nmap. My practical experience in Vulnerability Management, Wireshark, Log Analysis, NIST CSF, Python directly aligns with your mission and compliance objectives.\n\nWhile I am actively deepening my operational experience in Network Traffic Monitoring, my proven background in rapid technical adaptation enables me to master new platforms quickly and contribute effectively.\n\nI welcome the opportunity to discuss how my technical skills, research background, and dedication can support Enterprise Cyber Defense Corp's objectives. Thank you for your time and consideration.\n\nSincerely,\nVince Nguyen\nvincenguyen2712@gmail.com | 913-271-8699",
       "elevator_pitch": "Hi, I'm Vince Nguyen. I specialize in Vulnerability Management, Wireshark, Log Analysis, NIST CSF, Python with graduate-level training in Cybersecurity. I'm excited about joining Enterprise Cyber Defense Corp as a Cybersecurity SOC Analyst (Vulnerability Management) because my technical foundation in vulnerability management, network packet analysis, and system hardening makes me an ideal fit to protect your infrastructure.",
@@ -397,14 +554,14 @@
           "company": "Enterprise Cyber Defense Corp"
         },
         "match_scores": {
-          "overall": 90.25,
+          "overall": 95.25,
           "skills": 91.67,
           "experience": 100.0,
           "location": 100.0,
           "salary": 85.0,
           "work_mode": 100.0,
           "work_type": 100.0,
-          "career_goals": 0.0
+          "career_goals": 100.0
         },
         "skills": {
           "matched": [
@@ -426,7 +583,7 @@
           ]
         },
         "feedback": {
-          "explanation": "Vince Nguyen, you have a 90.25% match with the Cybersecurity SOC Analyst (Vulnerability Management) position at Enterprise Cyber Defense Corp. You have strong technical skills alignment with 5 of 6 required skills. Your experience level aligns well with this role's requirements. Location is a perfect match. ",
+          "explanation": "Vince Nguyen, you have a 95.25% match with the Cybersecurity SOC Analyst (Vulnerability Management) position at Enterprise Cyber Defense Corp. You have strong technical skills alignment with 5 of 6 required skills. Your experience level aligns well with this role's requirements. Location is a perfect match. ",
           "recommendation": "Strong fit! We recommend applying for this role immediately."
         }
       },
@@ -461,6 +618,40 @@
         "feedback": {
           "explanation": "Vince Nguyen, you have a 80.0% match with the Data Analyst position at Financial Analytics Inc. You have partial skills alignment, matching 2 required skills but missing 2. Your experience level aligns well with this role's requirements. Location is a perfect match. ",
           "recommendation": "Good fit! Consider applying. To strengthen your candidacy, consider developing: Data Analysis, Tableau."
+        }
+      },
+      {
+        "seeker": "Vince Nguyen",
+        "job": {
+          "id": "JOB005",
+          "title": "DevOps Engineer",
+          "company": "CloudScale Systems"
+        },
+        "match_scores": {
+          "overall": 51.08,
+          "skills": 2.5,
+          "experience": 100.0,
+          "location": 80.0,
+          "salary": 0.0,
+          "work_mode": 100.0,
+          "work_type": 100.0,
+          "career_goals": 66.67
+        },
+        "skills": {
+          "matched": [],
+          "missing": [
+            "Docker",
+            "Kubernetes",
+            "AWS",
+            "Linux"
+          ],
+          "matched_preferred": [
+            "Python"
+          ]
+        },
+        "feedback": {
+          "explanation": "Vince Nguyen, you have a 51.083333333333336% match with the DevOps Engineer position at CloudScale Systems. Your skills partially align with this role. You match 0 required skills but need to develop 4 additional skills. Your experience level aligns well with this role's requirements. Relocation may be required or considered. ",
+          "recommendation": "Moderate fit. This role could help advance your career, but you may need to develop some skills first: Docker, Kubernetes, AWS."
         }
       },
       {
@@ -559,40 +750,6 @@
         },
         "feedback": {
           "explanation": "Vince Nguyen, you have a 49.166666666666664% match with the Senior Machine Learning Engineer position at TechCorp AI. Your skills partially align with this role. You match 1 required skills but need to develop 3 additional skills. Your experience level is somewhat junior compared to this role's requirements. Location is a perfect match. ",
-          "recommendation": "Not a strong match. Consider exploring roles more aligned with your current skills and experience."
-        }
-      },
-      {
-        "seeker": "Vince Nguyen",
-        "job": {
-          "id": "JOB005",
-          "title": "DevOps Engineer",
-          "company": "CloudScale Systems"
-        },
-        "match_scores": {
-          "overall": 47.75,
-          "skills": 2.5,
-          "experience": 100.0,
-          "location": 80.0,
-          "salary": 0.0,
-          "work_mode": 100.0,
-          "work_type": 100.0,
-          "career_goals": 0.0
-        },
-        "skills": {
-          "matched": [],
-          "missing": [
-            "Docker",
-            "Kubernetes",
-            "AWS",
-            "Linux"
-          ],
-          "matched_preferred": [
-            "Python"
-          ]
-        },
-        "feedback": {
-          "explanation": "Vince Nguyen, you have a 47.75% match with the DevOps Engineer position at CloudScale Systems. Your skills partially align with this role. You match 0 required skills but need to develop 4 additional skills. Your experience level aligns well with this role's requirements. Relocation may be required or considered. ",
           "recommendation": "Not a strong match. Consider exploring roles more aligned with your current skills and experience."
         }
       }

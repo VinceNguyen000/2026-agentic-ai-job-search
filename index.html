@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explainable job matching baseline with transparent weighted scoring.">
+  <title>Job Search Match Lab</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="hero">
+      <p class="eyebrow">HUMAN-AI CO-DESIGN / BASELINE</p>
+      <h1>Job Search<br><em>Match Lab</em></h1>
+      <p class="lede">Transparent recommendations from skills, experience, location, salary, work preferences, and career goals.</p>
+    </header>
+
+    <section class="controls" aria-label="Matching controls">
+      <label>Candidate
+        <select id="seeker-select"></select>
+      </label>
+      <label>Minimum score <output id="score-output">0%</output>
+        <input id="score-filter" type="range" min="0" max="100" step="5" value="0">
+      </label>
+    </section>
+
+    <section class="summary" id="summary"></section>
+    <section class="results" id="results" aria-live="polite"></section>
+
+    <footer>
+      <span>Weighted baseline</span>
+      <span>Skills 30% · Experience 25% · Location 15% · Salary 15% · Preferences 10% · Goals 5%</span>
+    </footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

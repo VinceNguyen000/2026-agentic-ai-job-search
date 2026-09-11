@@ -9,8 +9,8 @@ class TestRetrieval(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.seekers, cls.opportunities, _ = load_dataset(
-            "examples/seekers.json",
-            "examples/opportunities.json",
+            "local-data/seekers.json",
+            "local-data/opportunities.json",
         )
 
     def test_bm25_retrieves_relevant_machine_learning_job(self):

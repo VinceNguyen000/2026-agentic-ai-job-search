@@ -9,8 +9,8 @@ class TestAnalytics(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.seekers, cls.opportunities, _ = load_dataset(
-            "examples/seekers.json",
-            "examples/opportunities.json",
+            "local-data/seekers.json",
+            "local-data/opportunities.json",
         )
 
     def test_summary_contains_report_metrics(self):

@@ -6,8 +6,8 @@ from src.data_pipeline import load_dataset
 class TestDataPipeline(unittest.TestCase):
     def test_load_example_dataset(self):
         seekers, opportunities, quality = load_dataset(
-            "examples/seekers.json",
-            "examples/opportunities.json",
+            "local-data/seekers.json",
+            "local-data/opportunities.json",
         )
         self.assertEqual(len(seekers), 4)
         self.assertEqual(len(opportunities), 6)

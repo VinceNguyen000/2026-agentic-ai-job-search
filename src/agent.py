@@ -9,9 +9,12 @@ Author: Vince Nguyen / Antigravity Agentic AI for CS5542 Challenge 1
 from typing import List, Dict, Any, Optional, Callable
 import json
 from dataclasses import dataclass, field
+from pathlib import Path
 from src.models import Seeker, Opportunity, MatchResult, ExperienceLevel, WorkMode, WorkType
 from src.matcher import JobMatcher
 from src.utils import keyword_match_percentage
+from src.rag import PersonalKnowledgeBase, hard_gate_opportunity
+from src.external_ai import GeminiAPIError, GeminiClient, GeminiEmbeddingEncoder
 
 
 @dataclass
@@ -67,6 +70,16 @@ class JobSearchAgent:
         self.seekers: Dict[str, Seeker] = {s.name.lower(): s for s in (seekers or [])}
         self.opportunities: Dict[str, Opportunity] = {o.job_id: o for o in (opportunities or [])}
         self.matcher = JobMatcher()
+        project_root = Path(__file__).resolve().parent.parent
+        self.external_ai = GeminiClient.from_environment()
+        encoder = GeminiEmbeddingEncoder(self.external_ai) if self.external_ai else None
+        try:
+            self.knowledge_base = PersonalKnowledgeBase.from_directory(
+                str(project_root / "data" / "personal"), encoder=encoder
+            )
+        except GeminiAPIError:
+            self.external_ai = None
+            self.knowledge_base = PersonalKnowledgeBase.from_directory(str(project_root / "data" / "personal"))
         self.tools: Dict[str, Callable] = {
             "search_opportunities": self.tool_search_opportunities,
             "evaluate_fit": self.tool_evaluate_fit,
@@ -74,6 +87,7 @@ class JobSearchAgent:
             "draft_tailored_application": self.tool_draft_tailored_application,
             "generate_upskilling_roadmap": self.tool_generate_upskilling_roadmap,
             "get_seeker_profile": self.tool_get_seeker_profile,
+            "retrieve_personal_evidence": self.tool_retrieve_personal_evidence,
         }
 
     def register_seeker(self, seeker: Seeker) -> None:
@@ -184,6 +198,26 @@ class JobSearchAgent:
             "matched_preferred_skills": result.matched_preferred_skills,
             "skill_match_score": result.skill_match_percentage,
             "remediation_plan": learning_recs
+        }
+
+    def tool_retrieve_personal_evidence(self, seeker_name: str, job_id: str) -> Dict[str, Any]:
+        """Tool: Retrieve personal resume/project evidence for a target opportunity."""
+        seeker = self._find_seeker(seeker_name)
+        if not seeker:
+            return {"error": f"Seeker '{seeker_name}' not found."}
+        if job_id not in self.opportunities:
+            return {"error": f"Opportunity ID '{job_id}' not found."}
+
+        opportunity = self.opportunities[job_id]
+        eligible, gate_reasons = hard_gate_opportunity(seeker, opportunity)
+        evidence = self.knowledge_base.retrieve_for_job(seeker, opportunity, top_k=4)
+        return {
+            "seeker": seeker.name,
+            "job_id": job_id,
+            "eligible_for_soft_scoring": eligible,
+            "gate_reasons": gate_reasons,
+            "retrieval": self.knowledge_base.to_dict()["retrieval"],
+            "evidence": [item.to_dict() for item in evidence],
         }
 
     def tool_draft_tailored_application(self, seeker_name: str, job_id: str) -> Dict[str, str]:
@@ -345,6 +379,17 @@ Sincerely,
             ))
             step += 1
 
+            evidence_obs = self.tool_retrieve_personal_evidence(seeker_display_name, top_match.job_id)
+            actions.append(AgentAction(
+                step=step,
+                thought=f"I will retrieve evidence from the candidate's resume and project knowledge base for {top_match.job_title}.",
+                tool_name="retrieve_personal_evidence",
+                tool_args={"seeker_name": seeker_display_name, "job_id": top_match.job_id},
+                observation=evidence_obs
+            ))
+            artifacts["personal_rag_evidence"] = evidence_obs
+            step += 1
+
             # Step 5: Draft Tailored Application
             app_obs = self.tool_draft_tailored_application(seeker_display_name, top_match.job_id)
             actions.append(AgentAction(
@@ -397,6 +442,37 @@ APPLICATION ARTIFACTS GENERATED:
 - 6-Week Structured Upskilling Roadmap drafted
 ================================================================================
 """
+
+        if self.external_ai and top_match:
+            evidence_context = "\n".join(
+                f"[{item['chunk']['chunk_id']}] {item['chunk']['text']}"
+                for item in artifacts["personal_rag_evidence"].get("evidence", [])
+            )
+            prompt = f"""You are a career assistant. Use only the supplied evidence.
+Do not invent qualifications, metrics, employers, or requirements. Preserve the
+authoritative numeric match score exactly.
+
+Candidate: {seeker_display_name}
+Goal: {goal}
+Job: {top_match.job_title} at {top_match.company}
+Match score: {top_match.overall_match_percentage}%
+Matched skills: {', '.join(top_match.matched_skills) or 'None'}
+Missing skills: {', '.join(top_match.missing_skills) or 'None'}
+Retrieved evidence:
+{evidence_context}
+
+Write a concise explanation with sections: Why it matches, Evidence, Skill gaps,
+and Next steps. Include a short six-week learning plan if gaps exist."""
+            try:
+                synthesis = self.external_ai.generate(prompt)
+                artifacts["external_ai"] = {
+                    "embedding_model": self.external_ai.embedding_model,
+                    "embedding_dimensions": self.knowledge_base.encoder.dimensions,
+                    "llm_model": self.external_ai.llm_model,
+                    "synthesis": "Gemini-grounded",
+                }
+            except GeminiAPIError as error:
+                artifacts["external_ai"] = {"synthesis": "fallback", "error": str(error)}
 
         return AgentResponse(
             goal=goal,

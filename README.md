@@ -1,3 +1,11 @@
+---
+title: Agentic AI Job Search System
+emoji: briefcase
+colorFrom: blue
+colorTo: green
+sdk: static
+---
+
 # 2026 Agentic AI Job Search System
 
 An autonomous, multi-agent AI job matching and career advancement platform built with **Antigravity** for **CS 5542 Challenge 1**.
@@ -9,6 +17,7 @@ This project implements an **Agentic AI Job Search System** featuring:
 1. **Autonomous JobSearchAgent**: A tool-executing AI agent that parses goals, inspects candidate profiles, matches opportunities, diagnoses skill gaps, drafts customized cover letters, and generates multi-week upskilling roadmaps.
 2. **7-Factor Weighted Matching Engine**: A deterministic scoring engine evaluating skills, experience hierarchy, geographic compatibility, salary overlap, work mode, work type, and career goal alignment.
 3. **Automated Test Suite**: Zero-dependency `unittest` test suite covering models, matching rules, token containment, and agent tool execution.
+4. **Personal Hybrid RAG**: Local career evidence chunks are retrieved with BM25 plus deterministic dense-vector cosine similarity, then supplied to job-specific evidence analysis.
 
 ## Key Features & Architecture
 
@@ -77,6 +86,44 @@ python main.py --goal "Find top ML opportunities for Alice and draft an applicat
 python -m unittest discover -s tests -p "test_*.py" -v
 ```
 
+## Deploy to Hugging Face Static Spaces
+
+This repository includes a browser-based static demonstration for accounts that
+cannot use paid Docker or Gradio Spaces. Create a new Space at
+<https://huggingface.co/new-space>, select **Static**, and upload or push the
+repository files. The Space serves `index.html` automatically.
+
+The static demonstration uses `app.js` to calculate the transparent weighted
+baseline in the browser. The full Python Streamlit implementation remains in
+`app.py` for local execution and reproducible testing. The static demo uses
+anonymized seekers from `public-data/seekers.json`; do not publish `data/personal/`
+or real contact information in a public Space.
+
+For a Git-based workflow, clone the Space repository, copy `index.html`,
+`app.js`, `styles.css`, `public-data/`, and the compatible `local-data/` directory
+into it, then commit and push. Every push updates the static Space.
+
+## Optional External Embeddings and LLM
+
+The Python agent supports the external five-stage Career RAG pipeline when
+`USE_EXTERNAL_AI=1` and `GEMINI_API_KEY` are present. It uses Gemini
+`text-embedding-004` for 768-dimensional career-evidence vectors and Gemini
+`gemini-2.0-flash` for evidence-grounded synthesis. Deterministic seven-factor
+matching remains authoritative; the LLM explains the result rather than changing
+the score. Without the switch or a working API request, the system falls back to
+the local hashed-vector encoder and deterministic synthesis.
+
+Run locally after creating a new Gemini key:
+
+```powershell
+$env:USE_EXTERNAL_AI="1"
+$env:GEMINI_API_KEY="your-new-key"
+python main.py --agent --seeker "Vince Nguyen"
+```
+
+Never place the key in `app.js`, `index.html`, a public Static Space, or GitHub.
+For hosted Python deployments, store it as a private Space secret instead.
+
 ### Usage
 
 ```python
@@ -131,17 +178,19 @@ See [ALGORITHM.md](./ALGORITHM.md) for detailed methodology.
 - **`utils.py`** - Utility functions for skill matching, salary calculation, and report generation
 - **`data_pipeline.py`** - JSON ingestion, normalization, enum conversion, missing-value checks, and duplicate detection
 - **`retrieval.py`** - Lightweight BM25 retrieval and hybrid retrieval plus weighted reranking
+- **`rag.py`** - Personal career knowledge-base chunking, hard gating, hybrid evidence retrieval, and context construction
 - **`analytics.py`** - Dataset summaries, recommendation evaluation, timing measurements, and visualization generation
 - **`app.py`** - Streamlit interface for candidate selection, ranking, explanations, and analytics
 
 #### Data Files
 
-- **`examples/seekers.json`** - Sample seeker profiles with diverse skills, preferences, and goals
-- **`examples/opportunities.json`** - Sample job listings representing different roles and experience levels
+- **`local-data/seekers.json`** - Local sample seeker profiles with diverse skills, preferences, and goals
+- **`local-data/opportunities.json`** - Local fallback job listings representing different roles and experience levels
 - **`results/sample_matches.json`** - Pre-computed match results showing algorithm output
 - **`results/analytics_report.json`** - Descriptive statistics for the job dataset
 - **`results/evaluation_report.json`** - Top-k recommendations and measured matching time
 - **`results/hybrid_retrieval_report.json`** - BM25 retrieval and weighted reranking results
+- **`results/personal_rag_evidence.json`** - Personal hybrid-RAG evidence for each top recommendation
 - **`results/analytics_summary.png`** - Four-panel visualization of skills, work modes, experience, and locations
 - **`results/Screenshot Streamlit.png`** - Final application screenshot showing the interactive matching interface
 
@@ -172,6 +221,7 @@ See [ALGORITHM.md](./ALGORITHM.md) for detailed methodology.
 5. **Big Data Application Foundations**
     - Reproducible JSON ingestion and quality reporting
     - BM25 lexical retrieval before weighted reranking
+    - Personal hybrid RAG over resume, GitHub projects, and preferences
     - Dataset-level analytics and generated visualization
     - Evaluation artifacts with top-k recommendations and processing time
 
@@ -196,6 +246,10 @@ opportunities. It is intentionally small and curated so the full workflow is
 reproducible locally. The ingestion boundary is designed to support a future
 API, database, cloud object store, or Spark-based batch pipeline without
 changing the matching interface.
+
+The current personal RAG index contains 13 locally generated chunks. It uses
+BM25 plus deterministic 256-dimensional hashed dense vectors and does not call
+Gemini, Hugging Face, Tavily, an external embedding API, or a vector database.
 
 The consolidated submission report is [CHALLENGE1_FINAL_REPORT.md](CHALLENGE1_FINAL_REPORT.md).
 Generated exports are [results/CHALLENGE1_FINAL_REPORT.docx](results/CHALLENGE1_FINAL_REPORT.docx)

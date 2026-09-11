@@ -2,6 +2,7 @@
 
 from pathlib import Path
 import re
+import sys
 
 from docx import Document
 from docx.shared import Inches, Pt
@@ -13,9 +14,10 @@ from reportlab.lib.units import inch
 from reportlab.platypus import Image, PageBreak, Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle, Preformatted
 
 ROOT = Path(__file__).parent
-SOURCE = ROOT / "CHALLENGE1_FINAL_REPORT.md"
-DOCX_OUTPUT = ROOT / "results" / "CHALLENGE1_FINAL_REPORT.docx"
-PDF_OUTPUT = ROOT / "results" / "CHALLENGE1_FINAL_REPORT.pdf"
+SOURCE = ROOT / (sys.argv[1] if len(sys.argv) > 1 else "CHALLENGE1_FINAL_REPORT.md")
+OUTPUT_STEM = sys.argv[2] if len(sys.argv) > 2 else SOURCE.stem
+DOCX_OUTPUT = ROOT / "results" / f"{OUTPUT_STEM}.docx"
+PDF_OUTPUT = ROOT / "results" / f"{OUTPUT_STEM}.pdf"
 
 
 def is_separator(line: str) -> bool:

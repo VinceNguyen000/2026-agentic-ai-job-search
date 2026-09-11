@@ -3,8 +3,8 @@
   "seeker_count": 4,
   "opportunity_count": 6,
   "top_k": 5,
-  "average_match_time_ms": 2.7488,
-  "max_match_time_ms": 3.7977,
+  "average_match_time_ms": 2.7553,
+  "max_match_time_ms": 3.6762,
   "results": [
     {
       "seeker": "Alice Johnson",

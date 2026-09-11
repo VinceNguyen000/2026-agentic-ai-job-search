@@ -1,0 +1,37 @@
+{
+  "seekers": [
+    {
+      "name": "Alice Johnson",
+      "career_goals": ["Lead a data science team", "Work on AI/ML projects", "Transition to management"],
+      "experience_level": "senior",
+      "skills": ["Python", "Machine Learning", "Data Analysis", "SQL", "TensorFlow", "Statistics", "Big Data", "Tableau"],
+      "preferred_locations": ["San Francisco, CA", "New York, NY"],
+      "willing_to_relocate": true,
+      "work_mode_preference": ["remote", "hybrid"],
+      "work_type_preference": ["full"],
+      "salary_expectation": {"min": 150000, "max": 200000}
+    },
+    {
+      "name": "Bob Smith",
+      "career_goals": ["Become a full-stack developer", "Build scalable web applications", "Work with modern tech stack"],
+      "experience_level": "junior",
+      "skills": ["JavaScript", "React", "Node.js", "HTML", "CSS", "Git", "REST APIs", "MongoDB"],
+      "preferred_locations": ["Austin, TX", "Denver, CO"],
+      "willing_to_relocate": false,
+      "work_mode_preference": ["remote", "hybrid", "onsite"],
+      "work_type_preference": ["full", "contract"],
+      "salary_expectation": {"min": 80000, "max": 120000}
+    },
+    {
+      "name": "Carol Davis",
+      "career_goals": ["Advance to product management", "Work on consumer products", "Lead product strategy"],
+      "experience_level": "junior",
+      "skills": ["Python", "JavaScript", "Product Management", "User Research", "Agile", "Analytics", "Figma"],
+      "preferred_locations": ["Seattle, WA"],
+      "willing_to_relocate": true,
+      "work_mode_preference": ["hybrid", "onsite"],
+      "work_type_preference": ["full"],
+      "salary_expectation": {"min": 100000, "max": 140000}
+    }
+  ]
+}

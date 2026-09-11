@@ -7,6 +7,7 @@ import streamlit as st
 from src.analytics import summarize_dataset
 from src.data_pipeline import load_dataset
 from src.matcher import JobMatcher
+from src.rag import PersonalKnowledgeBase, hard_gate_opportunity
 from src.retrieval import HybridRetriever
 
 
@@ -21,6 +22,11 @@ def load_app_data():
     )
 
 
+@st.cache_resource
+def load_personal_knowledge_base():
+    return PersonalKnowledgeBase.from_directory(str(BASE_DIR / "data" / "personal"))
+
+
 st.set_page_config(page_title="Job Search Match Lab", page_icon="J", layout="wide")
 st.title("Job Search Match Lab")
 st.caption("Explainable matching, BM25 retrieval, and skill-gap recommendations")
@@ -28,6 +34,7 @@ st.caption("Explainable matching, BM25 retrieval, and skill-gap recommendations"
 seekers, opportunities, quality = load_app_data()
 matcher = JobMatcher()
 summary = summarize_dataset(seekers, opportunities)
+knowledge_base = load_personal_knowledge_base()
 
 with st.sidebar:
     st.header("Candidate")
@@ -74,6 +81,20 @@ else:
                 st.write(", ".join(result.missing_skills) or "None")
             st.write(result.explanation)
             st.info(result.recommendation)
+
+            eligible, gate_reasons = hard_gate_opportunity(seeker, next(item for item in opportunities if item.job_id == result.job_id))
+            st.write("**Prerequisite gate**")
+            st.write("Eligible for soft scoring" if eligible else f"Review required: {', '.join(gate_reasons)}")
+            evidence = knowledge_base.retrieve_for_job(
+                seeker,
+                next(item for item in opportunities if item.job_id == result.job_id),
+                top_k=3,
+            )
+            with st.expander("Personal RAG evidence"):
+                st.caption("Local hybrid retrieval: BM25 + deterministic dense vectors")
+                for item in evidence:
+                    st.write(f"**{item.chunk.title}** | hybrid={item.hybrid_score:.3f}")
+                    st.write(item.chunk.text)
 
 st.subheader("Dataset analytics")
 analytics_columns = st.columns(2)

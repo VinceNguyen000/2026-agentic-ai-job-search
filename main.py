@@ -27,6 +27,7 @@ from src.utils import format_match_report
 from src.analytics import (
     create_visualization,
     evaluate_hybrid_retrieval,
+    evaluate_personal_rag,
     evaluate_recommendations,
     save_json,
     summarize_dataset,
@@ -37,8 +38,8 @@ from src.data_pipeline import load_dataset
 def load_example_data():
     """Load the curated example dataset through the shared data pipeline."""
     seekers, opportunities, _ = load_dataset(
-        "examples/seekers.json",
-        "examples/opportunities.json",
+        "local-data/seekers.json",
+        "local-data/opportunities.json",
     )
     return seekers, opportunities
 
@@ -61,6 +62,10 @@ def run_analytics(seekers, opportunities, include_hybrid=False):
         hybrid = evaluate_hybrid_retrieval(seekers, opportunities, matcher)
         save_json(hybrid, "results/hybrid_retrieval_report.json")
         print("Saved results/hybrid_retrieval_report.json")
+
+    rag = evaluate_personal_rag(seekers, opportunities, matcher)
+    save_json(rag, "results/personal_rag_evidence.json")
+    print("Saved results/personal_rag_evidence.json")
 
 
 def main():

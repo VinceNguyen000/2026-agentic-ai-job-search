@@ -9,6 +9,8 @@ from typing import Any, Dict, List, Sequence
 from src.matcher import JobMatcher
 from src.models import Opportunity, Seeker
 from src.retrieval import HybridRetriever
+from src.rag import PersonalKnowledgeBase
+from src.external_ai import GeminiAPIError, GeminiClient, GeminiEmbeddingEncoder
 
 
 def summarize_dataset(seekers: Sequence[Seeker], opportunities: Sequence[Opportunity]) -> Dict[str, Any]:
@@ -117,6 +119,51 @@ def evaluate_hybrid_retrieval(
             }
         )
     return {"method": "BM25 retrieval plus seven-factor reranking", "top_k": top_k, "results": results}
+
+
+def evaluate_personal_rag(
+    seekers: Sequence[Seeker],
+    opportunities: Sequence[Opportunity],
+    matcher: JobMatcher,
+    personal_data_path: str = "data/personal",
+    top_k: int = 3,
+) -> Dict[str, Any]:
+    """Retrieve personal evidence for each seeker's highest-ranked opportunity."""
+    external_ai = GeminiClient.from_environment()
+    embedding_mode = "local_hashed_dense_vector"
+    if external_ai:
+        try:
+            knowledge_base = PersonalKnowledgeBase.from_directory(
+                personal_data_path,
+                encoder=GeminiEmbeddingEncoder(external_ai),
+            )
+            embedding_mode = "external_gemini"
+        except GeminiAPIError:
+            knowledge_base = PersonalKnowledgeBase.from_directory(personal_data_path)
+    else:
+        knowledge_base = PersonalKnowledgeBase.from_directory(personal_data_path)
+    results = []
+    for seeker in seekers:
+        ranked = matcher.rank_opportunities(seeker, opportunities, min_match_threshold=0.0)
+        if not ranked:
+            continue
+        opportunity = next(item for item in opportunities if item.job_id == ranked[0].job_id)
+        evidence = knowledge_base.retrieve_for_job(seeker, opportunity, top_k=top_k)
+        results.append({
+            "seeker": seeker.name,
+            "job_id": opportunity.job_id,
+            "job_title": opportunity.title,
+            "match_score": ranked[0].overall_match_percentage,
+            "evidence": [item.to_dict() for item in evidence],
+        })
+    return {
+        "method": "personal hybrid RAG",
+        "chunk_count": len(knowledge_base.chunks),
+        "embedding_dimensions": knowledge_base.encoder.dimensions,
+        "embedding_type": embedding_mode,
+        "llm_synthesis": "available_in_agent_mode" if external_ai and embedding_mode == "external_gemini" else "not_used",
+        "results": results,
+    }
 
 
 def save_json(payload: Dict[str, Any], output_path: str) -> None:

@@ -138,6 +138,7 @@ Thumbs.db
 .env.*.local
 *.tmp
 temp/
+CHALLENGE1_FINAL_REPORT_SUBMISSION.md
 
 # Local assignment prompts and source notes
 Assignment-requirements.txt

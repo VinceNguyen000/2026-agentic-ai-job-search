@@ -1,0 +1,229 @@
+{
+  "method": "personal hybrid RAG",
+  "chunk_count": 13,
+  "embedding_dimensions": 256,
+  "results": [
+    {
+      "seeker": "Alice Johnson",
+      "job_id": "JOB001",
+      "job_title": "Senior Machine Learning Engineer",
+      "match_score": 95.33,
+      "evidence": [
+        {
+          "chunk": {
+            "chunk_id": "preferences_profile",
+            "category": "preferences",
+            "title": "Career preferences and constraints",
+            "text": "{\"career_interests\": [\"Security Operations Center (SOC) log analysis and real-time monitoring\", \"Vulnerability lifecycle management and risk classification\", \"NIST Cybersecurity Framework compliance and enterprise system hardening\", \"IoT / Wireless protocol security analysis\", \"Defending public sector and large-scale cloud infrastructure\"], \"compensation_expectations\": {\"currency\": \"USD\", \"salary_min_floor\": 75000, \"salary_target\": 95000}, \"hard_constraints\": {\"mandatory_minimum_salary\": 70000, \"require_remote_only\": false, \"security_clearance_eligible\": true, \"us_work_authorization\": true}, \"location_preferences\": {\"preferred_locations\": [\"Kansas City, MO\", \"Overland Park, KS\", \"Remote - US\", \"Hybrid - Kansas City Metro\"], \"relocation_regions\": [\"Midwest\", \"West Coast\", \"East Coast\", \"Nationwide (US)\"], \"willing_to_relocate\": true}, \"seeker_profile\": {\"education\": \"M.S. in Computer Science (Cybersecurity Specialization), UMKC (2026)\", \"email\": \"vincenguyen2712@gmail.com\", \"experience_level\": \"junior\", \"gpa\": \"3.7 (Undergrad)\", \"location_current\": \"Kansas City, MO\", \"name\": \"Vince (Vien) Nguyen\", \"phone\": \"913-271-8699\"}, \"target_roles\": [\"Security Operations Center (SOC) Analyst\", \"Cybersecurity Analyst\", \"Vulnerability Management Specialist\", \"Information Security Analyst\", \"Cloud Security Engineer\", \"DevSecOps Associate\"], \"work_arrangements\": {\"availability_days\": 14, \"work_modes\": [\"remote\", \"hybrid\", \"onsite\"], \"work_types\": [\"full\", \"contract\"]}}",
+            "metadata": {
+              "source": "preferences.json",
+              "hard_constraints": {
+                "us_work_authorization": true,
+                "security_clearance_eligible": true,
+                "require_remote_only": false,
+                "mandatory_minimum_salary": 70000
+              }
+            }
+          },
+          "bm25_score": 1.0,
+          "dense_score": 0.6074,
+          "hybrid_score": 0.8233
+        },
+        {
+          "chunk": {
+            "chunk_id": "github_02",
+            "category": "github",
+            "title": "1. Repository: `2026-agentic-ai-job-search`",
+            "text": "- **URL:** [https://github.com/VinceNguyen000/2026-agentic-ai-job-search](https://github.com/VinceNguyen000/2026-agentic-ai-job-search) - **Primary Languages:** Python (100%) - **Domain:** Autonomous AI Agents, Multi-Criteria Optimization, Information Retrieval - **Description:** An autonomous, multi-agent AI job matching and career advancement platform built using Antigravity and Python. - **Key Modules & Architecture:** - `src/agent.py`: `JobSearchAgent` engine equipped with 6 discrete tool capabilities (`get_seeker_profile`, `search_opportunities`, `evaluate_fit`, `analyze_skill_gaps`, `draft_tailored_application`, `generate_upskilling_roadmap`). - `src/matcher.py`: 7-factor weighted scoring algorithm evaluating Skills (30%), Experience (25%), Location (15%), Salary (15%), Work Mode (5%), Work Type (5%), and Career Goals (5%). - `src/utils.py`: Keyword containment tokenization with stopword filtering, 2-letter tech acronym alias expansion (`AI`, `ML`, `JS`, `DB`), and interval salary math. - `tests/`: Zero-dependency 17-test unit suite with 100% test pass rate. ---",
+            "metadata": {
+              "source": "github.md",
+              "section_index": 2
+            }
+          },
+          "bm25_score": 0.9467,
+          "dense_score": 0.5994,
+          "hybrid_score": 0.7904
+        },
+        {
+          "chunk": {
+            "chunk_id": "resume_06",
+            "category": "resume",
+            "title": "Technical Projects",
+            "text": "### Secure Web Application with Vulnerability Assessment _Tech Stack: Python, Flask, Kali Linux, GVM, Metasploit, Nmap, SQLMap_ - Developed a secure web application featuring robust input validation and defensive filtering against SQL injection (SQLi) and Cross-Site Scripting (XSS) attacks. - Performed structured vulnerability assessments and penetration testing using Nmap, SQLMap, and GVM. - Documented remediation procedures aligned with OWASP Top 10 best practices to reduce attack surface. ### Personal Blog Platform _Tech Stack: Laravel, PHP, MySQL, Tailwind CSS, XAMPP, Mailchimp, Git_ - Built a modular personal blog platform supporting post categorization, tagging, user comments, and subscriber notifications. - Designed a normalized MySQL relational schema and implemented secure authentication and role-based authorization protocols. - Integrated Mailchimp API for automated subscriber campaign delivery. ---",
+            "metadata": {
+              "source": "resume.md",
+              "section_index": 6
+            }
+          },
+          "bm25_score": 0.7517,
+          "dense_score": 0.6764,
+          "hybrid_score": 0.7178
+        }
+      ]
+    },
+    {
+      "seeker": "Bob Smith",
+      "job_id": "JOB002",
+      "job_title": "Full Stack JavaScript Developer",
+      "match_score": 96.25,
+      "evidence": [
+        {
+          "chunk": {
+            "chunk_id": "resume_06",
+            "category": "resume",
+            "title": "Technical Projects",
+            "text": "### Secure Web Application with Vulnerability Assessment _Tech Stack: Python, Flask, Kali Linux, GVM, Metasploit, Nmap, SQLMap_ - Developed a secure web application featuring robust input validation and defensive filtering against SQL injection (SQLi) and Cross-Site Scripting (XSS) attacks. - Performed structured vulnerability assessments and penetration testing using Nmap, SQLMap, and GVM. - Documented remediation procedures aligned with OWASP Top 10 best practices to reduce attack surface. ### Personal Blog Platform _Tech Stack: Laravel, PHP, MySQL, Tailwind CSS, XAMPP, Mailchimp, Git_ - Built a modular personal blog platform supporting post categorization, tagging, user comments, and subscriber notifications. - Designed a normalized MySQL relational schema and implemented secure authentication and role-based authorization protocols. - Integrated Mailchimp API for automated subscriber campaign delivery. ---",
+            "metadata": {
+              "source": "resume.md",
+              "section_index": 6
+            }
+          },
+          "bm25_score": 0.9548,
+          "dense_score": 1.0,
+          "hybrid_score": 0.9751
+        },
+        {
+          "chunk": {
+            "chunk_id": "github_04",
+            "category": "github",
+            "title": "3. Project: `Personal-Blog-Platform`",
+            "text": "- **Primary Languages / Tools:** PHP, Laravel, MySQL, Tailwind CSS, XAMPP, Git, Mailchimp API - **Domain:** Full-Stack Web Engineering, Database Design, IAM - **Description:** A production-style dynamic content management system and blogging platform. - **Key Technical Highlights:** - Designed and implemented normalized relational MySQL database schemas with indexing on tags and categories. - Built secure authentication, session handling, password hashing, and role-based access control (RBAC). - Integrated third-party webhook and Mailchimp REST APIs for automated newsletter distribution. ---",
+            "metadata": {
+              "source": "github.md",
+              "section_index": 4
+            }
+          },
+          "bm25_score": 1.0,
+          "dense_score": 0.9325,
+          "hybrid_score": 0.9696
+        },
+        {
+          "chunk": {
+            "chunk_id": "github_03",
+            "category": "github",
+            "title": "2. Project: `Secure-Web-Application-with-Vulnerability-Assessment`",
+            "text": "- **Primary Languages / Tools:** Python, Flask, Kali Linux, Nmap, SQLMap, GVM (Greenbone), Metasploit - **Domain:** Application Security (AppSec), Penetration Testing, Threat Mitigation - **Description:** A hardened web application coupled with full-cycle vulnerability scanning and penetration testing. - **Key Technical Highlights:** - Designed secure backend routing with Flask that prevents common injection attacks (SQLi, Reflected/Stored XSS). - Configured automated security scanning workflows with Nmap for port/service auditing, SQLMap for database security verification, and GVM for comprehensive CVE detection. - Formulated remediation patches strictly aligned with OWASP Top 10 guidelines and documented security post-mortems. ---",
+            "metadata": {
+              "source": "github.md",
+              "section_index": 3
+            }
+          },
+          "bm25_score": 0.2941,
+          "dense_score": 0.5538,
+          "hybrid_score": 0.411
+        }
+      ]
+    },
+    {
+      "seeker": "Carol Davis",
+      "job_id": "JOB003",
+      "job_title": "Product Manager - Consumer Apps",
+      "match_score": 96.25,
+      "evidence": [
+        {
+          "chunk": {
+            "chunk_id": "resume_05",
+            "category": "resume",
+            "title": "Research & Professional Experience",
+            "text": "### Cybersecurity Research Assistant \u2014 UMKC _Bluetooth Low Energy (BLE) Security Research | Current_ - Conducted vulnerability analysis on wireless IoT market tags utilizing BLE protocols. - Identified authentication weaknesses and replay attack risks through network traffic analysis and packet inspection. - Classified identified vulnerabilities based on severity and potential operational impact. - Documented findings and formulated actionable remediation strategies. - Evaluated security controls and analyzed exploit behavior patterns. ### Web Development Intern \u2014 Heartland Mac _Kansas City, MO | July 2023 \u2013 March 2024_ - Supported secure cloud infrastructure operations and assisted with patch management workflows. - Reviewed system configurations to mitigate misconfiguration risks and attack surface exposure. - Assisted in access control validation, privilege auditing, and system hardening efforts. - Coordinated remediation actions and maintained technical documentation for compliance and security policy alignment. ---",
+            "metadata": {
+              "source": "resume.md",
+              "section_index": 5
+            }
+          },
+          "bm25_score": 1.0,
+          "dense_score": 0.4196,
+          "hybrid_score": 0.7388
+        },
+        {
+          "chunk": {
+            "chunk_id": "github_03",
+            "category": "github",
+            "title": "2. Project: `Secure-Web-Application-with-Vulnerability-Assessment`",
+            "text": "- **Primary Languages / Tools:** Python, Flask, Kali Linux, Nmap, SQLMap, GVM (Greenbone), Metasploit - **Domain:** Application Security (AppSec), Penetration Testing, Threat Mitigation - **Description:** A hardened web application coupled with full-cycle vulnerability scanning and penetration testing. - **Key Technical Highlights:** - Designed secure backend routing with Flask that prevents common injection attacks (SQLi, Reflected/Stored XSS). - Configured automated security scanning workflows with Nmap for port/service auditing, SQLMap for database security verification, and GVM for comprehensive CVE detection. - Formulated remediation patches strictly aligned with OWASP Top 10 guidelines and documented security post-mortems. ---",
+            "metadata": {
+              "source": "github.md",
+              "section_index": 3
+            }
+          },
+          "bm25_score": 0.0957,
+          "dense_score": 1.0,
+          "hybrid_score": 0.5026
+        },
+        {
+          "chunk": {
+            "chunk_id": "resume_04",
+            "category": "resume",
+            "title": "Technical Skills",
+            "text": "- **Security & Risk Management:** Vulnerability Lifecycle Management, Incident Response Lifecycle Fundamentals, Log Analysis, Network Traffic Monitoring (Wireshark), Risk Classification, Remediation Tracking, NIST Cybersecurity Framework (NIST CSF). - **Security & Penetration Tools:** Wireshark, Kali Linux, Nmap, Metasploit, OWASP ZAP, SQLMap, GVM (Greenbone Vulnerability Manager). - **Cloud & Infrastructure Security:** Secure Cloud Configuration, Patch Management, Access Control Validation (IAM), System Hardening. - **Programming & Scripting:** Python, SQL, JavaScript, PHP, Flask, Laravel, HTML/CSS, Tailwind CSS, Git, XAMPP. ---",
+            "metadata": {
+              "source": "resume.md",
+              "section_index": 4
+            }
+          },
+          "bm25_score": 0.5956,
+          "dense_score": 0.059,
+          "hybrid_score": 0.3541
+        }
+      ]
+    },
+    {
+      "seeker": "Vince Nguyen",
+      "job_id": "JOB006",
+      "job_title": "Cybersecurity SOC Analyst (Vulnerability Management)",
+      "match_score": 95.25,
+      "evidence": [
+        {
+          "chunk": {
+            "chunk_id": "resume_04",
+            "category": "resume",
+            "title": "Technical Skills",
+            "text": "- **Security & Risk Management:** Vulnerability Lifecycle Management, Incident Response Lifecycle Fundamentals, Log Analysis, Network Traffic Monitoring (Wireshark), Risk Classification, Remediation Tracking, NIST Cybersecurity Framework (NIST CSF). - **Security & Penetration Tools:** Wireshark, Kali Linux, Nmap, Metasploit, OWASP ZAP, SQLMap, GVM (Greenbone Vulnerability Manager). - **Cloud & Infrastructure Security:** Secure Cloud Configuration, Patch Management, Access Control Validation (IAM), System Hardening. - **Programming & Scripting:** Python, SQL, JavaScript, PHP, Flask, Laravel, HTML/CSS, Tailwind CSS, Git, XAMPP. ---",
+            "metadata": {
+              "source": "resume.md",
+              "section_index": 4
+            }
+          },
+          "bm25_score": 1.0,
+          "dense_score": 1.0,
+          "hybrid_score": 1.0
+        },
+        {
+          "chunk": {
+            "chunk_id": "resume_02",
+            "category": "resume",
+            "title": "Professional Summary",
+            "text": "Cybersecurity graduate student specializing in vulnerability management, security monitoring, and risk assessment. Experienced in identifying security weaknesses, classifying risk severity, and supporting remediation efforts within enterprise-style environments. Strong foundation in incident response fundamentals, log analysis, and security operations aligned with NIST best practices. Seeking to contribute to a Security Operations Center (SOC) focused on protecting large-scale public sector and enterprise infrastructure. ---",
+            "metadata": {
+              "source": "resume.md",
+              "section_index": 2
+            }
+          },
+          "bm25_score": 0.6682,
+          "dense_score": 0.7951,
+          "hybrid_score": 0.7253
+        },
+        {
+          "chunk": {
+            "chunk_id": "preferences_profile",
+            "category": "preferences",
+            "title": "Career preferences and constraints",
+            "text": "{\"career_interests\": [\"Security Operations Center (SOC) log analysis and real-time monitoring\", \"Vulnerability lifecycle management and risk classification\", \"NIST Cybersecurity Framework compliance and enterprise system hardening\", \"IoT / Wireless protocol security analysis\", \"Defending public sector and large-scale cloud infrastructure\"], \"compensation_expectations\": {\"currency\": \"USD\", \"salary_min_floor\": 75000, \"salary_target\": 95000}, \"hard_constraints\": {\"mandatory_minimum_salary\": 70000, \"require_remote_only\": false, \"security_clearance_eligible\": true, \"us_work_authorization\": true}, \"location_preferences\": {\"preferred_locations\": [\"Kansas City, MO\", \"Overland Park, KS\", \"Remote - US\", \"Hybrid - Kansas City Metro\"], \"relocation_regions\": [\"Midwest\", \"West Coast\", \"East Coast\", \"Nationwide (US)\"], \"willing_to_relocate\": true}, \"seeker_profile\": {\"education\": \"M.S. in Computer Science (Cybersecurity Specialization), UMKC (2026)\", \"email\": \"vincenguyen2712@gmail.com\", \"experience_level\": \"junior\", \"gpa\": \"3.7 (Undergrad)\", \"location_current\": \"Kansas City, MO\", \"name\": \"Vince (Vien) Nguyen\", \"phone\": \"913-271-8699\"}, \"target_roles\": [\"Security Operations Center (SOC) Analyst\", \"Cybersecurity Analyst\", \"Vulnerability Management Specialist\", \"Information Security Analyst\", \"Cloud Security Engineer\", \"DevSecOps Associate\"], \"work_arrangements\": {\"availability_days\": 14, \"work_modes\": [\"remote\", \"hybrid\", \"onsite\"], \"work_types\": [\"full\", \"contract\"]}}",
+            "metadata": {
+              "source": "preferences.json",
+              "hard_constraints": {
+                "us_work_authorization": true,
+                "security_clearance_eligible": true,
+                "require_remote_only": false,
+                "mandatory_minimum_salary": 70000
+              }
+            }
+          },
+          "bm25_score": 0.6205,
+          "dense_score": 0.7916,
+          "hybrid_score": 0.6975
+        }
+      ]
+    }
+  ]
+}
